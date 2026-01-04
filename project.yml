@@ -1,0 +1,90 @@
+name: TurnLab
+options:
+  bundleIdPrefix: com.turnlab
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+  groupSortPosition: top
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.9"
+    TARGETED_DEVICE_FAMILY: "1"
+
+targets:
+  TurnLab:
+    type: application
+    platform: iOS
+    sources:
+      - path: TurnLab
+        excludes:
+          - "**/.DS_Store"
+          - "Resources/Assets.xcassets"
+          - "Resources/Content"
+    resources:
+      - path: TurnLab/Resources/Assets.xcassets
+      - path: TurnLab/Resources/Content
+        type: folder
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.turnlab.app
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Turn Lab
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        CODE_SIGN_ENTITLEMENTS: TurnLab/TurnLab.entitlements
+    dependencies:
+      - target: TurnLabWidget
+        embed: true
+
+  TurnLabWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: TurnLabWidget
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.turnlab.app.widget
+        INFOPLIST_KEY_CFBundleDisplayName: Focus Skill
+        CODE_SIGN_ENTITLEMENTS: TurnLabWidget/TurnLabWidget.entitlements
+        SKIP_INSTALL: YES
+        GENERATE_INFOPLIST_FILE: YES
+
+  TurnLabTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: TurnLabTests
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.turnlab.app.tests
+    dependencies:
+      - target: TurnLab
+
+schemes:
+  TurnLab:
+    build:
+      targets:
+        TurnLab: all
+        TurnLabWidget: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - TurnLabTests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

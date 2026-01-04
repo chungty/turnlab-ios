@@ -1,0 +1,508 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "text": "How often do you ski?",
+      "options": [
+        {
+          "text": "This will be my first time or I've been once or twice",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "A few times per season",
+          "levelScores": {
+            "beginner": 1,
+            "novice": 2,
+            "intermediate": 1,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Regularly throughout the season",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 1,
+            "intermediate": 2,
+            "expert": 1
+          }
+        },
+        {
+          "text": "20+ days per season or I grew up skiing",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 1,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "What terrain are you comfortable skiing?",
+      "options": [
+        {
+          "text": "Bunny hill or magic carpet only",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Green circles (easiest) runs",
+          "levelScores": {
+            "beginner": 1,
+            "novice": 2,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Blue squares (intermediate) runs",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 1,
+            "intermediate": 3,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Black diamonds and expert terrain",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "How do you typically slow down or stop?",
+      "options": [
+        {
+          "text": "I'm not sure how to stop yet",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Wedge (pizza/snowplow)",
+          "levelScores": {
+            "beginner": 1,
+            "novice": 2,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Parallel hockey stop",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 3,
+            "expert": 1
+          }
+        },
+        {
+          "text": "Quick parallel stop in any condition",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 1,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "How do you turn on skis?",
+      "options": [
+        {
+          "text": "I haven't learned to turn yet",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Wedge (pizza) turns",
+          "levelScores": {
+            "beginner": 1,
+            "novice": 2,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Parallel turns with skis together",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 3,
+            "expert": 1
+          }
+        },
+        {
+          "text": "Dynamic carved turns leaving clean tracks",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Scenario: You're on a blue run and the trail gets steeper. What do you do?",
+      "options": [
+        {
+          "text": "I would be scared and might sit down",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 1,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Make big, slow wedge turns across the slope",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 3,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Make controlled parallel turns to manage speed",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 3,
+            "expert": 1
+          }
+        },
+        {
+          "text": "Adjust my turn shape and rhythm for the pitch",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 1,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "How comfortable are you with speed on skis?",
+      "options": [
+        {
+          "text": "Any speed feels too fast for me",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 1,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "I prefer to ski slowly and cautiously",
+          "levelScores": {
+            "beginner": 1,
+            "novice": 2,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "I can ski moderate speed with control",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 3,
+            "expert": 0
+          }
+        },
+        {
+          "text": "I'm comfortable skiing fast and can stop quickly",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 1,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "Have you ever skied moguls (bumps)?",
+      "options": [
+        {
+          "text": "Never tried or I don't know what moguls are",
+          "levelScores": {
+            "beginner": 2,
+            "novice": 2,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "I avoid them or find them very difficult",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 2,
+            "intermediate": 2,
+            "expert": 0
+          }
+        },
+        {
+          "text": "I can ski through them but it's challenging",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 2,
+            "expert": 2
+          }
+        },
+        {
+          "text": "I enjoy moguls and ski them confidently",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Have you skied powder (deep, ungroomed snow)?",
+      "options": [
+        {
+          "text": "Never or I'm not sure what powder skiing means",
+          "levelScores": {
+            "beginner": 2,
+            "novice": 2,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "I've tried but struggled to stay afloat",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 1,
+            "intermediate": 2,
+            "expert": 1
+          }
+        },
+        {
+          "text": "I can ski powder on moderate terrain",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 2,
+            "expert": 2
+          }
+        },
+        {
+          "text": "I love powder days and seek out fresh tracks",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "What best describes your turn shape?",
+      "options": [
+        {
+          "text": "I'm still learning to turn",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Wide, sweeping turns with a wedge shape",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 3,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Parallel turns, sometimes with some skidding",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 3,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Clean carved turns that leave railroad tracks",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "Scenario: You see an icy patch on the run ahead. What's your reaction?",
+      "options": [
+        {
+          "text": "I would probably fall or need to stop",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 1,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Slow way down and carefully traverse around it",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 3,
+            "intermediate": 1,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Maintain speed and ski through with good edge control",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 3,
+            "expert": 1
+          }
+        },
+        {
+          "text": "No big deal - adjust edges and pressure as needed",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "Do you use poles while skiing?",
+      "options": [
+        {
+          "text": "No or I'm not sure how to use them",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 1,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Sometimes for balance",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 3,
+            "intermediate": 1,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Yes, I use pole plants to time my turns",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 3,
+            "expert": 1
+          }
+        },
+        {
+          "text": "Yes, they're essential to my rhythm and technique",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 1,
+            "expert": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "What's your primary skiing goal?",
+      "options": [
+        {
+          "text": "Learn the basics and stay safe on easy terrain",
+          "levelScores": {
+            "beginner": 3,
+            "novice": 1,
+            "intermediate": 0,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Get comfortable on more terrain types",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 3,
+            "intermediate": 1,
+            "expert": 0
+          }
+        },
+        {
+          "text": "Refine my technique and ski the whole mountain",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 3,
+            "expert": 1
+          }
+        },
+        {
+          "text": "Master advanced techniques and challenging conditions",
+          "levelScores": {
+            "beginner": 0,
+            "novice": 0,
+            "intermediate": 0,
+            "expert": 3
+          }
+        }
+      ]
+    }
+  ]
+}

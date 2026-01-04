@@ -1,0 +1,1336 @@
+{
+  "skills": [
+    {
+      "id": "beginner-basic-stance",
+      "name": "Basic Athletic Stance",
+      "level": "beginner",
+      "domain": "balance",
+      "description": "The foundation of all skiing. A balanced, athletic stance allows you to move efficiently and respond to terrain changes.",
+      "whyItMatters": "Your stance affects everything in skiing. A strong athletic stance keeps you balanced, reduces fatigue, and prepares you to handle any situation on the mountain.",
+      "milestones": [
+        "Stand with feet hip-width apart",
+        "Flex ankles, knees, and hips equally",
+        "Keep hands forward and visible",
+        "Maintain neutral spine position",
+        "Feel pressure on the whole foot"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-stance-1",
+            "title": "Perfect Ski Stance",
+            "youtubeId": "4pgvvP8JOVo",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 420,
+            "description": "Master the athletic stance that forms the foundation of all skiing movements."
+          },
+          {
+            "id": "v-stance-2",
+            "title": "Balance Basics",
+            "youtubeId": "E_S8HSAGJDw",
+            "channelName": "Ski School by Elate Media",
+            "durationSeconds": 360,
+            "description": "Understanding fore-aft balance and lateral balance in your stance."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-stance-1",
+            "content": "Imagine you're about to catch a ball - that athletic ready position is your ski stance.",
+            "category": "technique"
+          },
+          {
+            "id": "t-stance-2",
+            "content": "Your shins should gently press against the front of your boots. If you can wiggle your heels, you're in the right position.",
+            "category": "feel"
+          },
+          {
+            "id": "t-stance-3",
+            "content": "Keep your hands where you can see them in your peripheral vision - about belly button height and slightly forward.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-stance-1",
+            "name": "Statue Check",
+            "description": "Stop on flat terrain and check your body position from bottom to top.",
+            "steps": [
+              "Come to a complete stop on gentle terrain",
+              "Without moving, scan your body from feet to head",
+              "Check: Are your ankles flexed? Knees bent? Hips hinged?",
+              "Adjust any areas that feel locked or rigid",
+              "Hold this position and memorize how it feels"
+            ],
+            "durationMinutes": 5,
+            "terrain": "groomed"
+          },
+          {
+            "id": "d-stance-2",
+            "name": "Bounce Test",
+            "description": "Test your stance flexibility with gentle bouncing movements.",
+            "steps": [
+              "Get into your athletic stance",
+              "Gently bounce up and down by flexing all joints",
+              "Keep skis flat on the snow",
+              "Notice if any joint feels stuck",
+              "Repeat until the motion feels smooth and effortless"
+            ],
+            "durationMinutes": 3,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [
+          {
+            "id": "c-stance-1",
+            "title": "Pre-Run Stance Check",
+            "items": [
+              "Boots buckled snugly but not painfully tight",
+              "Weight centered over both feet",
+              "Joints flexed and ready to move",
+              "Hands visible in peripheral vision",
+              "Shoulders relaxed, not tense"
+            ]
+          }
+        ],
+        "warnings": [
+          "Don't lean back - this is the most common beginner mistake and reduces your control"
+        ]
+      }
+    },
+    {
+      "id": "beginner-straight-run",
+      "name": "Straight Run & Glide",
+      "level": "beginner",
+      "domain": "balance",
+      "description": "Develop comfort with forward motion and learn to maintain balance while the skis carry you downhill.",
+      "whyItMatters": "Before you can turn, you need to be comfortable moving on skis. The straight run builds confidence and teaches you how skis behave in motion.",
+      "milestones": [
+        "Glide in a straight line without falling",
+        "Maintain athletic stance while moving",
+        "Control speed by choosing terrain angle",
+        "Stay relaxed while in motion",
+        "Look ahead, not at your skis"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-glide-1",
+            "title": "First Time Skiing - The Straight Run",
+            "youtubeId": "E_S8HSAGJDw",
+            "channelName": "Ski School by Elate Media",
+            "durationSeconds": 480,
+            "description": "Your first movements on skis and how to glide with confidence."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-glide-1",
+            "content": "Start on nearly flat terrain - you need just enough slope to keep moving, not to gain speed.",
+            "category": "safety"
+          },
+          {
+            "id": "t-glide-2",
+            "content": "Look where you want to go, about 10-15 feet ahead. Your body naturally follows your eyes.",
+            "category": "technique"
+          },
+          {
+            "id": "t-glide-3",
+            "content": "Keep skis parallel and about hip-width apart - the same width as your stance.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-glide-1",
+            "name": "Micro Runs",
+            "description": "Build confidence with very short straight runs.",
+            "steps": [
+              "Find a gentle slope with a flat runout",
+              "Start just 10 feet from the flat section",
+              "Glide down and let the flat stop you",
+              "Each run, start slightly higher up",
+              "Focus on maintaining your stance throughout"
+            ],
+            "durationMinutes": 10,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Always make sure your path is clear before starting",
+          "Start on beginner terrain only - green circles"
+        ]
+      }
+    },
+    {
+      "id": "beginner-wedge-position",
+      "name": "Wedge Position (Pizza)",
+      "level": "beginner",
+      "domain": "edgeControl",
+      "description": "The wedge or 'pizza' shape creates friction to control speed and forms the basis for your first turns.",
+      "whyItMatters": "The wedge gives you control over your speed without needing to turn. It's your primary braking tool as a beginner and the foundation for wedge turns.",
+      "milestones": [
+        "Create a consistent wedge shape",
+        "Control size of wedge (bigger = slower)",
+        "Maintain wedge while gliding",
+        "Feel the inside edges gripping the snow",
+        "Adjust wedge size smoothly"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-wedge-1",
+            "title": "How to Pizza - Beginner Ski Lesson",
+            "youtubeId": "b6VJwCNXoVQ",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 390,
+            "description": "Master the wedge position for speed control and turning."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-wedge-1",
+            "content": "Push your heels out, not your toes in. This engages the inside edges naturally.",
+            "category": "technique"
+          },
+          {
+            "id": "t-wedge-2",
+            "content": "A bigger wedge creates more friction and slows you more. Think 'big pizza' to slow down.",
+            "category": "technique"
+          },
+          {
+            "id": "t-wedge-3",
+            "content": "Keep your knees slightly bent and pointing forward, not inward.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-wedge-1",
+            "name": "Wedge Sizing",
+            "description": "Practice making wedges of different sizes to control speed.",
+            "steps": [
+              "Start gliding in a straight run",
+              "Push heels out to create a small wedge",
+              "Notice how you slow slightly",
+              "Make the wedge bigger - feel more braking",
+              "Practice going from big to small wedge smoothly"
+            ],
+            "durationMinutes": 10,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Don't cross your ski tips - keep them apart"
+        ]
+      }
+    },
+    {
+      "id": "beginner-wedge-turns",
+      "name": "Wedge Turns",
+      "level": "beginner",
+      "domain": "rotaryMovements",
+      "description": "Your first turns! Use the wedge position to guide your skis left and right while controlling speed.",
+      "whyItMatters": "Wedge turns let you navigate down any beginner slope, choose your direction, and maintain control. This is where skiing really begins!",
+      "milestones": [
+        "Turn both left and right",
+        "Link turns together continuously",
+        "Control speed through turn shape",
+        "Look in the direction of travel",
+        "Stay balanced throughout the turn"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-wedgeturn-1",
+            "title": "Beginner Wedge Turns",
+            "youtubeId": "l-W8jFCFjwM",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 510,
+            "description": "Learn to link your first turns and control your direction."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-wedgeturn-1",
+            "content": "To turn left, put more weight on your right ski. To turn right, weight your left ski.",
+            "category": "technique"
+          },
+          {
+            "id": "t-wedgeturn-2",
+            "content": "Point your belly button where you want to go - your skis will follow.",
+            "category": "feel"
+          },
+          {
+            "id": "t-wedgeturn-3",
+            "content": "Finish each turn across the hill to control speed naturally.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-wedgeturn-1",
+            "name": "Garland Turns",
+            "description": "Practice the turn movement without changing direction completely.",
+            "steps": [
+              "Traverse across the slope in a wedge",
+              "Gently turn toward the fall line",
+              "Before pointing straight down, turn back across",
+              "Repeat this 'garland' pattern",
+              "Practice on both sides"
+            ],
+            "durationMinutes": 10,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [
+          {
+            "id": "c-wedgeturn-1",
+            "title": "Turn Quality Check",
+            "items": [
+              "Turning both directions confidently",
+              "Maintaining wedge throughout turn",
+              "Looking ahead, not at skis",
+              "Finishing turns across the hill",
+              "Linking at least 5 turns in a row"
+            ]
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "beginner-stopping",
+      "name": "Controlled Stopping",
+      "level": "beginner",
+      "domain": "pressureManagement",
+      "description": "Learn reliable methods to stop safely and completely on beginner terrain.",
+      "whyItMatters": "Being able to stop confidently is essential for safety - both yours and others'. It lets you ski with control and handle unexpected situations.",
+      "milestones": [
+        "Stop reliably using the wedge",
+        "Stop within a predictable distance",
+        "Stop on demand at any point",
+        "Stay balanced during the stop",
+        "Stop smoothly without jerking"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-stop-1",
+            "title": "How to Stop on Skis",
+            "youtubeId": "bxkQZU7f8Yo",
+            "channelName": "Ski School by Elate Media",
+            "durationSeconds": 300,
+            "description": "Master the wedge stop for reliable speed control."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-stop-1",
+            "content": "To stop, make a big wedge and turn your skis slightly uphill. The combination stops you quickly.",
+            "category": "technique"
+          },
+          {
+            "id": "t-stop-2",
+            "content": "Press down through your feet as you widen the wedge - this increases edge grip.",
+            "category": "feel"
+          },
+          {
+            "id": "t-stop-3",
+            "content": "Keep your hands forward when stopping - this prevents you from sitting back.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-stop-1",
+            "name": "Target Stops",
+            "description": "Practice stopping at specific points on the slope.",
+            "steps": [
+              "Pick a spot 20-30 feet below you",
+              "Start gliding toward it",
+              "Begin your stop 10 feet before the target",
+              "Try to stop exactly on the target",
+              "Adjust your starting distance based on results"
+            ],
+            "durationMinutes": 10,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Always be able to stop before obstacles or other skiers"
+        ]
+      }
+    },
+    {
+      "id": "novice-wedge-christie",
+      "name": "Wedge Christie",
+      "level": "novice",
+      "domain": "edgeControl",
+      "description": "The transition from wedge turns to parallel skiing. Start in a wedge, but match your skis parallel in the second half of the turn.",
+      "whyItMatters": "The wedge christie is the bridge between beginner and intermediate skiing. It teaches you to use parallel skis for smoother, more efficient turns.",
+      "milestones": [
+        "Match skis parallel after the fall line",
+        "Smooth transition from wedge to parallel",
+        "Consistent matching on both sides",
+        "Maintain speed control during transition",
+        "Link wedge christies rhythmically"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-wchristie-1",
+            "title": "Wedge Christie - From Pizza to Parallel",
+            "youtubeId": "0Ak5eDOQFKQ",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 480,
+            "description": "Learn the wedge christie to progress toward parallel turns."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-wchristie-1",
+            "content": "Focus on bringing the inside (uphill) ski parallel to the outside ski as you finish the turn.",
+            "category": "technique"
+          },
+          {
+            "id": "t-wchristie-2",
+            "content": "Let the turn do the work - as you cross the fall line, the inside ski naturally wants to match.",
+            "category": "feel"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-wchristie-1",
+            "name": "Match and Hold",
+            "description": "Practice the matching movement in isolation.",
+            "steps": [
+              "Make a wedge turn",
+              "As you cross the fall line, slide inside ski parallel",
+              "Hold the parallel position to finish",
+              "Come to a stop",
+              "Repeat on both sides"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "novice-traverse",
+      "name": "Traversing",
+      "level": "novice",
+      "domain": "balance",
+      "description": "Travel across the slope at an angle, maintaining a consistent height and controlling speed through edge angle.",
+      "whyItMatters": "Traversing teaches edge control fundamentals and lets you position yourself on the mountain strategically.",
+      "milestones": [
+        "Maintain consistent line across slope",
+        "Control speed through edge angle",
+        "Stay balanced over downhill ski",
+        "Traverse in both directions",
+        "Adjust traverse angle for terrain"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-traverse-1",
+            "title": "How to Traverse on Skis",
+            "youtubeId": "3nqtBqhpPjU",
+            "channelName": "Ski School by Elate Media",
+            "durationSeconds": 360,
+            "description": "Master traversing for edge control and mountain navigation."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-traverse-1",
+            "content": "Keep most of your weight on the downhill ski and roll both knees slightly into the hill.",
+            "category": "technique"
+          },
+          {
+            "id": "t-traverse-2",
+            "content": "Your uphill hip and shoulder should be slightly forward - this prevents catching your downhill edge.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-traverse-1",
+            "name": "Line Following",
+            "description": "Follow an imaginary line across the slope.",
+            "steps": [
+              "Pick a point across the slope at your level",
+              "Traverse toward it, staying at constant height",
+              "Adjust edge angle if you start gaining or losing height",
+              "Stop at your target",
+              "Traverse back the other direction"
+            ],
+            "durationMinutes": 10,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Watch for uphill traffic when traversing across a slope"
+        ]
+      }
+    },
+    {
+      "id": "novice-sideslip",
+      "name": "Sideslipping",
+      "level": "novice",
+      "domain": "edgeControl",
+      "description": "Control your descent by sliding sideways down the fall line, using edge angle to regulate speed.",
+      "whyItMatters": "Sideslipping teaches precise edge control and gives you a way to safely descend terrain that might otherwise be too challenging.",
+      "milestones": [
+        "Sideslip straight down the fall line",
+        "Control speed through edge angle",
+        "Start and stop sideslip on demand",
+        "Sideslip in both directions",
+        "Diagonal sideslip with direction control"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-sideslip-1",
+            "title": "Sideslipping Technique",
+            "youtubeId": "KbLeLZn0WQA",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 390,
+            "description": "Master sideslipping for edge control and steep terrain."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-sideslip-1",
+            "content": "Keep your skis perpendicular to the fall line. Flatten your edges slightly to slip, increase angle to stop.",
+            "category": "technique"
+          },
+          {
+            "id": "t-sideslip-2",
+            "content": "Stay stacked over your feet - don't lean into the hill or you'll catch an edge.",
+            "category": "safety"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-sideslip-1",
+            "name": "Elevator Drill",
+            "description": "Practice starting and stopping your sideslip like an elevator.",
+            "steps": [
+              "Stand across the slope with edges engaged",
+              "Slightly flatten your skis to start sliding",
+              "Slide 10 feet down",
+              "Edge to stop completely",
+              "Repeat in controlled 10-foot increments"
+            ],
+            "durationMinutes": 10,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Look downhill for obstacles and other skiers before sideslipping"
+        ]
+      }
+    },
+    {
+      "id": "novice-speed-control",
+      "name": "Speed Management",
+      "level": "novice",
+      "domain": "pressureManagement",
+      "description": "Control your speed through turn shape and line choice rather than just braking.",
+      "whyItMatters": "Managing speed through technique rather than braking makes your skiing smoother, less tiring, and more controlled on varied terrain.",
+      "milestones": [
+        "Use turn shape to control speed",
+        "Choose appropriate line for terrain",
+        "Maintain consistent speed on blue runs",
+        "Slow down without emergency stops",
+        "Match speed to conditions and traffic"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-speed-1",
+            "title": "Speed Control Through Turn Shape",
+            "youtubeId": "9Hu5Yc0V4Jo",
+            "channelName": "Ski School by Elate Media",
+            "durationSeconds": 420,
+            "description": "Learn to control speed through turn shape and line."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-speed-1",
+            "content": "Round turns that finish across the hill slow you down. Quick turns down the fall line speed you up.",
+            "category": "technique"
+          },
+          {
+            "id": "t-speed-2",
+            "content": "If you're going too fast, make bigger, rounder turns that take you more across the slope.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-speed-1",
+            "name": "Metronome Skiing",
+            "description": "Practice consistent turn rhythm for steady speed.",
+            "steps": [
+              "Pick a comfortable rhythm (count 1-2-3-turn)",
+              "Make turns to this count",
+              "Adjust turn size to maintain constant speed",
+              "The rhythm should feel sustainable",
+              "Practice on different pitch terrain"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "novice-linked-turns",
+      "name": "Rhythmic Linked Turns",
+      "level": "novice",
+      "domain": "rotaryMovements",
+      "description": "Link turns together in a consistent rhythm, developing flow and efficiency in your skiing.",
+      "whyItMatters": "Rhythmic skiing is efficient skiing. A steady rhythm helps you maintain control, manage fatigue, and develop muscle memory.",
+      "milestones": [
+        "Link 10+ turns without stopping",
+        "Maintain consistent turn size",
+        "Keep steady rhythm throughout",
+        "Control speed through rhythm",
+        "Smooth transitions between turns"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-linked-1",
+            "title": "Linking Turns Smoothly",
+            "youtubeId": "7qO1CQkm4bs",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 450,
+            "description": "Develop rhythm and flow in your linked turns."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-linked-1",
+            "content": "Think of skiing like dancing - find your rhythm and let it carry you down the mountain.",
+            "category": "feel"
+          },
+          {
+            "id": "t-linked-2",
+            "content": "Your pole plant (when you learn it) will help establish and maintain rhythm.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-linked-1",
+            "name": "Corridor Skiing",
+            "description": "Practice linking turns within an imaginary corridor.",
+            "steps": [
+              "Imagine a corridor 20 feet wide",
+              "Link turns staying within the corridor",
+              "Each turn should be similar size",
+              "Maintain constant speed",
+              "Try narrower corridors as you improve"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "intermediate-parallel-turns",
+      "name": "Basic Parallel Turns",
+      "level": "intermediate",
+      "domain": "rotaryMovements",
+      "description": "Make turns with your skis parallel throughout - no more wedge! This is the gateway to advanced skiing.",
+      "whyItMatters": "Parallel turns are more efficient, faster, and open up steeper terrain. This is what most people picture when they think of 'real' skiing.",
+      "milestones": [
+        "Skis stay parallel throughout turn",
+        "Smooth edge transitions",
+        "Both legs working together",
+        "Comfortable on blue runs",
+        "Link parallel turns continuously"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-parallel-1",
+            "title": "How to Ski Parallel",
+            "youtubeId": "kfMXhKdj0iw",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 540,
+            "description": "Master the parallel turn for intermediate skiing."
+          },
+          {
+            "id": "v-parallel-2",
+            "title": "Parallel Skiing Drills",
+            "youtubeId": "5iG-l_fQPp0",
+            "channelName": "Ski School by Elate Media",
+            "durationSeconds": 480,
+            "description": "Drills and progressions for parallel turns."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-parallel-1",
+            "content": "Parallel skiing is about simultaneous edge change. Both skis roll from one set of edges to the other together.",
+            "category": "technique"
+          },
+          {
+            "id": "t-parallel-2",
+            "content": "Think about moving your Center of Mass across your skis to start each turn, not pushing your tails out.",
+            "category": "feel"
+          },
+          {
+            "id": "t-parallel-3",
+            "content": "The inside ski should be slightly lighter and leading through the turn.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-parallel-1",
+            "name": "Thousand Steps",
+            "description": "Practice parallel position by stepping through turns.",
+            "steps": [
+              "Start making medium turns",
+              "Take tiny steps with both skis through the turn",
+              "Keep skis parallel while stepping",
+              "Gradually reduce stepping until skis glide together",
+              "Feel how both skis stay aligned"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [
+          {
+            "id": "c-parallel-1",
+            "title": "Parallel Turn Checklist",
+            "items": [
+              "Skis parallel at turn initiation",
+              "Skis parallel through the fall line",
+              "Skis parallel at turn completion",
+              "Smooth weight transfer between turns",
+              "Consistent turn shape both directions"
+            ]
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "intermediate-hockey-stop",
+      "name": "Hockey Stop",
+      "level": "intermediate",
+      "domain": "edgeControl",
+      "description": "A quick, powerful stop using parallel skis - just like hockey players stopping on ice.",
+      "whyItMatters": "The hockey stop gives you an emergency braking option and demonstrates strong edge control skills needed for advanced skiing.",
+      "milestones": [
+        "Stop quickly from moderate speed",
+        "Stop in both directions",
+        "Control the stopping distance",
+        "Stay balanced during the stop",
+        "Recover quickly after stopping"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-hockey-1",
+            "title": "How to Hockey Stop on Skis",
+            "youtubeId": "13z1UQGEozc",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 420,
+            "description": "Master the hockey stop for quick, controlled stops."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-hockey-1",
+            "content": "Turn your skis across the fall line and engage edges sharply. It's one quick movement.",
+            "category": "technique"
+          },
+          {
+            "id": "t-hockey-2",
+            "content": "Keep your upper body facing downhill as your skis turn across - this prevents spinning out.",
+            "category": "technique"
+          },
+          {
+            "id": "t-hockey-3",
+            "content": "Practice on your strong side first, then work on your weaker side.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-hockey-1",
+            "name": "Progressive Stops",
+            "description": "Build up to the hockey stop gradually.",
+            "steps": [
+              "Start with slow speed parallel stop",
+              "Gradually increase speed each run",
+              "Focus on edging both skis simultaneously",
+              "Work up to a decisive, quick stop",
+              "Practice on both sides"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Always check uphill before practicing hockey stops"
+        ]
+      }
+    },
+    {
+      "id": "intermediate-carving-intro",
+      "name": "Introduction to Carving",
+      "level": "intermediate",
+      "domain": "edgeControl",
+      "description": "Make pure carved turns where your skis cut through the snow without skidding - leaving two clean lines.",
+      "whyItMatters": "Carving is the most efficient way to turn. It maximizes the technology built into your skis and provides incredible grip and control.",
+      "milestones": [
+        "Leave two clean tracks in snow",
+        "Feel skis bend and rebound",
+        "Carve on groomed blue terrain",
+        "Link carved turns smoothly",
+        "Control carve radius through edge angle"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-carve-1",
+            "title": "Introduction to Carving",
+            "youtubeId": "HYXWJsqLqn8",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 540,
+            "description": "Learn the fundamentals of carved turns."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-carve-1",
+            "content": "Carving is about edge angle, not skidding. Tip your skis on edge and let the sidecut do the work.",
+            "category": "technique"
+          },
+          {
+            "id": "t-carve-2",
+            "content": "Your skis bend into an arc when edged and pressured - ride this arc rather than steering.",
+            "category": "feel"
+          },
+          {
+            "id": "t-carve-3",
+            "content": "Start with medium-radius turns. Very short or very long turns are harder to carve cleanly.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-carve-1",
+            "name": "Railroad Tracks",
+            "description": "Focus on leaving clean carved tracks in the snow.",
+            "steps": [
+              "Find groomed terrain with good visibility",
+              "Make medium turns focusing on edging",
+              "Look back at your tracks after each run",
+              "Clean tracks = carving, messy tracks = skidding",
+              "Adjust technique based on track feedback"
+            ],
+            "durationMinutes": 20,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Carving requires more speed than skidded turns - start on terrain you're comfortable with"
+        ]
+      }
+    },
+    {
+      "id": "intermediate-variable-terrain",
+      "name": "Variable Terrain Skiing",
+      "level": "intermediate",
+      "domain": "terrainAdaptation",
+      "description": "Adapt your technique to handle natural terrain features, small bumps, and changing snow conditions.",
+      "whyItMatters": "Real mountains aren't perfectly groomed everywhere. Variable terrain skills let you ski the whole mountain confidently.",
+      "milestones": [
+        "Handle small bumps without losing balance",
+        "Ski through varying snow conditions",
+        "Navigate natural terrain features",
+        "Maintain rhythm on inconsistent terrain",
+        "Adjust stance for different conditions"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-variable-1",
+            "title": "Skiing Variable Terrain",
+            "youtubeId": "zxk-Cd3wVDk",
+            "channelName": "Ski School by Elate Media",
+            "durationSeconds": 480,
+            "description": "Adapt your technique for real mountain conditions."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-variable-1",
+            "content": "Keep your legs active like shock absorbers - let them flex and extend to absorb terrain.",
+            "category": "technique"
+          },
+          {
+            "id": "t-variable-2",
+            "content": "In choppy or crud snow, keep your weight slightly more centered and make rounder turns.",
+            "category": "technique"
+          },
+          {
+            "id": "t-variable-3",
+            "content": "Look further ahead on variable terrain - you need more time to plan your line.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-variable-1",
+            "name": "Absorption Practice",
+            "description": "Practice absorbing terrain variations with your legs.",
+            "steps": [
+              "Find terrain with small natural bumps",
+              "Ski slowly at first",
+              "Let your legs compress over bumps",
+              "Extend legs into dips",
+              "Keep upper body quiet and stable"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "intermediate-short-turns",
+      "name": "Short Radius Turns",
+      "level": "intermediate",
+      "domain": "rotaryMovements",
+      "description": "Quick, rhythmic turns that give you precise control on steeper terrain and in tight spaces.",
+      "whyItMatters": "Short turns are essential for steep terrain, narrow trails, and maintaining control when you need to react quickly.",
+      "milestones": [
+        "Quick, rhythmic turn initiation",
+        "Maintain control on blue/black terrain",
+        "Consistent turn size and shape",
+        "Upper body remains stable",
+        "Effective pole usage"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-short-1",
+            "title": "Short Turns for Steep Terrain",
+            "youtubeId": "YE1Rd0kE2Kg",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 450,
+            "description": "Master short turns for control on steeper slopes."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-short-1",
+            "content": "Short turns come from quick leg rotation under a stable upper body.",
+            "category": "technique"
+          },
+          {
+            "id": "t-short-2",
+            "content": "Your pole plant times each turn - plant and turn, plant and turn.",
+            "category": "technique"
+          },
+          {
+            "id": "t-short-3",
+            "content": "Keep your feet underneath you - don't let the turn throw you to the outside.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-short-1",
+            "name": "Windshield Wipers",
+            "description": "Practice quick edge to edge movements.",
+            "steps": [
+              "On gentle terrain, pivot skis quickly side to side",
+              "Keep upper body quiet",
+              "Feel legs rotate independently",
+              "Add forward movement gradually",
+              "Build up to continuous short turns"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "expert-advanced-carving",
+      "name": "Advanced Carving",
+      "level": "expert",
+      "domain": "edgeControl",
+      "description": "High-performance carved turns with extreme edge angles and dynamic pressure management.",
+      "whyItMatters": "Advanced carving lets you ski at high speeds with complete control, maximizing the performance of modern ski design.",
+      "milestones": [
+        "High edge angles with knee/hip angulation",
+        "Dynamic pressure through the turn",
+        "Clean carves on steep groomed terrain",
+        "Speed control through turn shape",
+        "Smooth transition between carves"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-advcarve-1",
+            "title": "Advanced Carving Technique",
+            "youtubeId": "bmdwyQ_gGU8",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 600,
+            "description": "Take your carving to expert level with advanced techniques."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-advcarve-1",
+            "content": "Angulation (tilting the body inward) allows extreme edge angles while keeping balance over your outside ski.",
+            "category": "technique"
+          },
+          {
+            "id": "t-advcarve-2",
+            "content": "Feel the ski build pressure through the turn and release it to propel into the next turn.",
+            "category": "feel"
+          },
+          {
+            "id": "t-advcarve-3",
+            "content": "Your inside hand should reach down toward the snow on deep carves - this indicates proper angulation.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-advcarve-1",
+            "name": "Inclination Progression",
+            "description": "Progressively increase edge angles through a series of turns.",
+            "steps": [
+              "Start with moderate carved turns",
+              "Each turn, increase edge angle slightly",
+              "Focus on angulation, not leaning",
+              "Feel how much grip increases",
+              "Find your current edge angle limit"
+            ],
+            "durationMinutes": 20,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Advanced carving requires speed - ensure the trail is clear"
+        ]
+      }
+    },
+    {
+      "id": "expert-moguls",
+      "name": "Mogul Skiing",
+      "level": "expert",
+      "domain": "terrainAdaptation",
+      "description": "Navigate mogul fields with rhythm and control, using the bumps rather than fighting them.",
+      "whyItMatters": "Moguls are the ultimate test of balance, absorption, and quick reflexes. Mastering them opens up challenging terrain.",
+      "milestones": [
+        "Absorb bumps with leg flexion",
+        "Maintain upper body stability",
+        "Pick a consistent line",
+        "Link turns through the mogul field",
+        "Control speed on steep moguls"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-mogul-1",
+            "title": "How to Ski Moguls",
+            "youtubeId": "nMSCB2UxHYY",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 600,
+            "description": "Master mogul technique for bump runs."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-mogul-1",
+            "content": "Absorb by pulling your feet up as you go over the top, extend into the trough.",
+            "category": "technique"
+          },
+          {
+            "id": "t-mogul-2",
+            "content": "Turn on top of the mogul where your skis are lightest - this is called 'using the zipper line.'",
+            "category": "technique"
+          },
+          {
+            "id": "t-mogul-3",
+            "content": "Look 2-3 bumps ahead, not at the bump you're on. Your legs follow your eyes.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-mogul-1",
+            "name": "Slow-Mo Moguls",
+            "description": "Practice mogul technique at slow speeds.",
+            "steps": [
+              "Find a mogul field with small bumps",
+              "Ski through very slowly, focusing on absorption",
+              "Extend legs into troughs, flex over crests",
+              "Keep hands forward and stable",
+              "Gradually increase speed as technique improves"
+            ],
+            "durationMinutes": 20,
+            "terrain": "bumps"
+          }
+        ],
+        "checklists": [],
+        "warnings": [
+          "Start on small, evenly-spaced moguls before progressing to steeper or larger bumps"
+        ]
+      }
+    },
+    {
+      "id": "expert-steeps",
+      "name": "Steep Terrain",
+      "level": "expert",
+      "domain": "pressureManagement",
+      "description": "Ski confidently on steep slopes using advanced edge control and pressure management.",
+      "whyItMatters": "Steep terrain demands precision. Conquering steeps gives you access to some of the mountain's most exciting runs.",
+      "milestones": [
+        "Commit to the fall line on steep terrain",
+        "Use short turns for speed control",
+        "Maintain edge grip on firm steep snow",
+        "Manage pressure through turn phases",
+        "Recover from unexpected releases"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-steep-1",
+            "title": "Skiing Steep Terrain",
+            "youtubeId": "vfLPLLBGqDI",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 540,
+            "description": "Techniques for confidence on steep slopes."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-steep-1",
+            "content": "Commit forward - leaning back on steeps is dangerous and reduces control.",
+            "category": "safety"
+          },
+          {
+            "id": "t-steep-2",
+            "content": "Make your pole plant downhill and use it to help project your body down the slope.",
+            "category": "technique"
+          },
+          {
+            "id": "t-steep-3",
+            "content": "Round out your turns to maintain speed control - don't let the pitch intimidate you into going straight.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-steep-1",
+            "name": "Progressive Pitch",
+            "description": "Gradually work up to steeper terrain.",
+            "steps": [
+              "Perfect your short turns on comfortable blue terrain",
+              "Move to gentle black terrain",
+              "Focus on completing each turn",
+              "Gradually tackle steeper runs",
+              "Always stop if you feel loss of control"
+            ],
+            "durationMinutes": 30,
+            "terrain": "steeps"
+          }
+        ],
+        "checklists": [
+          {
+            "id": "c-steep-1",
+            "title": "Steep Terrain Safety",
+            "items": [
+              "Checked conditions and avalanche report",
+              "Skied with a buddy",
+              "Know the exit points",
+              "Equipment properly adjusted",
+              "Warmed up on easier terrain first"
+            ]
+          }
+        ],
+        "warnings": [
+          "Always assess steep terrain before committing",
+          "Know your limits - there's no shame in choosing an easier route"
+        ]
+      }
+    },
+    {
+      "id": "expert-powder",
+      "name": "Powder Skiing",
+      "level": "expert",
+      "domain": "pressureManagement",
+      "description": "Float through deep snow with proper technique for one of skiing's greatest experiences.",
+      "whyItMatters": "Powder skiing is what dreams are made of. Different from groomed technique, powder requires unique skills to truly enjoy.",
+      "milestones": [
+        "Float rather than sink in powder",
+        "Equal weight distribution both skis",
+        "Rhythmic bounce-style turns",
+        "Maintain speed for floatation",
+        "Recover from nose dives"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-powder-1",
+            "title": "How to Ski Powder",
+            "youtubeId": "z5CTRRXdT3Q",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 600,
+            "description": "Essential techniques for deep snow skiing."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-powder-1",
+            "content": "In powder, ski with equal weight on both skis - this gives you the most floatation.",
+            "category": "technique"
+          },
+          {
+            "id": "t-powder-2",
+            "content": "Use a bouncing motion to unweight and turn - think of it as rhythmic up-down movement.",
+            "category": "technique"
+          },
+          {
+            "id": "t-powder-3",
+            "content": "Keep your hands forward and visible - this prevents leaning back, which causes you to sink.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-powder-1",
+            "name": "Groomed Powder Prep",
+            "description": "Practice powder movements on groomed snow.",
+            "steps": [
+              "On groomed terrain, ski with equal weight both skis",
+              "Add a bouncing rhythm to your turns",
+              "Focus on extension/flexion through each turn",
+              "Build this into automatic movement",
+              "Apply to progressively deeper snow"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [
+          {
+            "id": "c-powder-1",
+            "title": "Powder Day Checklist",
+            "items": [
+              "Checked avalanche conditions",
+              "Ski buddy confirmed",
+              "Powder straps/retention on",
+              "Goggles clean and fog-free",
+              "Fat skis if available"
+            ]
+          }
+        ],
+        "warnings": [
+          "Deep powder can hide obstacles - ski defensively",
+          "Always check avalanche conditions before off-piste skiing"
+        ]
+      }
+    },
+    {
+      "id": "expert-dynamic-short-turns",
+      "name": "Dynamic Short Turns",
+      "level": "expert",
+      "domain": "rotaryMovements",
+      "description": "High-performance short turns with explosive edge engagement for any terrain.",
+      "whyItMatters": "Dynamic short turns give you ultimate control at any speed, on any terrain. It's the pinnacle of all-mountain technique.",
+      "milestones": [
+        "Quick, powerful edge transitions",
+        "Explosive leg extension to start turns",
+        "Upper/lower body separation",
+        "Rhythm maintained on varied terrain",
+        "Adapt turn size to conditions"
+      ],
+      "content": {
+        "videos": [
+          {
+            "id": "v-dynamic-1",
+            "title": "Dynamic Short Turns",
+            "youtubeId": "dqWwqzWylZ4",
+            "channelName": "Stomp It Tutorials",
+            "durationSeconds": 480,
+            "description": "Master dynamic short turns for expert-level skiing."
+          }
+        ],
+        "tips": [
+          {
+            "id": "t-dynamic-1",
+            "content": "Think of springing from turn to turn - use the energy of each turn to power the next.",
+            "category": "feel"
+          },
+          {
+            "id": "t-dynamic-2",
+            "content": "Your upper body should point downhill while your legs swing beneath like a pendulum.",
+            "category": "technique"
+          },
+          {
+            "id": "t-dynamic-3",
+            "content": "Pole plant aggressively - it's both a timing mechanism and a pivot point.",
+            "category": "technique"
+          }
+        ],
+        "drills": [
+          {
+            "id": "d-dynamic-1",
+            "name": "Edge to Edge Jumps",
+            "description": "Build explosive edge transition power.",
+            "steps": [
+              "On moderate terrain, make short turns",
+              "Focus on explosively releasing edges",
+              "Spring from one set of edges to the other",
+              "Skis may briefly leave the snow",
+              "Maintain rhythm and control"
+            ],
+            "durationMinutes": 15,
+            "terrain": "groomed"
+          }
+        ],
+        "checklists": [],
+        "warnings": []
+      }
+    }
+  ]
+}

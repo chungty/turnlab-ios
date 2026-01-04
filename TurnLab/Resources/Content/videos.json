@@ -1,0 +1,260 @@
+{
+  "videos": [
+    {
+      "id": "v-stance-1",
+      "title": "Perfect Ski Stance",
+      "youtubeId": "4pgvvP8JOVo",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 420,
+      "description": "Master the athletic stance that forms the foundation of all skiing movements.",
+      "tags": ["beginner", "balance", "fundamentals"],
+      "skillIds": ["beginner-basic-stance"]
+    },
+    {
+      "id": "v-stance-2",
+      "title": "Balance Basics",
+      "youtubeId": "E_S8HSAGJDw",
+      "channelName": "Ski School by Elate Media",
+      "channelUrl": "https://www.youtube.com/@elatemedia",
+      "durationSeconds": 360,
+      "description": "Understanding fore-aft balance and lateral balance in your stance.",
+      "tags": ["beginner", "balance"],
+      "skillIds": ["beginner-basic-stance", "beginner-straight-run"]
+    },
+    {
+      "id": "v-glide-1",
+      "title": "First Time Skiing - The Straight Run",
+      "youtubeId": "E_S8HSAGJDw",
+      "channelName": "Ski School by Elate Media",
+      "channelUrl": "https://www.youtube.com/@elatemedia",
+      "durationSeconds": 480,
+      "description": "Your first movements on skis and how to glide with confidence.",
+      "tags": ["beginner", "balance", "first-timer"],
+      "skillIds": ["beginner-straight-run"]
+    },
+    {
+      "id": "v-wedge-1",
+      "title": "How to Pizza - Beginner Ski Lesson",
+      "youtubeId": "b6VJwCNXoVQ",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 390,
+      "description": "Master the wedge position for speed control and turning.",
+      "tags": ["beginner", "edge-control", "speed-control"],
+      "skillIds": ["beginner-wedge-position"]
+    },
+    {
+      "id": "v-wedgeturn-1",
+      "title": "Beginner Wedge Turns",
+      "youtubeId": "l-W8jFCFjwM",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 510,
+      "description": "Learn to link your first turns and control your direction.",
+      "tags": ["beginner", "rotary", "turns"],
+      "skillIds": ["beginner-wedge-turns"]
+    },
+    {
+      "id": "v-stop-1",
+      "title": "How to Stop on Skis",
+      "youtubeId": "bxkQZU7f8Yo",
+      "channelName": "Ski School by Elate Media",
+      "channelUrl": "https://www.youtube.com/@elatemedia",
+      "durationSeconds": 300,
+      "description": "Master the wedge stop for reliable speed control.",
+      "tags": ["beginner", "stopping", "safety"],
+      "skillIds": ["beginner-stopping"]
+    },
+    {
+      "id": "v-wchristie-1",
+      "title": "Wedge Christie - From Pizza to Parallel",
+      "youtubeId": "0Ak5eDOQFKQ",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 480,
+      "description": "Learn the wedge christie to progress toward parallel turns.",
+      "tags": ["novice", "edge-control", "progression"],
+      "skillIds": ["novice-wedge-christie"]
+    },
+    {
+      "id": "v-traverse-1",
+      "title": "How to Traverse on Skis",
+      "youtubeId": "3nqtBqhpPjU",
+      "channelName": "Ski School by Elate Media",
+      "channelUrl": "https://www.youtube.com/@elatemedia",
+      "durationSeconds": 360,
+      "description": "Master traversing for edge control and mountain navigation.",
+      "tags": ["novice", "balance", "edge-control"],
+      "skillIds": ["novice-traverse"]
+    },
+    {
+      "id": "v-sideslip-1",
+      "title": "Sideslipping Technique",
+      "youtubeId": "KbLeLZn0WQA",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 390,
+      "description": "Master sideslipping for edge control and steep terrain.",
+      "tags": ["novice", "edge-control"],
+      "skillIds": ["novice-sideslip"]
+    },
+    {
+      "id": "v-speed-1",
+      "title": "Speed Control Through Turn Shape",
+      "youtubeId": "9Hu5Yc0V4Jo",
+      "channelName": "Ski School by Elate Media",
+      "channelUrl": "https://www.youtube.com/@elatemedia",
+      "durationSeconds": 420,
+      "description": "Learn to control speed through turn shape and line.",
+      "tags": ["novice", "pressure", "speed-control"],
+      "skillIds": ["novice-speed-control"]
+    },
+    {
+      "id": "v-linked-1",
+      "title": "Linking Turns Smoothly",
+      "youtubeId": "7qO1CQkm4bs",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 450,
+      "description": "Develop rhythm and flow in your linked turns.",
+      "tags": ["novice", "rotary", "rhythm"],
+      "skillIds": ["novice-linked-turns"]
+    },
+    {
+      "id": "v-parallel-1",
+      "title": "How to Ski Parallel",
+      "youtubeId": "kfMXhKdj0iw",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 540,
+      "description": "Master the parallel turn for intermediate skiing.",
+      "tags": ["intermediate", "rotary", "parallel"],
+      "skillIds": ["intermediate-parallel-turns"]
+    },
+    {
+      "id": "v-parallel-2",
+      "title": "Parallel Skiing Drills",
+      "youtubeId": "5iG-l_fQPp0",
+      "channelName": "Ski School by Elate Media",
+      "channelUrl": "https://www.youtube.com/@elatemedia",
+      "durationSeconds": 480,
+      "description": "Drills and progressions for parallel turns.",
+      "tags": ["intermediate", "rotary", "drills"],
+      "skillIds": ["intermediate-parallel-turns"]
+    },
+    {
+      "id": "v-hockey-1",
+      "title": "How to Hockey Stop on Skis",
+      "youtubeId": "13z1UQGEozc",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 420,
+      "description": "Master the hockey stop for quick, controlled stops.",
+      "tags": ["intermediate", "edge-control", "stopping"],
+      "skillIds": ["intermediate-hockey-stop"]
+    },
+    {
+      "id": "v-carve-1",
+      "title": "Introduction to Carving",
+      "youtubeId": "HYXWJsqLqn8",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 540,
+      "description": "Learn the fundamentals of carved turns.",
+      "tags": ["intermediate", "edge-control", "carving"],
+      "skillIds": ["intermediate-carving-intro"]
+    },
+    {
+      "id": "v-variable-1",
+      "title": "Skiing Variable Terrain",
+      "youtubeId": "zxk-Cd3wVDk",
+      "channelName": "Ski School by Elate Media",
+      "channelUrl": "https://www.youtube.com/@elatemedia",
+      "durationSeconds": 480,
+      "description": "Adapt your technique for real mountain conditions.",
+      "tags": ["intermediate", "terrain", "adaptability"],
+      "skillIds": ["intermediate-variable-terrain"]
+    },
+    {
+      "id": "v-short-1",
+      "title": "Short Turns for Steep Terrain",
+      "youtubeId": "YE1Rd0kE2Kg",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 450,
+      "description": "Master short turns for control on steeper slopes.",
+      "tags": ["intermediate", "rotary", "steeps"],
+      "skillIds": ["intermediate-short-turns"]
+    },
+    {
+      "id": "v-advcarve-1",
+      "title": "Advanced Carving Technique",
+      "youtubeId": "bmdwyQ_gGU8",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 600,
+      "description": "Take your carving to expert level with advanced techniques.",
+      "tags": ["expert", "edge-control", "carving"],
+      "skillIds": ["expert-advanced-carving"]
+    },
+    {
+      "id": "v-mogul-1",
+      "title": "How to Ski Moguls",
+      "youtubeId": "nMSCB2UxHYY",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 600,
+      "description": "Master mogul technique for bump runs.",
+      "tags": ["expert", "terrain", "moguls"],
+      "skillIds": ["expert-moguls"]
+    },
+    {
+      "id": "v-steep-1",
+      "title": "Skiing Steep Terrain",
+      "youtubeId": "vfLPLLBGqDI",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 540,
+      "description": "Techniques for confidence on steep slopes.",
+      "tags": ["expert", "pressure", "steeps"],
+      "skillIds": ["expert-steeps"]
+    },
+    {
+      "id": "v-powder-1",
+      "title": "How to Ski Powder",
+      "youtubeId": "z5CTRRXdT3Q",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 600,
+      "description": "Essential techniques for deep snow skiing.",
+      "tags": ["expert", "pressure", "powder"],
+      "skillIds": ["expert-powder"]
+    },
+    {
+      "id": "v-dynamic-1",
+      "title": "Dynamic Short Turns",
+      "youtubeId": "dqWwqzWylZ4",
+      "channelName": "Stomp It Tutorials",
+      "channelUrl": "https://www.youtube.com/@stompittutorials",
+      "durationSeconds": 480,
+      "description": "Master dynamic short turns for expert-level skiing.",
+      "tags": ["expert", "rotary", "dynamic"],
+      "skillIds": ["expert-dynamic-short-turns"]
+    }
+  ],
+  "channels": [
+    {
+      "id": "stomp-it",
+      "name": "Stomp It Tutorials",
+      "url": "https://www.youtube.com/@stompittutorials",
+      "description": "High-quality ski instruction from professional ski instructors."
+    },
+    {
+      "id": "elate-media",
+      "name": "Ski School by Elate Media",
+      "url": "https://www.youtube.com/@elatemedia",
+      "description": "Comprehensive ski lessons for all levels."
+    }
+  ]
+}
