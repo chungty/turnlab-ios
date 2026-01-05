@@ -2,11 +2,11 @@ import Foundation
 @testable import TurnLab
 
 /// Mock implementation of SkillRepositoryProtocol for testing.
+@MainActor
 final class MockSkillRepository: SkillRepositoryProtocol {
     // MARK: - Configuration
 
     var skills: [Skill] = SkillFixtures.allTestSkills
-    var quizQuestions: [QuizQuestion] = SkillFixtures.testQuizQuestions
 
     // MARK: - Call Tracking
 
@@ -16,27 +16,42 @@ final class MockSkillRepository: SkillRepositoryProtocol {
 
     // MARK: - SkillRepositoryProtocol
 
-    func getAllSkills() -> [Skill] {
+    func getAllSkills() async -> [Skill] {
         getAllSkillsCalled = true
         return skills
     }
 
-    func getSkill(byId id: String) -> Skill? {
+    func getSkill(id: String) async -> Skill? {
         getSkillByIdCallCount += 1
         lastRequestedSkillId = id
         return skills.first { $0.id == id }
     }
 
-    func getSkills(for level: SkillLevel) -> [Skill] {
+    func getSkills(for level: SkillLevel) async -> [Skill] {
         return skills.filter { $0.level == level }
     }
 
-    func getSkills(for domain: SkillDomain) -> [Skill] {
-        return skills.filter { $0.domain == domain }
+    func getSkills(for domain: SkillDomain) async -> [Skill] {
+        return skills.filter { $0.domains.contains(domain) }
     }
 
-    func getQuizQuestions() -> [QuizQuestion] {
-        return quizQuestions
+    func getPrerequisites(for skillId: String) async -> [Skill] {
+        return []
+    }
+
+    func searchSkills(query: String) async -> [Skill] {
+        let lowercasedQuery = query.lowercased()
+        return skills.filter {
+            $0.name.lowercased().contains(lowercasedQuery) ||
+            $0.summary.lowercased().contains(lowercasedQuery)
+        }
+    }
+
+    func getAccessibleSkills(isPremium: Bool) async -> [Skill] {
+        if isPremium {
+            return skills
+        }
+        return skills.filter { $0.level == .beginner }
     }
 
     // MARK: - Test Helpers

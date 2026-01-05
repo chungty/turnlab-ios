@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 /// ViewModel for the onboarding quiz flow.
 @MainActor
@@ -10,11 +11,13 @@ final class OnboardingViewModel: ObservableObject {
     @Published var isCompleted = false
     @Published var result: QuizResult?
     @Published var isLoading = false
+    @Published var isContentLoading = true
 
     // MARK: - Dependencies
     private let contentManager: ContentManager
     private let userRepository: UserRepositoryProtocol
     private let appState: AppState
+    private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Computed Properties
     var currentQuestion: QuizQuestion? {
@@ -50,7 +53,22 @@ final class OnboardingViewModel: ObservableObject {
         self.userRepository = userRepository
         self.appState = appState
 
-        loadQuestions()
+        // Observe content loading state
+        contentManager.$isLoaded
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoaded in
+                self?.isContentLoading = !isLoaded
+                if isLoaded {
+                    self?.loadQuestions()
+                }
+            }
+            .store(in: &cancellables)
+
+        // Load immediately if already loaded
+        if contentManager.isLoaded {
+            isContentLoading = false
+            loadQuestions()
+        }
     }
 
     // MARK: - Actions

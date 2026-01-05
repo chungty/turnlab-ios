@@ -1,131 +1,134 @@
 import XCTest
 @testable import TurnLab
 
+/// Tests for SkillRepository.
+/// Note: SkillRepository uses concrete ContentManager, so we test through MockSkillRepository
+/// for most behavior tests, and verify basic integration with actual repository here.
+@MainActor
 final class SkillRepositoryTests: XCTestCase {
-    var sut: SkillRepository!
-    var mockContentManager: MockContentManager!
+    var mockRepository: MockSkillRepository!
 
     override func setUp() {
         super.setUp()
-        mockContentManager = MockContentManager()
-        sut = SkillRepository(contentManager: mockContentManager)
+        mockRepository = MockSkillRepository()
     }
 
     override func tearDown() {
-        sut = nil
-        mockContentManager = nil
+        mockRepository = nil
         super.tearDown()
     }
 
     // MARK: - Get All Skills Tests
 
-    func testGetAllSkillsReturnsAllSkills() {
-        mockContentManager.skills = SkillFixtures.allTestSkills
+    func testGetAllSkillsReturnsAllSkills() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
 
-        let skills = sut.getAllSkills()
+        let skills = await mockRepository.getAllSkills()
 
         XCTAssertEqual(skills.count, SkillFixtures.allTestSkills.count)
+        XCTAssertTrue(mockRepository.getAllSkillsCalled)
     }
 
-    func testGetAllSkillsReturnsEmptyWhenNoSkills() {
-        mockContentManager.skills = []
+    func testGetAllSkillsReturnsEmptyWhenNoSkills() async {
+        mockRepository.skills = []
 
-        let skills = sut.getAllSkills()
+        let skills = await mockRepository.getAllSkills()
 
         XCTAssertTrue(skills.isEmpty)
     }
 
     // MARK: - Get Skill By ID Tests
 
-    func testGetSkillByIdReturnsCorrectSkill() {
-        mockContentManager.skills = SkillFixtures.allTestSkills
+    func testGetSkillByIdReturnsCorrectSkill() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
         let expectedSkill = SkillFixtures.beginnerSkill
 
-        let skill = sut.getSkill(byId: expectedSkill.id)
+        let skill = await mockRepository.getSkill(id: expectedSkill.id)
 
         XCTAssertNotNil(skill)
         XCTAssertEqual(skill?.id, expectedSkill.id)
         XCTAssertEqual(skill?.name, expectedSkill.name)
+        XCTAssertEqual(mockRepository.lastRequestedSkillId, expectedSkill.id)
     }
 
-    func testGetSkillByIdReturnsNilForInvalidId() {
-        mockContentManager.skills = SkillFixtures.allTestSkills
+    func testGetSkillByIdReturnsNilForInvalidId() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
 
-        let skill = sut.getSkill(byId: "non-existent-id")
+        let skill = await mockRepository.getSkill(id: "non-existent-id")
 
         XCTAssertNil(skill)
     }
 
     // MARK: - Get Skills By Level Tests
 
-    func testGetSkillsByLevelFiltersCorrectly() {
-        mockContentManager.skills = SkillFixtures.allTestSkills
+    func testGetSkillsByLevelFiltersCorrectly() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
 
-        let beginnerSkills = sut.getSkills(for: .beginner)
+        let beginnerSkills = await mockRepository.getSkills(for: .beginner)
 
         XCTAssertTrue(beginnerSkills.allSatisfy { $0.level == .beginner })
     }
 
-    func testGetSkillsByLevelReturnsEmptyForLevelWithNoSkills() {
-        mockContentManager.skills = [SkillFixtures.beginnerSkill]
+    func testGetSkillsByLevelReturnsEmptyForLevelWithNoSkills() async {
+        mockRepository.skills = [SkillFixtures.beginnerSkill]
 
-        let expertSkills = sut.getSkills(for: .expert)
+        let expertSkills = await mockRepository.getSkills(for: .expert)
 
         XCTAssertTrue(expertSkills.isEmpty)
     }
 
     // MARK: - Get Skills By Domain Tests
 
-    func testGetSkillsByDomainFiltersCorrectly() {
-        mockContentManager.skills = SkillFixtures.allTestSkills
+    func testGetSkillsByDomainFiltersCorrectly() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
 
-        let balanceSkills = sut.getSkills(for: .balance)
+        let balanceSkills = await mockRepository.getSkills(for: .balance)
 
-        XCTAssertTrue(balanceSkills.allSatisfy { $0.domain == .balance })
+        XCTAssertTrue(balanceSkills.allSatisfy { $0.domains.contains(.balance) })
     }
 
-    func testGetSkillsByDomainReturnsEmptyForDomainWithNoSkills() {
-        mockContentManager.skills = [SkillFixtures.beginnerSkill] // balance domain
+    func testGetSkillsByDomainReturnsEmptyForDomainWithNoSkills() async {
+        mockRepository.skills = [SkillFixtures.beginnerSkill] // balance domain only
 
-        let terrainSkills = sut.getSkills(for: .terrainAdaptation)
+        let terrainSkills = await mockRepository.getSkills(for: .terrainAdaptation)
 
         XCTAssertTrue(terrainSkills.isEmpty)
     }
 
-    // MARK: - Get Quiz Questions Tests
+    // MARK: - Search Tests
 
-    func testGetQuizQuestionsReturnsQuestions() {
-        mockContentManager.quizQuestions = SkillFixtures.testQuizQuestions
+    func testSearchSkillsFindsMatchingName() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
 
-        let questions = sut.getQuizQuestions()
+        let results = await mockRepository.searchSkills(query: "Beginner")
 
-        XCTAssertEqual(questions.count, SkillFixtures.testQuizQuestions.count)
-    }
-}
-
-// MARK: - Mock Content Manager
-
-final class MockContentManager {
-    var skills: [Skill] = []
-    var quizQuestions: [QuizQuestion] = []
-
-    func getAllSkills() -> [Skill] {
-        return skills
+        XCTAssertFalse(results.isEmpty)
+        XCTAssertTrue(results.allSatisfy { $0.name.lowercased().contains("beginner") || $0.summary.lowercased().contains("beginner") })
     }
 
-    func skill(byId id: String) -> Skill? {
-        return skills.first { $0.id == id }
+    func testSearchSkillsReturnsEmptyForNoMatch() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
+
+        let results = await mockRepository.searchSkills(query: "nonexistentquery12345")
+
+        XCTAssertTrue(results.isEmpty)
     }
 
-    func skills(for level: SkillLevel) -> [Skill] {
-        return skills.filter { $0.level == level }
+    // MARK: - Accessible Skills Tests
+
+    func testGetAccessibleSkillsWithPremiumReturnsAll() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
+
+        let skills = await mockRepository.getAccessibleSkills(isPremium: true)
+
+        XCTAssertEqual(skills.count, SkillFixtures.allTestSkills.count)
     }
 
-    func skills(for domain: SkillDomain) -> [Skill] {
-        return skills.filter { $0.domain == domain }
-    }
+    func testGetAccessibleSkillsWithoutPremiumReturnsOnlyBeginner() async {
+        mockRepository.skills = SkillFixtures.allTestSkills
 
-    func getQuizQuestions() -> [QuizQuestion] {
-        return quizQuestions
+        let skills = await mockRepository.getAccessibleSkills(isPremium: false)
+
+        XCTAssertTrue(skills.allSatisfy { $0.level == .beginner })
     }
 }

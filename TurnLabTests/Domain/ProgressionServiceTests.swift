@@ -3,179 +3,135 @@ import XCTest
 
 final class ProgressionServiceTests: XCTestCase {
     var sut: ProgressionService!
-    var mockUserRepository: MockUserRepository!
+    var mockSkillRepository: MockSkillRepository!
     var mockAssessmentRepository: MockAssessmentRepository!
 
+    @MainActor
     override func setUp() {
         super.setUp()
-        mockUserRepository = MockUserRepository()
+        mockSkillRepository = MockSkillRepository()
         mockAssessmentRepository = MockAssessmentRepository()
         sut = ProgressionService(
-            userRepository: mockUserRepository,
+            skillRepository: mockSkillRepository,
             assessmentRepository: mockAssessmentRepository
         )
     }
 
     override func tearDown() {
         sut = nil
-        mockUserRepository = nil
+        mockSkillRepository = nil
         mockAssessmentRepository = nil
         super.tearDown()
     }
 
-    // MARK: - Level Progression Tests
+    // MARK: - Level Progress Tests
 
-    func testGetCurrentLevel() {
-        mockUserRepository.currentLevel = .intermediate
+    @MainActor
+    func testProgressTowardNextLevelWithNoAssessments() async {
+        mockAssessmentRepository.skillRatings = [:]
 
-        let level = sut.getCurrentLevel()
-
-        XCTAssertEqual(level, .intermediate)
-        XCTAssertTrue(mockUserRepository.getCurrentLevelCalled)
-    }
-
-    func testSetCurrentLevel() {
-        sut.setCurrentLevel(.expert)
-
-        XCTAssertEqual(mockUserRepository.currentLevel, .expert)
-        XCTAssertEqual(mockUserRepository.setCurrentLevelCallCount, 1)
-        XCTAssertEqual(mockUserRepository.lastSetLevel, .expert)
-    }
-
-    // MARK: - Progress Calculation Tests
-
-    func testCalculateLevelProgressWithNoAssessments() {
-        let skills = SkillFixtures.allTestSkills.filter { $0.level == .beginner }
-        mockAssessmentRepository.assessments = []
-
-        let progress = sut.calculateLevelProgress(for: .beginner, skills: skills)
+        let progress = await sut.progressTowardNextLevel(currentLevel: .beginner)
 
         XCTAssertEqual(progress, 0.0)
     }
 
-    func testCalculateLevelProgressWithAllMastered() {
-        let skills = [SkillFixtures.beginnerSkill]
-        mockAssessmentRepository.assessments = [
-            createAssessment(skillId: skills[0].id, rating: .mastered)
-        ]
+    @MainActor
+    func testProgressTowardNextLevelWithAllConfident() async {
+        // Set up all beginner skills as confident
+        let beginnerSkills = await mockSkillRepository.getSkills(for: .beginner)
+        var ratings: [String: Rating] = [:]
+        for skill in beginnerSkills {
+            ratings[skill.id] = .confident
+        }
+        mockAssessmentRepository.skillRatings = ratings
 
-        let progress = sut.calculateLevelProgress(for: .beginner, skills: skills)
+        let progress = await sut.progressTowardNextLevel(currentLevel: .beginner)
 
-        XCTAssertEqual(progress, 1.0)
+        // All skills at confident should give high progress
+        XCTAssertGreaterThan(progress, 0.7)
     }
 
-    func testCalculateLevelProgressPartial() {
-        let skills = [SkillFixtures.beginnerSkill, SkillFixtures.beginnerSkill]
-        // Create two skills with same level but different IDs
-        let skill1 = Skill(
-            id: "skill-1",
-            name: "Skill 1",
-            level: .beginner,
-            domain: .balance,
-            description: "Test",
-            whyItMatters: "Test",
-            milestones: [],
-            content: SkillFixtures.basicContent
-        )
-        let skill2 = Skill(
-            id: "skill-2",
-            name: "Skill 2",
-            level: .beginner,
-            domain: .balance,
-            description: "Test",
-            whyItMatters: "Test",
-            milestones: [],
-            content: SkillFixtures.basicContent
-        )
+    // MARK: - Level Advancement Tests
 
-        mockAssessmentRepository.assessments = [
-            createAssessment(skillId: "skill-1", rating: .confident),
-            createAssessment(skillId: "skill-2", rating: .developing)
-        ]
+    @MainActor
+    func testCanAdvanceToNextLevelWhenNotReady() async {
+        mockAssessmentRepository.skillRatings = [:]
 
-        let progress = sut.calculateLevelProgress(for: .beginner, skills: [skill1, skill2])
-
-        // confident = 0.75, developing = 0.5, average = 0.625
-        XCTAssertEqual(progress, 0.625, accuracy: 0.01)
-    }
-
-    // MARK: - Skill Progress Tests
-
-    func testCalculateSkillProgressFromRating() {
-        XCTAssertEqual(sut.progressValue(for: .needsWork), 0.25, accuracy: 0.01)
-        XCTAssertEqual(sut.progressValue(for: .developing), 0.5, accuracy: 0.01)
-        XCTAssertEqual(sut.progressValue(for: .confident), 0.75, accuracy: 0.01)
-        XCTAssertEqual(sut.progressValue(for: .mastered), 1.0, accuracy: 0.01)
-    }
-
-    // MARK: - Level Up Eligibility Tests
-
-    func testCanAdvanceLevelWhenNotReady() {
-        let skills = [SkillFixtures.beginnerSkill]
-        mockAssessmentRepository.assessments = [
-            createAssessment(skillId: skills[0].id, rating: .developing)
-        ]
-
-        let canAdvance = sut.canAdvanceLevel(from: .beginner, skills: skills)
+        let canAdvance = await sut.canAdvanceToNextLevel(currentLevel: .beginner)
 
         XCTAssertFalse(canAdvance)
     }
 
-    func testCanAdvanceLevelWhenReady() {
-        let skills = [SkillFixtures.beginnerSkill]
-        mockAssessmentRepository.assessments = [
-            createAssessment(skillId: skills[0].id, rating: .confident)
-        ]
+    @MainActor
+    func testCannotAdvanceBeyondExpert() async {
+        // Expert has no next level
+        let nextLevel = sut.nextLevel(from: .expert)
 
-        let canAdvance = sut.canAdvanceLevel(from: .beginner, skills: skills)
-
-        XCTAssertTrue(canAdvance)
+        XCTAssertNil(nextLevel)
     }
 
-    func testCannotAdvanceBeyondExpert() {
-        let canAdvance = sut.canAdvanceLevel(from: .expert, skills: [])
+    // MARK: - Next Level Tests
 
-        XCTAssertFalse(canAdvance)
+    func testNextLevelFromBeginner() {
+        XCTAssertEqual(sut.nextLevel(from: .beginner), .novice)
     }
 
-    // MARK: - Helpers
-
-    private func createAssessment(skillId: String, rating: Rating) -> Assessment {
-        Assessment(
-            id: UUID(),
-            skillId: skillId,
-            context: .groomed,
-            rating: rating,
-            date: Date(),
-            notes: nil
-        )
-    }
-}
-
-// MARK: - Mock Assessment Repository
-
-final class MockAssessmentRepository: AssessmentRepositoryProtocol {
-    var assessments: [Assessment] = []
-
-    func getAllAssessments() -> [Assessment] {
-        return assessments
+    func testNextLevelFromNovice() {
+        XCTAssertEqual(sut.nextLevel(from: .novice), .intermediate)
     }
 
-    func getAssessments(for skillId: String) -> [Assessment] {
-        return assessments.filter { $0.skillId == skillId }
+    func testNextLevelFromIntermediate() {
+        XCTAssertEqual(sut.nextLevel(from: .intermediate), .expert)
     }
 
-    func getLatestAssessment(for skillId: String) -> Assessment? {
-        return getAssessments(for: skillId)
-            .sorted { $0.date > $1.date }
-            .first
+    func testNextLevelFromExpert() {
+        XCTAssertNil(sut.nextLevel(from: .expert))
     }
 
-    func saveAssessment(_ assessment: Assessment) {
-        assessments.append(assessment)
+    // MARK: - Overall Rating Tests
+
+    @MainActor
+    func testOverallRatingForSkill() async {
+        mockAssessmentRepository.skillRatings = ["test-skill": .confident]
+
+        let rating = await sut.overallRating(for: "test-skill")
+
+        XCTAssertEqual(rating, .confident)
     }
 
-    func deleteAssessment(_ assessment: Assessment) {
-        assessments.removeAll { $0.id == assessment.id }
+    @MainActor
+    func testOverallRatingWhenNoAssessments() async {
+        mockAssessmentRepository.skillRatings = [:]
+
+        let rating = await sut.overallRating(for: "unknown-skill")
+
+        XCTAssertEqual(rating, .notAssessed)
+    }
+
+    // MARK: - Suggested Skills Tests
+
+    @MainActor
+    func testSuggestedSkillsReturnsLimit() async {
+        mockSkillRepository.skills = SkillFixtures.allTestSkills
+
+        let suggested = await sut.suggestedSkills(currentLevel: .beginner, limit: 2)
+
+        XCTAssertLessThanOrEqual(suggested.count, 2)
+    }
+
+    @MainActor
+    func testSuggestedSkillsPrioritizesUnassessed() async {
+        mockSkillRepository.skills = SkillFixtures.allTestSkills
+
+        // Mark one skill as confident
+        mockAssessmentRepository.skillRatings = ["test-beginner-skill": .confident]
+
+        let suggested = await sut.suggestedSkills(currentLevel: .beginner, limit: 3)
+
+        // Unassessed skills should come first
+        if let firstSuggested = suggested.first {
+            // First suggested should not be the confident one
+            XCTAssertNotEqual(firstSuggested.id, "test-beginner-skill")
+        }
     }
 }

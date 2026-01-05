@@ -63,12 +63,20 @@ final class SkillTests: XCTestCase {
     // MARK: - TerrainContext Tests
 
     func testTerrainContextAllCases() {
-        XCTAssertEqual(TerrainContext.allCases.count, 4)
+        // TerrainContext has 8 cases: groomedGreen, groomedBlue, groomedBlack, bumps, powder, steeps, ice, crud
+        XCTAssertEqual(TerrainContext.allCases.count, 8)
     }
 
     func testTerrainContextDisplayName() {
-        XCTAssertFalse(TerrainContext.groomed.displayName.isEmpty)
+        XCTAssertFalse(TerrainContext.groomedGreen.displayName.isEmpty)
         XCTAssertFalse(TerrainContext.bumps.displayName.isEmpty)
+    }
+
+    func testTerrainContextDifficultyWeight() {
+        // Green should be easiest
+        XCTAssertEqual(TerrainContext.groomedGreen.difficultyWeight, 1.0)
+        // Steeps should be hardest
+        XCTAssertEqual(TerrainContext.steeps.difficultyWeight, 3.0)
     }
 
     // MARK: - Skill Tests
@@ -78,8 +86,8 @@ final class SkillTests: XCTestCase {
 
         XCTAssertEqual(skill.id, "test-beginner-skill")
         XCTAssertEqual(skill.level, .beginner)
-        XCTAssertEqual(skill.domain, .balance)
-        XCTAssertFalse(skill.milestones.isEmpty)
+        XCTAssertTrue(skill.domains.contains(.balance))
+        XCTAssertFalse(skill.summary.isEmpty)
     }
 
     func testSkillContent() {
@@ -92,6 +100,22 @@ final class SkillTests: XCTestCase {
         XCTAssertFalse(skill.content.warnings.isEmpty)
     }
 
+    func testSkillPrerequisites() {
+        let noviceSkill = SkillFixtures.noviceSkill
+
+        // Novice skill should have beginner skill as prerequisite
+        XCTAssertTrue(noviceSkill.prerequisites.contains("test-beginner-skill"))
+    }
+
+    func testSkillOutcomeMilestones() {
+        let skill = SkillFixtures.beginnerSkill
+
+        XCTAssertFalse(skill.outcomeMilestones.needsWork.isEmpty)
+        XCTAssertFalse(skill.outcomeMilestones.developing.isEmpty)
+        XCTAssertFalse(skill.outcomeMilestones.confident.isEmpty)
+        XCTAssertFalse(skill.outcomeMilestones.mastered.isEmpty)
+    }
+
     // MARK: - VideoReference Tests
 
     func testVideoReference() {
@@ -99,8 +123,8 @@ final class SkillTests: XCTestCase {
 
         XCTAssertEqual(video.id, "test-video-1")
         XCTAssertEqual(video.youtubeId, "abc123")
-        XCTAssertFalse(video.embedUrl.isEmpty)
-        XCTAssertFalse(video.thumbnailUrl.isEmpty)
+        XCTAssertNotNil(video.embedURL)
+        XCTAssertNotNil(video.thumbnailURL)
         XCTAssertEqual(video.formattedDuration, "5:00")
     }
 
@@ -110,8 +134,8 @@ final class SkillTests: XCTestCase {
             title: "Short",
             youtubeId: "abc",
             channelName: "Test",
-            durationSeconds: 45,
-            description: "Short video"
+            duration: 45,
+            isPrimary: false
         )
         XCTAssertEqual(shortVideo.formattedDuration, "0:45")
 
@@ -120,24 +144,39 @@ final class SkillTests: XCTestCase {
             title: "Long",
             youtubeId: "xyz",
             channelName: "Test",
-            durationSeconds: 3665,
-            description: "Long video"
+            duration: 3665,
+            isPrimary: false
         )
         XCTAssertEqual(longVideo.formattedDuration, "61:05")
+    }
+
+    func testVideoEmbedURL() {
+        let video = SkillFixtures.testVideo
+
+        let embedURL = video.embedURL
+        XCTAssertNotNil(embedURL)
+        XCTAssertTrue(embedURL?.absoluteString.contains("youtube.com/embed") ?? false)
     }
 
     // MARK: - Tip Tests
 
     func testTipCategories() {
-        let techniqueTip = Tip(id: "t1", content: "Test", category: .technique)
-        let safetyTip = Tip(id: "t2", content: "Test", category: .safety)
-        let feelTip = Tip(id: "t3", content: "Test", category: .feel)
-        let equipmentTip = Tip(id: "t4", content: "Test", category: .equipment)
+        // Test with actual TipCategory cases
+        let focusTip = Tip(id: "t1", title: "Focus", content: "Test", category: .focus, isQuickReference: true)
+        let movementTip = Tip(id: "t2", title: "Move", content: "Test", category: .movement, isQuickReference: false)
+        let mentalCueTip = Tip(id: "t3", title: "Mental", content: "Test", category: .mentalCue, isQuickReference: true)
+        let bodyPosTip = Tip(id: "t4", title: "Body", content: "Test", category: .bodyPosition, isQuickReference: false)
 
-        XCTAssertEqual(techniqueTip.category, .technique)
-        XCTAssertEqual(safetyTip.category, .safety)
-        XCTAssertEqual(feelTip.category, .feel)
-        XCTAssertEqual(equipmentTip.category, .equipment)
+        XCTAssertEqual(focusTip.category, .focus)
+        XCTAssertEqual(movementTip.category, .movement)
+        XCTAssertEqual(mentalCueTip.category, .mentalCue)
+        XCTAssertEqual(bodyPosTip.category, .bodyPosition)
+    }
+
+    func testTipCategoryDisplayName() {
+        for category in Tip.TipCategory.allCases {
+            XCTAssertFalse(category.displayName.isEmpty)
+        }
     }
 
     // MARK: - Drill Tests
@@ -145,8 +184,38 @@ final class SkillTests: XCTestCase {
     func testDrillTerrain() {
         let drill = SkillFixtures.testDrill
 
-        XCTAssertEqual(drill.terrain, .groomed)
-        XCTAssertEqual(drill.durationMinutes, 10)
+        XCTAssertTrue(drill.recommendedTerrain.contains(.groomedGreen))
         XCTAssertEqual(drill.steps.count, 3)
+        XCTAssertEqual(drill.difficulty, .easy)
+    }
+
+    func testDrillSteps() {
+        let drill = SkillFixtures.testDrill
+
+        XCTAssertEqual(drill.steps[0].order, 1)
+        XCTAssertFalse(drill.steps[0].instruction.isEmpty)
+    }
+
+    func testDrillDifficultyDisplayName() {
+        XCTAssertEqual(Drill.DrillDifficulty.easy.displayName, "Easy")
+        XCTAssertEqual(Drill.DrillDifficulty.moderate.displayName, "Moderate")
+        XCTAssertEqual(Drill.DrillDifficulty.challenging.displayName, "Challenging")
+    }
+
+    // MARK: - Checklist Tests
+
+    func testChecklist() {
+        let checklist = SkillFixtures.testChecklist
+
+        XCTAssertEqual(checklist.items.count, 3)
+        XCTAssertEqual(checklist.purpose, .preRun)
+    }
+
+    func testChecklistItem() {
+        let checklist = SkillFixtures.testChecklist
+
+        // Last item should be critical
+        let criticalItem = checklist.items.first { $0.isCritical }
+        XCTAssertNotNil(criticalItem)
     }
 }

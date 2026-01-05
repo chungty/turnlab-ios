@@ -82,6 +82,57 @@ final class ProgressionService {
         return Array(sorted.prefix(limit))
     }
 
+    /// Get suggested skills with reasons explaining why they're recommended
+    func suggestedSkillsWithReasons(
+        currentLevel: SkillLevel,
+        limit: Int = 3
+    ) async -> [SuggestedSkillWithReason] {
+        let skills = await skillRepository.getSkills(for: currentLevel)
+        let ratingSummary = await assessmentRepository.getSkillRatingSummary()
+
+        // Build suggestions with reasons
+        var suggestions: [SuggestedSkillWithReason] = []
+
+        for skill in skills {
+            let rating = ratingSummary[skill.id] ?? .notAssessed
+            let reason: RecommendationReason
+
+            switch rating {
+            case .notAssessed:
+                // Check if this is a foundation skill (no prerequisites)
+                if skill.prerequisites.isEmpty && skill.level == .beginner {
+                    reason = .buildingFoundation
+                } else {
+                    reason = .notYetAssessed
+                }
+            case .needsWork:
+                reason = .needsMorePractice
+            case .developing:
+                reason = .nextInProgression
+            case .confident, .mastered:
+                continue // Skip already confident/mastered skills
+            }
+
+            suggestions.append(SuggestedSkillWithReason(skill: skill, reason: reason))
+        }
+
+        // Sort: foundation first, then unassessed, then needs work, then developing
+        suggestions.sort { s1, s2 in
+            func priority(_ reason: RecommendationReason) -> Int {
+                switch reason {
+                case .buildingFoundation: return 0
+                case .notYetAssessed: return 1
+                case .needsMorePractice: return 2
+                case .nextInProgression: return 3
+                case .domainBalance: return 4
+                }
+            }
+            return priority(s1.reason) < priority(s2.reason)
+        }
+
+        return Array(suggestions.prefix(limit))
+    }
+
     /// Check if prerequisites are met for a skill
     func prerequisitesMet(for skill: Skill) async -> Bool {
         guard !skill.prerequisites.isEmpty else { return true }
@@ -122,4 +173,50 @@ struct ProgressStatistics {
     let confidentSkills: Int
     let recentAssessments: Int
     let completionPercentage: Double
+}
+
+// MARK: - Suggested Skill with Reason
+struct SuggestedSkillWithReason: Identifiable {
+    let skill: Skill
+    let reason: RecommendationReason
+
+    var id: String { skill.id }
+}
+
+enum RecommendationReason {
+    case notYetAssessed
+    case needsMorePractice
+    case buildingFoundation
+    case nextInProgression
+    case domainBalance(SkillDomain)
+
+    var displayText: String {
+        switch self {
+        case .notYetAssessed:
+            return "Not yet assessed"
+        case .needsMorePractice:
+            return "Needs more practice"
+        case .buildingFoundation:
+            return "Foundation skill"
+        case .nextInProgression:
+            return "Next in your journey"
+        case .domainBalance(let domain):
+            return "Strengthen your \(domain.displayName.lowercased())"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .notYetAssessed:
+            return "circle.dashed"
+        case .needsMorePractice:
+            return "arrow.clockwise"
+        case .buildingFoundation:
+            return "building.columns"
+        case .nextInProgression:
+            return "arrow.right.circle"
+        case .domainBalance:
+            return "scale.3d"
+        }
+    }
 }

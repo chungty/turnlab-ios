@@ -8,86 +8,118 @@ struct LevelProgressCard: View {
     let nextLevel: SkillLevel?
 
     var body: some View {
-        ContentCard {
-            VStack(spacing: TurnLabSpacing.md) {
-                // Header
-                HStack {
-                    VStack(alignment: .leading, spacing: TurnLabSpacing.xxs) {
-                        Text("Current Level")
-                            .font(TurnLabTypography.caption)
-                            .foregroundStyle(TurnLabColors.textSecondary)
+        VStack(spacing: TurnLabSpacing.md) {
+            // Header with level gradient
+            HStack {
+                VStack(alignment: .leading, spacing: TurnLabSpacing.xxs) {
+                    Text("Your Journey")
+                        .font(TurnLabTypography.caption)
+                        .foregroundStyle(TurnLabColors.textSecondary)
 
-                        HStack(spacing: TurnLabSpacing.xs) {
-                            LevelBadge(level: level, size: .large)
+                    HStack(spacing: TurnLabSpacing.xs) {
+                        LevelBadge(level: level, size: .large)
 
-                            if canAdvance, let next = nextLevel {
-                                Image(systemName: "arrow.right")
-                                    .foregroundStyle(TurnLabColors.textTertiary)
-                                LevelBadge(level: next, size: .medium)
-                            }
+                        if canAdvance, let next = nextLevel {
+                            Image(systemName: "arrow.right")
+                                .foregroundStyle(TurnLabColors.textTertiary)
+                            LevelBadge(level: next, size: .medium)
                         }
                     }
+                }
 
-                    Spacer()
+                Spacer()
 
-                    // Progress ring
+                // Progress ring with glow effect
+                ZStack {
+                    Circle()
+                        .fill(TurnLabColors.levelColor(level).opacity(0.15))
+                        .frame(width: 80, height: 80)
+
                     ProgressRing(
                         progress: progress,
                         size: 70,
                         foregroundColor: TurnLabColors.levelColor(level)
                     )
                 }
+            }
 
-                // Progress bar
-                VStack(alignment: .leading, spacing: TurnLabSpacing.xxs) {
-                    HStack {
-                        Text("Progress to \(nextLevel?.displayName ?? "Mastery")")
-                            .font(TurnLabTypography.caption)
-                            .foregroundStyle(TurnLabColors.textSecondary)
+            // Progress visualization
+            VStack(alignment: .leading, spacing: TurnLabSpacing.xs) {
+                HStack {
+                    Text("Progress to \(nextLevel?.displayName ?? "Mastery")")
+                        .font(TurnLabTypography.caption)
+                        .foregroundStyle(TurnLabColors.textSecondary)
 
-                        Spacer()
+                    Spacer()
 
-                        Text("\(Int(progress * 100))%")
-                            .font(TurnLabTypography.caption)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(TurnLabColors.levelColor(level))
+                    Text("\(Int(progress * 100))%")
+                        .font(TurnLabTypography.headline)
+                        .fontWeight(.bold)
+                        .foregroundStyle(TurnLabColors.levelColor(level))
+                }
+
+                // Animated progress bar
+                GeometryReader { geometry in
+                    ZStack(alignment: .leading) {
+                        // Background track
+                        RoundedRectangle(cornerRadius: 6)
+                            .fill(TurnLabColors.levelColor(level).opacity(0.15))
+
+                        // Progress fill with gradient
+                        RoundedRectangle(cornerRadius: 6)
+                            .fill(
+                                LinearGradient(
+                                    colors: [
+                                        TurnLabColors.levelColor(level).opacity(0.8),
+                                        TurnLabColors.levelColor(level)
+                                    ],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .frame(width: geometry.size.width * CGFloat(max(0.02, progress)))
+
+                        // Threshold marker
+                        Rectangle()
+                            .fill(Color.white)
+                            .frame(width: 2, height: 16)
+                            .offset(x: geometry.size.width * CGFloat(SkillLevel.unlockThreshold) - 1)
+                            .shadow(color: .black.opacity(0.3), radius: 2)
                     }
+                }
+                .frame(height: 12)
 
-                    GeometryReader { geometry in
-                        ZStack(alignment: .leading) {
-                            RoundedRectangle(cornerRadius: 4)
-                                .fill(TurnLabColors.levelColor(level).opacity(0.2))
-
-                            RoundedRectangle(cornerRadius: 4)
-                                .fill(TurnLabColors.levelColor(level))
-                                .frame(width: geometry.size.width * CGFloat(progress))
-
-                            // Threshold marker
-                            Rectangle()
-                                .fill(Color.gray)
-                                .frame(width: 2)
-                                .offset(x: geometry.size.width * CGFloat(SkillLevel.unlockThreshold) - 1)
-                        }
-                    }
-                    .frame(height: 8)
-
-                    // Threshold label
-                    Text("Need \(Int(SkillLevel.unlockThreshold * 100))% at Confident to advance")
+                // Threshold label
+                HStack {
+                    Image(systemName: "flag.fill")
+                        .font(.caption2)
+                        .foregroundStyle(TurnLabColors.textTertiary)
+                    Text("\(Int(SkillLevel.unlockThreshold * 100))% needed to advance")
                         .font(.caption2)
                         .foregroundStyle(TurnLabColors.textTertiary)
                 }
+            }
 
-                // Advance button if ready
-                if canAdvance, let next = nextLevel {
-                    PrimaryButton(
-                        title: "Advance to \(next.displayName)",
-                        icon: "arrow.up.circle"
-                    ) {
-                        // Handle level advancement
-                    }
+            // Advance button if ready
+            if canAdvance, let next = nextLevel {
+                PrimaryButton(
+                    title: "Advance to \(next.displayName)",
+                    icon: "arrow.up.circle"
+                ) {
+                    // Handle level advancement
                 }
             }
         }
+        .cardPadding()
+        .background(
+            RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusMedium)
+                .fill(Color(.systemBackground))
+                .shadow(color: TurnLabColors.levelColor(level).opacity(0.1), radius: 8, y: 4)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusMedium)
+                .stroke(TurnLabColors.levelColor(level).opacity(0.2), lineWidth: 1)
+        )
     }
 }
 

@@ -21,6 +21,7 @@
 		217F798D6FF0945C3E236316 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AC73CE740E76E4B909ADD8 /* PurchaseService.swift */; };
 		26A62448033CAF852D34D0A0 /* SkillFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D264A66171478F72F48FCD7D /* SkillFixtures.swift */; };
 		2A453AA8BFD4D7E4E981F340 /* AssessmentHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC201D5E722302FC756AC57 /* AssessmentHistoryView.swift */; };
+		2B3FF4FB8B094BD1B5161808 /* MockAssessmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C0935E81C4957DEF2ECB71 /* MockAssessmentRepository.swift */; };
 		2FC6E803242B875458EB8B38 /* LevelProgressCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A33325192E7DBD761C82B4 /* LevelProgressCard.swift */; };
 		30BFAB5ABABA43AB02A88E22 /* ChecklistCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7430CC823B0238A5E217C72F /* ChecklistCard.swift */; };
 		36DF096907D1373802707863 /* SkillTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CA18BE614A2175511FCD7 /* SkillTests.swift */; };
@@ -65,6 +66,7 @@
 		8397025E6763BEAC08326824 /* AssessmentEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91444B39A676EDBC3C0AED7C /* AssessmentEntity+CoreDataClass.swift */; };
 		87C18B51558446289E49BBDB /* AssessmentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3B2CDCB20D382A71D0540 /* AssessmentSection.swift */; };
 		8C1D5C2F4F1B4CC06BA1020F /* SkillProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6A6CA7576F53AAC9CAD27 /* SkillProgressIndicator.swift */; };
+		8C4A472742F502CBBFF6B193 /* TurnLabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94AFFE93A50D30CBCFD10F2 /* TurnLabUITests.swift */; };
 		914B1B59A09FD8DD09A080DA /* AssessmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA7CD6B48D93B14D084037 /* AssessmentViewModel.swift */; };
 		92B8EB14BBDCD9F7F18CF4D8 /* TurnLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F62D772F062CA817B90B38D4 /* TurnLab.xcdatamodeld */; };
 		92E7A90FFA529F7F6558AC5C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4C76725530ED45DB15489 /* SettingsView.swift */; };
@@ -83,6 +85,7 @@
 		A183B0FB3088F2AD0D2532E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B97FB9BD8E5B24BD684D /* Colors.swift */; };
 		A56C802EB90E0E328B883214 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5A7E1693428BC6380048BB /* DIContainer.swift */; };
 		A5C4C2825E197D0B896DC0C4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2331588CEFCCF599A184870 /* RootView.swift */; };
+		A6C3EEF9DC72FB9799503B4A /* TurnLabUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C28E6CF15775623D30B9CF /* TurnLabUITestsLaunchTests.swift */; };
 		AAA3243CD6D5780FDE6A67C0 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF2EA639817250A5854E262 /* Typography.swift */; };
 		AAB973857C6C9420519E11F2 /* SkillBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431A149E168D4C67C6960161 /* SkillBrowserView.swift */; };
 		B25FC164C340D380515CCB89 /* TurnLabWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F93645F6216437DCC262640 /* TurnLabWidgetBundle.swift */; };
@@ -101,6 +104,7 @@
 		E0008D946BED6757BED9B40A /* VideoReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C16CDC0894852BD5268DB6 /* VideoReference.swift */; };
 		E30E2D6104C0DD8FDAF38387 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01638A197B4D3FA8DDD3401 /* ProfileViewModel.swift */; };
 		E4A253D23E291430CB709F67 /* TerrainContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C060D1A1EDF3D8B708B76A /* TerrainContext.swift */; };
+		E700D4097FD655857F60D7BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2101C1E67846886BA50C7D60 /* Assets.xcassets */; };
 		E74264512CF6D47BF5B8A32B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36761D210C5BEA92DCAB8D2 /* UserRepository.swift */; };
 		F1273A430295174CCDBED840 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971C3122A8AD0D9D68D98AFE /* ContentLoader.swift */; };
 		F1859D83A68C609B7D05D1B9 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD646A1D0F02A73722CED935 /* MainTabView.swift */; };
@@ -112,6 +116,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		11DC3162C3B7535628BBE53E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F521E78342E79B19BF7CBC77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F3E627F1632071DBBC4B151;
+			remoteInfo = TurnLab;
+		};
 		49DE2951375455B1422149BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F521E78342E79B19BF7CBC77 /* Project object */;
@@ -154,6 +165,8 @@
 		19D51758A9AEA14F0B504FE0 /* ProductIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIdentifiers.swift; sourceTree = "<group>"; };
 		1B9D0323A7A08565F6DEE746 /* TurnLabWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TurnLabWidget.entitlements; sourceTree = "<group>"; };
 		1F5501D1BE04D576C9B39E61 /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
+		2101C1E67846886BA50C7D60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27C28E6CF15775623D30B9CF /* TurnLabUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnLabUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		28020B65E0E45FC8997CF976 /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2BFF091A409C82C3CC69A81A /* Drill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drill.swift; sourceTree = "<group>"; };
 		2D3B7CB3BF90B9E8E581933F /* DrillCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillCard.swift; sourceTree = "<group>"; };
@@ -171,10 +184,12 @@
 		431A149E168D4C67C6960161 /* SkillBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillBrowserView.swift; sourceTree = "<group>"; };
 		46EFAC8C77D391093172CE3D /* DomainTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTag.swift; sourceTree = "<group>"; };
 		47D36EEF5FA16E6591C36B14 /* TurnLabWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TurnLabWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		48C0935E81C4957DEF2ECB71 /* MockAssessmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAssessmentRepository.swift; sourceTree = "<group>"; };
 		49B6A6CA7576F53AAC9CAD27 /* SkillProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillProgressIndicator.swift; sourceTree = "<group>"; };
 		4A75DF96A1449AEDD48ACEA0 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		4AA5E32522A260B74B5A28ED /* SkillBrowserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillBrowserViewModel.swift; sourceTree = "<group>"; };
 		4D0F627B93A2D615CBABA2CF /* ProgressionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressionService.swift; sourceTree = "<group>"; };
+		4FF327BE8AAC2322E981C7ED /* TurnLabUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TurnLabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FFD71084DD18C8BD650B31A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		526E7A9F9918646F5A7B069C /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		56BB1E8F5CCBC2DAFC96B701 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
@@ -225,6 +240,7 @@
 		B69D960D1918A97E98D15E8E /* LevelBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelBadge.swift; sourceTree = "<group>"; };
 		B890CB57C068BB70C6848AFE /* VideoContentTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentTab.swift; sourceTree = "<group>"; };
 		B90ACEF8994D313C8E2DEAD4 /* SkillContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillContent.swift; sourceTree = "<group>"; };
+		B94AFFE93A50D30CBCFD10F2 /* TurnLabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnLabUITests.swift; sourceTree = "<group>"; };
 		BC80877BC7625C0B40B0023E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		BDEFB30C090107CC56F8A5F5 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
 		C36761D210C5BEA92DCAB8D2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -273,6 +289,7 @@
 		11578D5A5CD65791DF1BE1B4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2101C1E67846886BA50C7D60 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -319,6 +336,7 @@
 			children = (
 				771ECB10407632E97DA63A96 /* TurnLab.app */,
 				3C0C7CBF31217515735300A8 /* TurnLabTests.xctest */,
+				4FF327BE8AAC2322E981C7ED /* TurnLabUITests.xctest */,
 				47D36EEF5FA16E6591C36B14 /* TurnLabWidget.appex */,
 			);
 			name = Products;
@@ -486,6 +504,15 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		8BDF2A1A73C712194C949D5A /* TurnLabUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B94AFFE93A50D30CBCFD10F2 /* TurnLabUITests.swift */,
+				27C28E6CF15775623D30B9CF /* TurnLabUITestsLaunchTests.swift */,
+			);
+			path = TurnLabUITests;
+			sourceTree = "<group>";
+		};
 		8F2B36A36096F4E1B0802741 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +533,7 @@
 		9D8CAB2244AEC6C3C5793999 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				48C0935E81C4957DEF2ECB71 /* MockAssessmentRepository.swift */,
 				C5CEACE304CBC7A9A22B4270 /* MockSkillRepository.swift */,
 				89321E3F419605A438FF7046 /* MockUserRepository.swift */,
 			);
@@ -614,6 +642,7 @@
 			children = (
 				A5774F8DC84D89D8826D14F2 /* TurnLab */,
 				6838BB10E793C9313A9C75A2 /* TurnLabTests */,
+				8BDF2A1A73C712194C949D5A /* TurnLabUITests */,
 				BC78D10E002846EA1D2802B7 /* TurnLabWidget */,
 				1D11CE61A284150F728E13EC /* Products */,
 			);
@@ -748,6 +777,7 @@
 			buildConfigurationList = F324351932868AE27F6466E2 /* Build configuration list for PBXNativeTarget "TurnLab" */;
 			buildPhases = (
 				5BA5D499DD8A15223E9E5633 /* Sources */,
+				F4F39D27CB17C843C2DCCE59 /* Resources */,
 				6A0958EF96C352D00F14EF6D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
@@ -797,6 +827,24 @@
 			productReference = 47D36EEF5FA16E6591C36B14 /* TurnLabWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		C3091A30E210F47F2C051CCC /* TurnLabUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A04B2BD9A05424BA4043C808 /* Build configuration list for PBXNativeTarget "TurnLabUITests" */;
+			buildPhases = (
+				80DDAAB96CC9F98DE32B7974 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEB378ABE3530005717CC97A /* PBXTargetDependency */,
+			);
+			name = TurnLabUITests;
+			packageProductDependencies = (
+			);
+			productName = TurnLabUITests;
+			productReference = 4FF327BE8AAC2322E981C7ED /* TurnLabUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -805,6 +853,25 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					1F3E627F1632071DBBC4B151 = {
+						DevelopmentTeam = ARPUVY7JZ9;
+						ProvisioningStyle = Automatic;
+					};
+					8672C3077E9790326F3E55DF = {
+						DevelopmentTeam = ARPUVY7JZ9;
+						ProvisioningStyle = Automatic;
+					};
+					89A7EB893834CEE868E7E82B = {
+						DevelopmentTeam = ARPUVY7JZ9;
+						ProvisioningStyle = Automatic;
+					};
+					C3091A30E210F47F2C051CCC = {
+						DevelopmentTeam = ARPUVY7JZ9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1F3E627F1632071DBBC4B151;
+					};
+				};
 			};
 			buildConfigurationList = 4A536C3D4FCF648B3CBB14BA /* Build configuration list for PBXProject "TurnLab" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -822,10 +889,22 @@
 			targets = (
 				1F3E627F1632071DBBC4B151 /* TurnLab */,
 				8672C3077E9790326F3E55DF /* TurnLabTests */,
+				C3091A30E210F47F2C051CCC /* TurnLabUITests */,
 				89A7EB893834CEE868E7E82B /* TurnLabWidget */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4F39D27CB17C843C2DCCE59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E700D4097FD655857F60D7BA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		16F26373FD5B926D8D405091 /* Sources */ = {
@@ -934,12 +1013,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		80DDAAB96CC9F98DE32B7974 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C4A472742F502CBBFF6B193 /* TurnLabUITests.swift in Sources */,
+				A6C3EEF9DC72FB9799503B4A /* TurnLabUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF1DB74250EDE777E43CF35C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0F2683EAE7BF5E425E93F2DA /* AssessmentRepositoryTests.swift in Sources */,
 				9EC504204F69DF15F8EA446C /* HomeViewModelTests.swift in Sources */,
+				2B3FF4FB8B094BD1B5161808 /* MockAssessmentRepository.swift in Sources */,
 				62B3F2D9E357FFEE254D94A8 /* MockSkillRepository.swift in Sources */,
 				62CB83D841A45BA878BAB92C /* MockUserRepository.swift in Sources */,
 				63228EDEEEA182EE49C3F3C9 /* OnboardingViewModelTests.swift in Sources */,
@@ -962,6 +1051,11 @@
 			isa = PBXTargetDependency;
 			target = 89A7EB893834CEE868E7E82B /* TurnLabWidget */;
 			targetProxy = 49DE2951375455B1422149BD /* PBXContainerItemProxy */;
+		};
+		EEB378ABE3530005717CC97A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F3E627F1632071DBBC4B151 /* TurnLab */;
+			targetProxy = 11DC3162C3B7535628BBE53E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -999,9 +1093,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ARPUVY7JZ9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1031,6 +1127,22 @@
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
+		};
+		2BC4B6F3CED12C7182ECD1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.turnlab.app.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TurnLab;
+			};
+			name = Release;
 		};
 		38BC6334C98F1CEB3DC195E8 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1065,9 +1177,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = ARPUVY7JZ9;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1100,7 +1214,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Lab";
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1111,6 +1228,22 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		610BA9CDC37D0EDF0FE24016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.turnlab.app.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TurnLab;
+			};
+			name = Debug;
 		};
 		66FEAF3E7FF51C9CCA8A27A0 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1132,8 +1265,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TurnLabWidget/TurnLabWidget.entitlements;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Focus Skill";
+				INFOPLIST_FILE = TurnLabWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1155,7 +1287,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Turn Lab";
+				INFOPLIST_KEY_CFBundleIconName = AppIcon;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1171,8 +1306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TurnLabWidget/TurnLabWidget.entitlements;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Focus Skill";
+				INFOPLIST_FILE = TurnLabWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1209,6 +1343,15 @@
 			buildConfigurations = (
 				2B9B3EC007F5284E605897A6 /* Debug */,
 				38BC6334C98F1CEB3DC195E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A04B2BD9A05424BA4043C808 /* Build configuration list for PBXNativeTarget "TurnLabUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				610BA9CDC37D0EDF0FE24016 /* Debug */,
+				2BC4B6F3CED12C7182ECD1BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -7,6 +7,7 @@ struct PrimaryButton: View {
     var style: ButtonStyle = .filled
     var isLoading: Bool = false
     var isDisabled: Bool = false
+    var accessibilityId: String?
     let action: () -> Void
 
     enum ButtonStyle {
@@ -14,7 +15,14 @@ struct PrimaryButton: View {
     }
 
     var body: some View {
-        Button(action: action) {
+        buttonContent
+            .disabled(isDisabled || isLoading)
+            .opacity(isDisabled ? 0.5 : 1)
+    }
+
+    @ViewBuilder
+    private var buttonContent: some View {
+        let button = Button(action: action) {
             HStack(spacing: TurnLabSpacing.xs) {
                 if isLoading {
                     ProgressView()
@@ -33,8 +41,12 @@ struct PrimaryButton: View {
             .background(background)
             .clipShape(RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusMedium))
         }
-        .disabled(isDisabled || isLoading)
-        .opacity(isDisabled ? 0.5 : 1)
+
+        if let accessibilityId {
+            button.accessibilityIdentifier(accessibilityId)
+        } else {
+            button
+        }
     }
 
     @ViewBuilder
@@ -62,10 +74,11 @@ struct PrimaryButton: View {
 struct SecondaryButton: View {
     let title: String
     var icon: String?
+    var accessibilityId: String?
     let action: () -> Void
 
     var body: some View {
-        PrimaryButton(title: title, icon: icon, style: .outlined, action: action)
+        PrimaryButton(title: title, icon: icon, style: .outlined, accessibilityId: accessibilityId, action: action)
     }
 }
 

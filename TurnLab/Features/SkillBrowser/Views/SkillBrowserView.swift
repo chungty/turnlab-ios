@@ -21,9 +21,15 @@ struct SkillBrowserView: View {
             .padding()
 
             // Content
-            if viewModel.isLoading {
+            if viewModel.isContentLoading || viewModel.isLoading {
                 Spacer()
-                ProgressView()
+                VStack(spacing: TurnLabSpacing.md) {
+                    ProgressView()
+                        .scaleEffect(1.2)
+                    Text("Loading skills...")
+                        .font(TurnLabTypography.body)
+                        .foregroundColor(TurnLabColors.textSecondary)
+                }
                 Spacer()
             } else if viewModel.filteredSkills.isEmpty {
                 EmptyStateView(
@@ -73,12 +79,14 @@ struct SkillBrowserView: View {
 }
 
 #Preview {
-    NavigationStack {
+    let contentManager = ContentManager()
+    return NavigationStack {
         SkillBrowserView(
             viewModel: SkillBrowserViewModel(
-                skillRepository: SkillRepository(contentManager: ContentManager()),
+                skillRepository: SkillRepository(contentManager: contentManager),
                 assessmentRepository: AssessmentRepository(coreDataStack: .preview),
-                appState: AppState()
+                appState: AppState(),
+                contentManager: contentManager
             )
         )
     }

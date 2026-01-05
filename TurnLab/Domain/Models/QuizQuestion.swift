@@ -14,7 +14,7 @@ struct QuizQuestion: Codable, Identifiable {
         let levelPoints: [String: Int] // Level raw value -> points
 
         func points(for level: SkillLevel) -> Int {
-            levelPoints[String(level.rawValue)] ?? 0
+            levelPoints[String(level.order)] ?? 0
         }
     }
 }

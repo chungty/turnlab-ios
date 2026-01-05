@@ -17,7 +17,7 @@ public class UserEntity: NSManagedObject {
     // MARK: - Convenience
     var skillLevel: SkillLevel {
         get { SkillLevel(rawValue: Int(currentLevel)) ?? .beginner }
-        set { currentLevel = Int16(newValue.rawValue) }
+        set { currentLevel = Int16(newValue.order) }
     }
 }
 
@@ -43,7 +43,7 @@ extension UserEntity {
     ) -> UserEntity {
         let user = UserEntity(context: context)
         user.id = UUID()
-        user.currentLevel = Int16(level.rawValue)
+        user.currentLevel = Int16(level.order)
         user.createdAt = Date()
         user.updatedAt = Date()
 

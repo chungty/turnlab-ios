@@ -35,22 +35,58 @@ struct LevelSectionHeader: View {
     let skillCount: Int
 
     var body: some View {
-        HStack {
-            LevelBadge(level: level, size: .medium)
+        HStack(spacing: TurnLabSpacing.sm) {
+            // Level icon with gradient background
+            ZStack {
+                Circle()
+                    .fill(TurnLabColors.levelGradient(level))
+                    .frame(width: 32, height: 32)
 
-            Text(level.description)
-                .font(TurnLabTypography.caption)
-                .foregroundStyle(TurnLabColors.textSecondary)
+                Image(systemName: levelIcon)
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+
+            VStack(alignment: .leading, spacing: 0) {
+                Text(level.displayName)
+                    .font(TurnLabTypography.headline)
+                    .foregroundStyle(TurnLabColors.textPrimary)
+
+                Text(level.description)
+                    .font(.caption2)
+                    .foregroundStyle(TurnLabColors.textSecondary)
+            }
 
             Spacer()
 
-            Text("\(skillCount) skills")
+            Text("\(skillCount)")
+                .font(TurnLabTypography.title3)
+                .fontWeight(.bold)
+                .foregroundStyle(TurnLabColors.levelColor(level))
+            + Text(" skills")
                 .font(TurnLabTypography.caption)
                 .foregroundStyle(TurnLabColors.textTertiary)
         }
-        .padding(.vertical, TurnLabSpacing.xs)
+        .padding(.vertical, TurnLabSpacing.sm)
         .padding(.horizontal, TurnLabSpacing.sm)
-        .background(Color(.systemGroupedBackground))
+        .background(
+            RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusSmall)
+                .fill(Color(.systemBackground))
+                .shadow(color: TurnLabColors.levelColor(level).opacity(0.1), radius: 4, y: 2)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusSmall)
+                .stroke(TurnLabColors.levelColor(level).opacity(0.2), lineWidth: 1)
+        )
+    }
+
+    private var levelIcon: String {
+        switch level {
+        case .beginner: return "figure.stand"
+        case .novice: return "figure.skiing.downhill"
+        case .intermediate: return "mountain.2"
+        case .expert: return "snowflake"
+        }
     }
 }
 

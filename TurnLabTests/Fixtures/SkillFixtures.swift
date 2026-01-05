@@ -3,6 +3,17 @@ import Foundation
 
 /// Test fixtures for skill-related tests.
 enum SkillFixtures {
+    // MARK: - Outcome Milestones
+
+    static var testOutcomeMilestones: Skill.OutcomeMilestones {
+        Skill.OutcomeMilestones(
+            needsWork: "Struggling with the basics",
+            developing: "Making progress but needs practice",
+            confident: "Performing well in most conditions",
+            mastered: "Expert level execution"
+        )
+    }
+
     // MARK: - Skills
 
     static var beginnerSkill: Skill {
@@ -10,10 +21,25 @@ enum SkillFixtures {
             id: "test-beginner-skill",
             name: "Test Beginner Skill",
             level: .beginner,
-            domain: .balance,
-            description: "A test skill for beginners.",
-            whyItMatters: "Testing matters.",
-            milestones: ["Milestone 1", "Milestone 2", "Milestone 3"],
+            domains: [.balance],
+            prerequisites: [],
+            summary: "A test skill for beginners.",
+            outcomeMilestones: testOutcomeMilestones,
+            assessmentContexts: [.groomedGreen],
+            content: basicContent
+        )
+    }
+
+    static var beginnerSkill2: Skill {
+        Skill(
+            id: "test-beginner-skill-2",
+            name: "Test Beginner Skill 2",
+            level: .beginner,
+            domains: [.balance, .edgeControl],
+            prerequisites: [],
+            summary: "Another test skill for beginners.",
+            outcomeMilestones: testOutcomeMilestones,
+            assessmentContexts: [.groomedGreen],
             content: basicContent
         )
     }
@@ -23,10 +49,11 @@ enum SkillFixtures {
             id: "test-novice-skill",
             name: "Test Novice Skill",
             level: .novice,
-            domain: .edgeControl,
-            description: "A test skill for novice skiers.",
-            whyItMatters: "Progress matters.",
-            milestones: ["Advanced Milestone 1", "Advanced Milestone 2"],
+            domains: [.edgeControl],
+            prerequisites: ["test-beginner-skill"],
+            summary: "A test skill for novice skiers.",
+            outcomeMilestones: testOutcomeMilestones,
+            assessmentContexts: [.groomedGreen, .bumps],
             content: basicContent
         )
     }
@@ -36,10 +63,11 @@ enum SkillFixtures {
             id: "test-intermediate-skill",
             name: "Test Intermediate Skill",
             level: .intermediate,
-            domain: .rotaryMovements,
-            description: "A test skill for intermediate skiers.",
-            whyItMatters: "Technique matters.",
-            milestones: ["Parallel Milestone 1"],
+            domains: [.rotaryMovements],
+            prerequisites: ["test-novice-skill"],
+            summary: "A test skill for intermediate skiers.",
+            outcomeMilestones: testOutcomeMilestones,
+            assessmentContexts: [.groomedGreen, .bumps, .steeps],
             content: basicContent
         )
     }
@@ -49,16 +77,17 @@ enum SkillFixtures {
             id: "test-expert-skill",
             name: "Test Expert Skill",
             level: .expert,
-            domain: .pressureManagement,
-            description: "A test skill for expert skiers.",
-            whyItMatters: "Mastery matters.",
-            milestones: ["Expert Milestone 1", "Expert Milestone 2"],
+            domains: [.pressureManagement, .edgeControl],
+            prerequisites: ["test-intermediate-skill"],
+            summary: "A test skill for expert skiers.",
+            outcomeMilestones: testOutcomeMilestones,
+            assessmentContexts: [.groomedGreen, .bumps, .steeps, .powder],
             content: contentWithVideos
         )
     }
 
     static var allTestSkills: [Skill] {
-        [beginnerSkill, noviceSkill, intermediateSkill, expertSkill]
+        [beginnerSkill, beginnerSkill2, noviceSkill, intermediateSkill, expertSkill]
     }
 
     // MARK: - Content
@@ -79,7 +108,7 @@ enum SkillFixtures {
             tips: [testTip],
             drills: [testDrill],
             checklists: [testChecklist],
-            warnings: ["Be careful on icy terrain"]
+            warnings: [testWarning]
         )
     }
 
@@ -91,27 +120,34 @@ enum SkillFixtures {
             title: "Test Video",
             youtubeId: "abc123",
             channelName: "Test Channel",
-            durationSeconds: 300,
-            description: "A test video description."
+            duration: 300,
+            isPrimary: true
         )
     }
 
     static var testTip: Tip {
         Tip(
             id: "test-tip-1",
+            title: "Test Tip",
             content: "This is a test tip for your skiing.",
-            category: .technique
+            category: .focus,
+            isQuickReference: true
         )
     }
 
     static var testDrill: Drill {
         Drill(
             id: "test-drill-1",
-            name: "Test Drill",
-            description: "A drill for testing purposes.",
-            steps: ["Step 1", "Step 2", "Step 3"],
-            durationMinutes: 10,
-            terrain: .groomed
+            title: "Test Drill",
+            overview: "A drill for testing purposes.",
+            steps: [
+                Drill.DrillStep(order: 1, instruction: "Step 1", focusPoint: "Focus on balance"),
+                Drill.DrillStep(order: 2, instruction: "Step 2", focusPoint: nil),
+                Drill.DrillStep(order: 3, instruction: "Step 3", focusPoint: "Maintain speed")
+            ],
+            difficulty: .easy,
+            recommendedTerrain: [.groomedGreen],
+            estimatedReps: "3-5 times"
         )
     }
 
@@ -119,7 +155,22 @@ enum SkillFixtures {
         Checklist(
             id: "test-checklist-1",
             title: "Test Checklist",
-            items: ["Item 1", "Item 2", "Item 3"]
+            items: [
+                Checklist.ChecklistItem(order: 1, text: "Item 1", isCritical: false),
+                Checklist.ChecklistItem(order: 2, text: "Item 2", isCritical: false),
+                Checklist.ChecklistItem(order: 3, text: "Item 3", isCritical: true)
+            ],
+            purpose: .preRun
+        )
+    }
+
+    static var testWarning: SafetyWarning {
+        SafetyWarning(
+            id: "test-warning-1",
+            title: "Be careful",
+            content: "Be careful on icy terrain",
+            severity: .caution,
+            applicableContexts: [.steeps]
         )
     }
 
@@ -128,21 +179,25 @@ enum SkillFixtures {
     static var testQuizQuestion: QuizQuestion {
         QuizQuestion(
             id: "test-q1",
-            text: "What is your ski level?",
+            scenario: "What is your current ski level?",
             options: [
-                QuizOption(
-                    text: "Beginner",
-                    levelScores: [.beginner: 3, .novice: 0, .intermediate: 0, .expert: 0]
+                QuizQuestion.QuizOption(
+                    id: "test-q1-a",
+                    text: "Beginner - just learning",
+                    levelPoints: ["0": 3, "1": 0, "2": 0, "3": 0]
                 ),
-                QuizOption(
-                    text: "Intermediate",
-                    levelScores: [.beginner: 0, .novice: 0, .intermediate: 3, .expert: 0]
+                QuizQuestion.QuizOption(
+                    id: "test-q1-b",
+                    text: "Intermediate - comfortable on groomed",
+                    levelPoints: ["0": 0, "1": 1, "2": 3, "3": 0]
                 ),
-                QuizOption(
-                    text: "Expert",
-                    levelScores: [.beginner: 0, .novice: 0, .intermediate: 0, .expert: 3]
+                QuizQuestion.QuizOption(
+                    id: "test-q1-c",
+                    text: "Expert - all terrain",
+                    levelPoints: ["0": 0, "1": 0, "2": 0, "3": 3]
                 )
-            ]
+            ],
+            order: 1
         )
     }
 

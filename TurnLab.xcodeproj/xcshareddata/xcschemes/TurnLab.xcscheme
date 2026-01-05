@@ -64,6 +64,17 @@
                ReferencedContainer = "container:TurnLab.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C3091A30E210F47F2C051CCC"
+               BuildableName = "TurnLabUITests.xctest"
+               BlueprintName = "TurnLabUITests"
+               ReferencedContainer = "container:TurnLab.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

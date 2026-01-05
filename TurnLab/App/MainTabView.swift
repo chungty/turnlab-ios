@@ -60,6 +60,7 @@ struct MainTabView: View {
         .sheet(item: $router.presentedSheet) { sheet in
             sheetView(for: sheet)
         }
+        .accessibilityIdentifier("main_tab_view")
     }
 
     // MARK: - Destination Builder

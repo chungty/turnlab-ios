@@ -13,6 +13,8 @@ settings:
     CURRENT_PROJECT_VERSION: "1"
     SWIFT_VERSION: "5.9"
     TARGETED_DEVICE_FAMILY: "1"
+    DEVELOPMENT_TEAM: ARPUVY7JZ9
+    CODE_SIGN_STYLE: Automatic
 
 targets:
   TurnLab:
@@ -22,10 +24,10 @@ targets:
       - path: TurnLab
         excludes:
           - "**/.DS_Store"
-          - "Resources/Assets.xcassets"
           - "Resources/Content"
-    resources:
       - path: TurnLab/Resources/Assets.xcassets
+        buildPhase: resources
+    resources:
       - path: TurnLab/Resources/Content
         type: folder
     settings:
@@ -33,8 +35,11 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.turnlab.app
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: Turn Lab
+        INFOPLIST_KEY_CFBundleIconName: AppIcon
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIRequiresFullScreen: YES
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         CODE_SIGN_ENTITLEMENTS: TurnLab/TurnLab.entitlements
@@ -49,13 +54,14 @@ targets:
       - path: TurnLabWidget
         excludes:
           - "**/.DS_Store"
+          - "Info.plist"
+    info:
+      path: TurnLabWidget/Info.plist
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.turnlab.app.widget
-        INFOPLIST_KEY_CFBundleDisplayName: Focus Skill
         CODE_SIGN_ENTITLEMENTS: TurnLabWidget/TurnLabWidget.entitlements
         SKIP_INSTALL: YES
-        GENERATE_INFOPLIST_FILE: YES
 
   TurnLabTests:
     type: bundle.unit-test
@@ -67,6 +73,19 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.turnlab.app.tests
+    dependencies:
+      - target: TurnLab
+
+  TurnLabUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: TurnLabUITests
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.turnlab.app.uitests
     dependencies:
       - target: TurnLab
 
@@ -82,6 +101,7 @@ schemes:
       config: Debug
       targets:
         - TurnLabTests
+        - TurnLabUITests
     profile:
       config: Release
     analyze:

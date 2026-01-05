@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 /// ViewModel for the skill browser.
 @MainActor
@@ -11,6 +12,7 @@ final class SkillBrowserViewModel: ObservableObject {
     @Published var selectedDomain: SkillDomain?
     @Published var viewMode: ViewMode = .byLevel
     @Published var isLoading = false
+    @Published var isContentLoading = true
 
     enum ViewMode: String, CaseIterable {
         case byLevel = "By Level"
@@ -21,6 +23,8 @@ final class SkillBrowserViewModel: ObservableObject {
     private let skillRepository: SkillRepositoryProtocol
     private let assessmentRepository: AssessmentRepositoryProtocol
     private let appState: AppState
+    private let contentManager: ContentManager
+    private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Computed Properties
     var filteredSkills: [Skill] {
@@ -70,11 +74,31 @@ final class SkillBrowserViewModel: ObservableObject {
     init(
         skillRepository: SkillRepositoryProtocol,
         assessmentRepository: AssessmentRepositoryProtocol,
-        appState: AppState
+        appState: AppState,
+        contentManager: ContentManager
     ) {
         self.skillRepository = skillRepository
         self.assessmentRepository = assessmentRepository
         self.appState = appState
+        self.contentManager = contentManager
+
+        // Observe content loading state
+        contentManager.$isLoaded
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoaded in
+                self?.isContentLoading = !isLoaded
+                if isLoaded {
+                    Task { [weak self] in
+                        await self?.loadData()
+                    }
+                }
+            }
+            .store(in: &cancellables)
+
+        // Check if content is already loaded
+        if contentManager.isLoaded {
+            isContentLoading = false
+        }
     }
 
     // MARK: - Data Loading

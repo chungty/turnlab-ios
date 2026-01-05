@@ -22,10 +22,22 @@ final class DIContainer: ObservableObject {
     // MARK: - Shared State
     let appState: AppState
 
+    // MARK: - UI Testing Support
+    private static var isUITesting: Bool {
+        ProcessInfo.processInfo.arguments.contains("UI_TESTING")
+    }
+
+    private static var shouldResetState: Bool {
+        ProcessInfo.processInfo.arguments.contains("--reset-state")
+    }
+
     // MARK: - Initialization
     init(inMemory: Bool = false) {
+        // Use in-memory storage for UI tests with reset flag
+        let useInMemory = inMemory || (Self.isUITesting && Self.shouldResetState)
+
         // Initialize Core Data
-        self.coreDataStack = CoreDataStack(inMemory: inMemory)
+        self.coreDataStack = CoreDataStack(inMemory: useInMemory)
 
         // Initialize Content Manager
         self.contentManager = ContentManager()
@@ -85,7 +97,8 @@ final class DIContainer: ObservableObject {
             skillRepository: skillRepository,
             assessmentRepository: assessmentRepository,
             progressionService: progressionService,
-            appState: appState
+            appState: appState,
+            contentManager: contentManager
         )
     }
 
@@ -93,7 +106,8 @@ final class DIContainer: ObservableObject {
         SkillBrowserViewModel(
             skillRepository: skillRepository,
             assessmentRepository: assessmentRepository,
-            appState: appState
+            appState: appState,
+            contentManager: contentManager
         )
     }
 

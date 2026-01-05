@@ -1,508 +1,326 @@
-{
-  "questions": [
-    {
-      "id": "q1",
-      "text": "How often do you ski?",
-      "options": [
-        {
-          "text": "This will be my first time or I've been once or twice",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "A few times per season",
-          "levelScores": {
-            "beginner": 1,
-            "novice": 2,
-            "intermediate": 1,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Regularly throughout the season",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 1,
-            "intermediate": 2,
-            "expert": 1
-          }
-        },
-        {
-          "text": "20+ days per season or I grew up skiing",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 1,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q2",
-      "text": "What terrain are you comfortable skiing?",
-      "options": [
-        {
-          "text": "Bunny hill or magic carpet only",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Green circles (easiest) runs",
-          "levelScores": {
-            "beginner": 1,
-            "novice": 2,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Blue squares (intermediate) runs",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 1,
-            "intermediate": 3,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Black diamonds and expert terrain",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q3",
-      "text": "How do you typically slow down or stop?",
-      "options": [
-        {
-          "text": "I'm not sure how to stop yet",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Wedge (pizza/snowplow)",
-          "levelScores": {
-            "beginner": 1,
-            "novice": 2,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Parallel hockey stop",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 3,
-            "expert": 1
-          }
-        },
-        {
-          "text": "Quick parallel stop in any condition",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 1,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q4",
-      "text": "How do you turn on skis?",
-      "options": [
-        {
-          "text": "I haven't learned to turn yet",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Wedge (pizza) turns",
-          "levelScores": {
-            "beginner": 1,
-            "novice": 2,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Parallel turns with skis together",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 3,
-            "expert": 1
-          }
-        },
-        {
-          "text": "Dynamic carved turns leaving clean tracks",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q5",
-      "text": "Scenario: You're on a blue run and the trail gets steeper. What do you do?",
-      "options": [
-        {
-          "text": "I would be scared and might sit down",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 1,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Make big, slow wedge turns across the slope",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 3,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Make controlled parallel turns to manage speed",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 3,
-            "expert": 1
-          }
-        },
-        {
-          "text": "Adjust my turn shape and rhythm for the pitch",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 1,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q6",
-      "text": "How comfortable are you with speed on skis?",
-      "options": [
-        {
-          "text": "Any speed feels too fast for me",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 1,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "I prefer to ski slowly and cautiously",
-          "levelScores": {
-            "beginner": 1,
-            "novice": 2,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "I can ski moderate speed with control",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 3,
-            "expert": 0
-          }
-        },
-        {
-          "text": "I'm comfortable skiing fast and can stop quickly",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 1,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q7",
-      "text": "Have you ever skied moguls (bumps)?",
-      "options": [
-        {
-          "text": "Never tried or I don't know what moguls are",
-          "levelScores": {
-            "beginner": 2,
-            "novice": 2,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "I avoid them or find them very difficult",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 2,
-            "intermediate": 2,
-            "expert": 0
-          }
-        },
-        {
-          "text": "I can ski through them but it's challenging",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 2,
-            "expert": 2
-          }
-        },
-        {
-          "text": "I enjoy moguls and ski them confidently",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q8",
-      "text": "Have you skied powder (deep, ungroomed snow)?",
-      "options": [
-        {
-          "text": "Never or I'm not sure what powder skiing means",
-          "levelScores": {
-            "beginner": 2,
-            "novice": 2,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "I've tried but struggled to stay afloat",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 1,
-            "intermediate": 2,
-            "expert": 1
-          }
-        },
-        {
-          "text": "I can ski powder on moderate terrain",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 2,
-            "expert": 2
-          }
-        },
-        {
-          "text": "I love powder days and seek out fresh tracks",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q9",
-      "text": "What best describes your turn shape?",
-      "options": [
-        {
-          "text": "I'm still learning to turn",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Wide, sweeping turns with a wedge shape",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 3,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Parallel turns, sometimes with some skidding",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 3,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Clean carved turns that leave railroad tracks",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q10",
-      "text": "Scenario: You see an icy patch on the run ahead. What's your reaction?",
-      "options": [
-        {
-          "text": "I would probably fall or need to stop",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 1,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Slow way down and carefully traverse around it",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 3,
-            "intermediate": 1,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Maintain speed and ski through with good edge control",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 3,
-            "expert": 1
-          }
-        },
-        {
-          "text": "No big deal - adjust edges and pressure as needed",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q11",
-      "text": "Do you use poles while skiing?",
-      "options": [
-        {
-          "text": "No or I'm not sure how to use them",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 1,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Sometimes for balance",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 3,
-            "intermediate": 1,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Yes, I use pole plants to time my turns",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 3,
-            "expert": 1
-          }
-        },
-        {
-          "text": "Yes, they're essential to my rhythm and technique",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 1,
-            "expert": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "q12",
-      "text": "What's your primary skiing goal?",
-      "options": [
-        {
-          "text": "Learn the basics and stay safe on easy terrain",
-          "levelScores": {
-            "beginner": 3,
-            "novice": 1,
-            "intermediate": 0,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Get comfortable on more terrain types",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 3,
-            "intermediate": 1,
-            "expert": 0
-          }
-        },
-        {
-          "text": "Refine my technique and ski the whole mountain",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 3,
-            "expert": 1
-          }
-        },
-        {
-          "text": "Master advanced techniques and challenging conditions",
-          "levelScores": {
-            "beginner": 0,
-            "novice": 0,
-            "intermediate": 0,
-            "expert": 3
-          }
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": "q1",
+    "scenario": "You're standing at the top of a gentle green run for the first time today. How do you feel?",
+    "order": 1,
+    "options": [
+      {
+        "id": "q1a",
+        "text": "Nervous - I need someone to guide me down",
+        "levelPoints": {"0": 3, "1": 0, "2": 0, "3": 0}
+      },
+      {
+        "id": "q1b",
+        "text": "A bit cautious, but I know I can wedge down safely",
+        "levelPoints": {"0": 1, "1": 3, "2": 0, "3": 0}
+      },
+      {
+        "id": "q1c",
+        "text": "Comfortable - greens are warm-up terrain for me",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q1d",
+        "text": "Looking for something more challenging already",
+        "levelPoints": {"0": 0, "1": 0, "2": 1, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q2",
+    "scenario": "A friend invites you to ski a blue run. What's your honest reaction?",
+    "order": 2,
+    "options": [
+      {
+        "id": "q2a",
+        "text": "No way - that's beyond my ability right now",
+        "levelPoints": {"0": 3, "1": 1, "2": 0, "3": 0}
+      },
+      {
+        "id": "q2b",
+        "text": "Maybe, but only if it's a very easy blue",
+        "levelPoints": {"0": 0, "1": 3, "2": 0, "3": 0}
+      },
+      {
+        "id": "q2c",
+        "text": "Sure, blues are where I spend most of my time",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 0}
+      },
+      {
+        "id": "q2d",
+        "text": "Of course - I prefer blues and blacks anyway",
+        "levelPoints": {"0": 0, "1": 0, "2": 1, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q3",
+    "scenario": "You're picking up speed faster than expected. What do you do?",
+    "order": 3,
+    "options": [
+      {
+        "id": "q3a",
+        "text": "I might panic or fall trying to stop",
+        "levelPoints": {"0": 3, "1": 0, "2": 0, "3": 0}
+      },
+      {
+        "id": "q3b",
+        "text": "Make my wedge bigger until I slow down",
+        "levelPoints": {"0": 1, "1": 3, "2": 0, "3": 0}
+      },
+      {
+        "id": "q3c",
+        "text": "Do a hockey stop or controlled parallel turns",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q3d",
+        "text": "Shape my turns to manage speed instinctively",
+        "levelPoints": {"0": 0, "1": 0, "2": 1, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q4",
+    "scenario": "You need to make a left turn. How do your skis move?",
+    "order": 4,
+    "options": [
+      {
+        "id": "q4a",
+        "text": "I'm not sure - I just try to point left somehow",
+        "levelPoints": {"0": 3, "1": 0, "2": 0, "3": 0}
+      },
+      {
+        "id": "q4b",
+        "text": "I push out my right ski to make a wedge turn",
+        "levelPoints": {"0": 1, "1": 3, "2": 0, "3": 0}
+      },
+      {
+        "id": "q4c",
+        "text": "Both skis stay parallel as I shift my weight",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q4d",
+        "text": "I tip onto my right edges and carve through the turn",
+        "levelPoints": {"0": 0, "1": 0, "2": 0, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q5",
+    "scenario": "The run suddenly gets steeper. What happens next?",
+    "order": 5,
+    "options": [
+      {
+        "id": "q5a",
+        "text": "I would probably need to sit down or sidestep",
+        "levelPoints": {"0": 3, "1": 0, "2": 0, "3": 0}
+      },
+      {
+        "id": "q5b",
+        "text": "Make very wide, slow turns across the entire slope",
+        "levelPoints": {"0": 1, "1": 3, "2": 0, "3": 0}
+      },
+      {
+        "id": "q5c",
+        "text": "Shorten my turns and stay more in the fall line",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q5d",
+        "text": "Commit forward and use quick edge transitions",
+        "levelPoints": {"0": 0, "1": 0, "2": 1, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q6",
+    "scenario": "You're skiing and someone suddenly stops in front of you. How do you react?",
+    "order": 6,
+    "options": [
+      {
+        "id": "q6a",
+        "text": "I might crash - I can't stop quickly yet",
+        "levelPoints": {"0": 3, "1": 1, "2": 0, "3": 0}
+      },
+      {
+        "id": "q6b",
+        "text": "Do a big wedge to slow down and turn around them",
+        "levelPoints": {"0": 0, "1": 3, "2": 0, "3": 0}
+      },
+      {
+        "id": "q6c",
+        "text": "Hockey stop or sharp parallel turn to avoid them",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q6d",
+        "text": "Quick carved turn with instant stop if needed",
+        "levelPoints": {"0": 0, "1": 0, "2": 0, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q7",
+    "scenario": "You encounter a small patch of ice mid-run. What happens?",
+    "order": 7,
+    "options": [
+      {
+        "id": "q7a",
+        "text": "I'd probably lose control or fall",
+        "levelPoints": {"0": 3, "1": 1, "2": 0, "3": 0}
+      },
+      {
+        "id": "q7b",
+        "text": "Slow way down and carefully edge around it",
+        "levelPoints": {"0": 0, "1": 3, "2": 1, "3": 0}
+      },
+      {
+        "id": "q7c",
+        "text": "Stay balanced and ski through maintaining edge grip",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q7d",
+        "text": "Adjust pressure and edge angle without thinking",
+        "levelPoints": {"0": 0, "1": 0, "2": 0, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q8",
+    "scenario": "It snowed 6 inches last night. You're at the top of an ungroomed run. What do you do?",
+    "order": 8,
+    "options": [
+      {
+        "id": "q8a",
+        "text": "Find a groomed run instead - powder is too hard",
+        "levelPoints": {"0": 3, "1": 2, "2": 0, "3": 0}
+      },
+      {
+        "id": "q8b",
+        "text": "Give it a try but expect to struggle and fall",
+        "levelPoints": {"0": 0, "1": 2, "2": 2, "3": 0}
+      },
+      {
+        "id": "q8c",
+        "text": "Adjust my technique - more two-footed, keep speed up",
+        "levelPoints": {"0": 0, "1": 0, "2": 2, "3": 2}
+      },
+      {
+        "id": "q8d",
+        "text": "Perfect! Use my powder technique and float through",
+        "levelPoints": {"0": 0, "1": 0, "2": 0, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q9",
+    "scenario": "You're loading the chairlift. How comfortable are you?",
+    "order": 9,
+    "options": [
+      {
+        "id": "q9a",
+        "text": "Still learning - I need help or slow the lift down",
+        "levelPoints": {"0": 3, "1": 0, "2": 0, "3": 0}
+      },
+      {
+        "id": "q9b",
+        "text": "I can do it but I'm always a bit nervous",
+        "levelPoints": {"0": 1, "1": 3, "2": 0, "3": 0}
+      },
+      {
+        "id": "q9c",
+        "text": "No problem - loading is automatic for me now",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q9d",
+        "text": "Totally routine - I can chat while getting on",
+        "levelPoints": {"0": 0, "1": 0, "2": 1, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q10",
+    "scenario": "You're skiing with poles. How do you use them?",
+    "order": 10,
+    "options": [
+      {
+        "id": "q10a",
+        "text": "I don't use poles yet, or just for balance when stopped",
+        "levelPoints": {"0": 3, "1": 1, "2": 0, "3": 0}
+      },
+      {
+        "id": "q10b",
+        "text": "Mostly for pushing myself on flat sections",
+        "levelPoints": {"0": 1, "1": 3, "2": 0, "3": 0}
+      },
+      {
+        "id": "q10c",
+        "text": "I plant them to time the start of each turn",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q10d",
+        "text": "Rhythmic pole plants are essential to my skiing flow",
+        "levelPoints": {"0": 0, "1": 0, "2": 1, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q11",
+    "scenario": "You see a mogul field (bumps) ahead. What's your plan?",
+    "order": 11,
+    "options": [
+      {
+        "id": "q11a",
+        "text": "I'd go around - moguls are way beyond my level",
+        "levelPoints": {"0": 3, "1": 2, "2": 0, "3": 0}
+      },
+      {
+        "id": "q11b",
+        "text": "Maybe try it slowly, but I'd struggle a lot",
+        "levelPoints": {"0": 0, "1": 2, "2": 2, "3": 0}
+      },
+      {
+        "id": "q11c",
+        "text": "Pick a line and make controlled short turns through",
+        "levelPoints": {"0": 0, "1": 0, "2": 2, "3": 2}
+      },
+      {
+        "id": "q11d",
+        "text": "Absorb and extend - moguls are fun terrain for me",
+        "levelPoints": {"0": 0, "1": 0, "2": 0, "3": 3}
+      }
+    ]
+  },
+  {
+    "id": "q12",
+    "scenario": "End of a long ski day. How do you feel about your last run?",
+    "order": 12,
+    "options": [
+      {
+        "id": "q12a",
+        "text": "Exhausted - staying in control takes all my focus",
+        "levelPoints": {"0": 3, "1": 1, "2": 0, "3": 0}
+      },
+      {
+        "id": "q12b",
+        "text": "Tired but satisfied - I stuck to comfortable terrain",
+        "levelPoints": {"0": 0, "1": 3, "2": 1, "3": 0}
+      },
+      {
+        "id": "q12c",
+        "text": "Good - I skied varied terrain and improved today",
+        "levelPoints": {"0": 0, "1": 0, "2": 3, "3": 1}
+      },
+      {
+        "id": "q12d",
+        "text": "One more run! I could ski challenging terrain all day",
+        "levelPoints": {"0": 0, "1": 0, "2": 0, "3": 3}
+      }
+    ]
+  }
+]

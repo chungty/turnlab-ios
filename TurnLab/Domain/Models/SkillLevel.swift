@@ -2,11 +2,32 @@ import Foundation
 
 /// Represents the skill progression levels in Turn Lab.
 /// Each level builds upon the previous, with increasing technical difficulty.
-enum SkillLevel: Int, Codable, CaseIterable, Comparable {
-    case beginner = 0
-    case novice = 1
-    case intermediate = 2
-    case expert = 3
+enum SkillLevel: String, Codable, CaseIterable, Comparable {
+    case beginner = "beginner"
+    case novice = "novice"
+    case intermediate = "intermediate"
+    case expert = "expert"
+
+    /// Integer representation for Core Data storage and comparison
+    var order: Int {
+        switch self {
+        case .beginner: return 0
+        case .novice: return 1
+        case .intermediate: return 2
+        case .expert: return 3
+        }
+    }
+
+    /// Initialize from integer value (for Core Data)
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .beginner
+        case 1: self = .novice
+        case 2: self = .intermediate
+        case 3: self = .expert
+        default: return nil
+        }
+    }
 
     var displayName: String {
         switch self {
@@ -39,6 +60,6 @@ enum SkillLevel: Int, Codable, CaseIterable, Comparable {
     static let unlockThreshold: Double = 0.80
 
     static func < (lhs: SkillLevel, rhs: SkillLevel) -> Bool {
-        lhs.rawValue < rhs.rawValue
+        lhs.order < rhs.order
     }
 }

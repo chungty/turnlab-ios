@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 /// ViewModel for the home dashboard.
 @MainActor
@@ -6,16 +7,19 @@ final class HomeViewModel: ObservableObject {
     // MARK: - Published State
     @Published var focusSkill: Skill?
     @Published var focusSkillRating: Rating = .notAssessed
-    @Published var suggestedSkills: [Skill] = []
+    @Published var suggestedSkills: [SuggestedSkillWithReason] = []
     @Published var levelProgress: Double = 0
     @Published var recentAssessmentCount = 0
     @Published var isLoading = false
+    @Published var isContentLoading = true
 
     // MARK: - Dependencies
     private let skillRepository: SkillRepositoryProtocol
     private let assessmentRepository: AssessmentRepositoryProtocol
     private let progressionService: ProgressionService
     private let appState: AppState
+    private let contentManager: ContentManager
+    private var cancellables = Set<AnyCancellable>()
 
     // MARK: - Computed Properties
     var currentLevel: SkillLevel {
@@ -35,12 +39,32 @@ final class HomeViewModel: ObservableObject {
         skillRepository: SkillRepositoryProtocol,
         assessmentRepository: AssessmentRepositoryProtocol,
         progressionService: ProgressionService,
-        appState: AppState
+        appState: AppState,
+        contentManager: ContentManager
     ) {
         self.skillRepository = skillRepository
         self.assessmentRepository = assessmentRepository
         self.progressionService = progressionService
         self.appState = appState
+        self.contentManager = contentManager
+
+        // Observe content loading state
+        contentManager.$isLoaded
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoaded in
+                self?.isContentLoading = !isLoaded
+                if isLoaded {
+                    Task { [weak self] in
+                        await self?.loadData()
+                    }
+                }
+            }
+            .store(in: &cancellables)
+
+        // Check if content is already loaded
+        if contentManager.isLoaded {
+            isContentLoading = false
+        }
     }
 
     // MARK: - Data Loading
@@ -83,7 +107,7 @@ final class HomeViewModel: ObservableObject {
     }
 
     private func loadSuggestedSkills() async {
-        suggestedSkills = await progressionService.suggestedSkills(
+        suggestedSkills = await progressionService.suggestedSkillsWithReasons(
             currentLevel: currentLevel,
             limit: 3
         )

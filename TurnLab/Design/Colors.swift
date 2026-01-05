@@ -25,13 +25,43 @@ enum TurnLabColors {
     static let error = Color.red
     static let info = Color.blue
 
-    // MARK: - Level Colors
+    // MARK: - Level Colors (Vibrant ski resort trail colors)
     static func levelColor(_ level: SkillLevel) -> Color {
         switch level {
-        case .beginner: return .green
-        case .novice: return .blue
-        case .intermediate: return .orange
-        case .expert: return .red
+        case .beginner: return Color(red: 0.2, green: 0.7, blue: 0.3) // Fresh green
+        case .novice: return Color(red: 0.2, green: 0.5, blue: 0.85) // Bright blue
+        case .intermediate: return Color(red: 0.95, green: 0.55, blue: 0.15) // Warm orange
+        case .expert: return Color(red: 0.85, green: 0.2, blue: 0.25) // Bold red
+        }
+    }
+
+    // MARK: - Level Gradients for immersive headers
+    static func levelGradient(_ level: SkillLevel) -> LinearGradient {
+        switch level {
+        case .beginner:
+            return LinearGradient(
+                colors: [Color(red: 0.2, green: 0.6, blue: 0.3), Color(red: 0.3, green: 0.75, blue: 0.4)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case .novice:
+            return LinearGradient(
+                colors: [Color(red: 0.15, green: 0.4, blue: 0.75), Color(red: 0.3, green: 0.6, blue: 0.9)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case .intermediate:
+            return LinearGradient(
+                colors: [Color(red: 0.9, green: 0.45, blue: 0.1), Color(red: 0.95, green: 0.6, blue: 0.25)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        case .expert:
+            return LinearGradient(
+                colors: [Color(red: 0.75, green: 0.15, blue: 0.2), Color(red: 0.9, green: 0.25, blue: 0.3)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
         }
     }
 

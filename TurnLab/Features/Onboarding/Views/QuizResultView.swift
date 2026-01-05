@@ -16,8 +16,10 @@ struct QuizResultView: View {
                     Text("Assessment Complete!")
                         .font(TurnLabTypography.title1)
                         .foregroundStyle(.white)
+                        .accessibilityIdentifier("quiz_result_title")
                 }
                 .padding(.top, TurnLabSpacing.xxl)
+                .accessibilityIdentifier("quiz_result_header")
 
                 // Recommended level
                 if let result = viewModel.result {
@@ -55,7 +57,8 @@ struct QuizResultView: View {
                     PrimaryButton(
                         title: "Start at This Level",
                         icon: "arrow.right",
-                        isLoading: viewModel.isLoading
+                        isLoading: viewModel.isLoading,
+                        accessibilityId: "quiz_start_button"
                     ) {
                         viewModel.acceptRecommendedLevel()
                     }

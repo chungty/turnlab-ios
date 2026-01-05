@@ -10,15 +10,37 @@ struct SkillCard: View {
     var body: some View {
         Button(action: { onTap?() }) {
             HStack(spacing: TurnLabSpacing.sm) {
-                // Rating indicator
-                SkillProgressIndicator(rating: rating)
+                // Rating indicator with level color accent
+                ZStack {
+                    Circle()
+                        .fill(TurnLabColors.levelColor(skill.level).opacity(0.1))
+                        .frame(width: 52, height: 52)
+
+                    SkillProgressIndicator(rating: rating)
+                }
 
                 // Content
                 VStack(alignment: .leading, spacing: TurnLabSpacing.xxs) {
-                    Text(skill.name)
-                        .font(TurnLabTypography.headline)
-                        .foregroundStyle(TurnLabColors.textPrimary)
-                        .lineLimit(1)
+                    HStack(spacing: TurnLabSpacing.xs) {
+                        Text(skill.name)
+                            .font(TurnLabTypography.headline)
+                            .foregroundStyle(TurnLabColors.textPrimary)
+                            .lineLimit(1)
+
+                        Spacer()
+
+                        // Level indicator
+                        Text(skill.level.displayName)
+                            .font(.caption2)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(TurnLabColors.levelColor(skill.level))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(
+                                Capsule()
+                                    .fill(TurnLabColors.levelColor(skill.level).opacity(0.15))
+                            )
+                    }
 
                     Text(skill.summary)
                         .font(TurnLabTypography.caption)
@@ -33,24 +55,41 @@ struct SkillCard: View {
                     }
                 }
 
-                Spacer()
-
                 // Lock or chevron
                 if isLocked {
-                    Image(systemName: "lock.fill")
-                        .foregroundStyle(TurnLabColors.textTertiary)
+                    VStack {
+                        Image(systemName: "lock.fill")
+                            .foregroundStyle(TurnLabColors.textTertiary)
+                        Text("Premium")
+                            .font(.caption2)
+                            .foregroundStyle(TurnLabColors.textTertiary)
+                    }
                 } else {
                     Image(systemName: "chevron.right")
-                        .foregroundStyle(TurnLabColors.textTertiary)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(TurnLabColors.levelColor(skill.level))
                 }
             }
             .cardPadding()
-            .background(Color(.systemBackground))
-            .clipShape(RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusMedium))
-            .shadow(color: .black.opacity(0.05), radius: 4, y: 2)
+            .background(
+                RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusMedium)
+                    .fill(Color(.systemBackground))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusMedium)
+                    .stroke(
+                        isLocked ? Color.gray.opacity(0.2) : TurnLabColors.levelColor(skill.level).opacity(0.15),
+                        lineWidth: 1
+                    )
+            )
+            .shadow(
+                color: isLocked ? .clear : TurnLabColors.levelColor(skill.level).opacity(0.08),
+                radius: 6,
+                y: 3
+            )
         }
         .buttonStyle(.plain)
-        .opacity(isLocked ? 0.6 : 1)
+        .opacity(isLocked ? 0.7 : 1)
     }
 }
 

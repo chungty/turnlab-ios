@@ -16,6 +16,7 @@ struct QuizQuestionView: View {
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal)
                     .padding(.top, TurnLabSpacing.xl)
+                    .accessibilityIdentifier("quiz_question_scenario")
 
                 // Options
                 VStack(spacing: TurnLabSpacing.sm) {
@@ -74,6 +75,7 @@ struct QuizOptionButton: View {
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
+        .accessibilityIdentifier("quiz_option_\(option.id)")
     }
 }
 
