@@ -85,6 +85,7 @@
 		9E9E06E0D94E04232AA7704D /* StatsGridSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3DDB5A3639EFDEAA4DBB11 /* StatsGridSection.swift */; };
 		9EC504204F69DF15F8EA446C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0431BD337A1B453AEEA8967A /* HomeViewModelTests.swift */; };
 		A183B0FB3088F2AD0D2532E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B97FB9BD8E5B24BD684D /* Colors.swift */; };
+		A27581C09022914238CC4639 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 812603E5BBF8BBF08298F9CF /* PrivacyInfo.xcprivacy */; };
 		A56C802EB90E0E328B883214 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5A7E1693428BC6380048BB /* DIContainer.swift */; };
 		A5C4C2825E197D0B896DC0C4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2331588CEFCCF599A184870 /* RootView.swift */; };
 		A6C3EEF9DC72FB9799503B4A /* TurnLabUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C28E6CF15775623D30B9CF /* TurnLabUITestsLaunchTests.swift */; };
@@ -213,6 +214,7 @@
 		771ECB10407632E97DA63A96 /* TurnLab.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TurnLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9D5B0C0C8ACDBC704C2659 /* SkillRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRepositoryTests.swift; sourceTree = "<group>"; };
 		809DAC8D81C59AB8AAB64A29 /* Configuration.storekit */ = {isa = PBXFileReference; path = Configuration.storekit; sourceTree = "<group>"; };
+		812603E5BBF8BBF08298F9CF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		81F6FAAD0E74E5DD855A5548 /* LevelProgressionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressionSection.swift; sourceTree = "<group>"; };
 		8511D8F5F196008CD1756925 /* AssessmentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentRepositoryProtocol.swift; sourceTree = "<group>"; };
 		85354453C644BBFF34CDD166 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -583,6 +585,7 @@
 				C303FB2CF314B6D6F68CE75D /* Navigation */,
 				11578D5A5CD65791DF1BE1B4 /* Resources */,
 				5E764410D9FF9E8EEAD923E6 /* Services */,
+				812603E5BBF8BBF08298F9CF /* PrivacyInfo.xcprivacy */,
 				115EC25BAB4F26491AE70F23 /* TurnLab.entitlements */,
 			);
 			path = TurnLab;
@@ -908,6 +911,7 @@
 			files = (
 				E700D4097FD655857F60D7BA /* Assets.xcassets in Resources */,
 				52D8E05AD59F0E7773409388 /* Configuration.storekit in Resources */,
+				A27581C09022914238CC4639 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

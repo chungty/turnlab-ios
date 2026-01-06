@@ -1,0 +1,58 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Create In-App Purchase"
+  lane :create_iap do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    # Note: Fastlane doesn't have a built-in action for creating IAPs
+    # You need to use the App Store Connect web interface or use spaceship directly
+    UI.message("IAP creation needs to be done via App Store Connect web interface")
+    UI.message("Product ID: com.turnlab.premium")
+    UI.message("Type: Non-Consumable")
+    UI.message("Price: $4.99 (Tier 5)")
+  end
+
+  desc "Build and archive the app"
+  lane :archive do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    build_app(
+      scheme: "TurnLab",
+      export_method: "app-store",
+      output_directory: "./build",
+      output_name: "TurnLab.ipa",
+      clean: true
+    )
+  end
+
+  desc "Upload to App Store Connect"
+  lane :upload do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    upload_to_app_store(
+      ipa: "./build/TurnLab.ipa",
+      skip_metadata: true,
+      skip_screenshots: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Full release: archive and upload"
+  lane :release do
+    archive
+    upload
+  end
+end

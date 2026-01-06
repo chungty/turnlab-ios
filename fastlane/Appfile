@@ -1,0 +1,7 @@
+app_identifier("com.turnlab.app")
+apple_id("chungty@gmail.com")
+team_id("ARPUVY7JZ9")
+
+for_lane :release do
+  app_identifier "com.turnlab.app"
+end
