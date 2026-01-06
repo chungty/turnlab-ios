@@ -9,16 +9,13 @@ final class SettingsViewModel: ObservableObject {
     @Published var isLoadingPurchase = false
     @Published var purchaseError: String?
     @Published var showRestoreSuccess = false
+    @Published var premiumPrice: String = "$4.99"
 
     // MARK: - Dependencies
     private let premiumManager: PremiumManager
     private let userRepository: UserRepositoryProtocol
     private let appState: AppState
-
-    // MARK: - Computed Properties
-    var premiumPrice: String {
-        "$4.99" // Would be dynamic from StoreKit in production
-    }
+    private let purchaseService: PurchaseService
 
     var appVersion: String {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
@@ -30,11 +27,13 @@ final class SettingsViewModel: ObservableObject {
     init(
         premiumManager: PremiumManager,
         userRepository: UserRepositoryProtocol,
-        appState: AppState
+        appState: AppState,
+        purchaseService: PurchaseService? = nil
     ) {
         self.premiumManager = premiumManager
         self.userRepository = userRepository
         self.appState = appState
+        self.purchaseService = purchaseService ?? PurchaseService()
 
         self.isPremium = appState.isPremiumUnlocked
     }
@@ -45,6 +44,12 @@ final class SettingsViewModel: ObservableObject {
 
         if let prefs = await userRepository.getPreferences() {
             notificationsEnabled = prefs.notificationsEnabled
+        }
+
+        // Fetch dynamic price from StoreKit
+        await purchaseService.loadProducts()
+        if let product = purchaseService.premiumProduct {
+            premiumPrice = product.displayPrice
         }
     }
 

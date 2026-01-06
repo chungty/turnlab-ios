@@ -55,6 +55,17 @@ enum Rating: Int, Codable, CaseIterable, Comparable {
         self >= .confident
     }
 
+    /// Progress value (0.0 - 1.0) for visual indicators
+    var progressValue: Double {
+        switch self {
+        case .notAssessed: return 0.0
+        case .needsWork: return 0.25
+        case .developing: return 0.5
+        case .confident: return 0.75
+        case .mastered: return 1.0
+        }
+    }
+
     static func < (lhs: Rating, rhs: Rating) -> Bool {
         lhs.rawValue < rhs.rawValue
     }

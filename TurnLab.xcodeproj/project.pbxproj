@@ -38,6 +38,7 @@
 		4EE31CE36405E36D98994834 /* ProgressionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F627B93A2D615CBABA2CF /* ProgressionService.swift */; };
 		517C1B181D161116CF53993D /* TerrainContextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B30F69DBCD8FB9A18FC3B /* TerrainContextPicker.swift */; };
 		526E229A7F899BD392E7FFEB /* DomainBasedBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF89E7B910FE892B045EB86 /* DomainBasedBrowserView.swift */; };
+		52D8E05AD59F0E7773409388 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 809DAC8D81C59AB8AAB64A29 /* Configuration.storekit */; };
 		5385DF6E075FA3C493BD24E6 /* TurnLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8104DBFBF59D7E022642C45 /* TurnLabApp.swift */; };
 		55415214AF5D94C3CCF68836 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80877BC7625C0B40B0023E /* AppState.swift */; };
 		55679F439714C977C70F7185 /* SkillHeroSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E044259751B23F13AF40B202 /* SkillHeroSection.swift */; };
@@ -53,6 +54,7 @@
 		6590E8EC845B8EC468D281C3 /* SkillRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137550981CA85AFA219810AB /* SkillRowView.swift */; };
 		672303AE078D71FEE1B772EF /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BB1E8F5CCBC2DAFC96B701 /* MediumWidgetView.swift */; };
 		6B5B24327FE72B6A740BBC88 /* AssessmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4D189B1593EBFC61A10FC /* AssessmentRepository.swift */; };
+		6FDE42AB4350B257B4CBDD4B /* WidgetDataBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3EDAE4BDE486EA78814DA /* WidgetDataBridge.swift */; };
 		70670E554DD84DFD90BCD478 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61779816BE2E4E5DB334116 /* Checklist.swift */; };
 		7257E923F52CB1FD64F0BD14 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6BF2D8441C2F8FC3FC82E /* Skill.swift */; };
 		733C081ECB8E64D9A69B2000 /* LevelBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69D960D1918A97E98D15E8E /* LevelBadge.swift */; };
@@ -199,6 +201,7 @@
 		5EC85CC802ADFBE87E8935F4 /* QuizProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizProgressBar.swift; sourceTree = "<group>"; };
 		60C16CDC0894852BD5268DB6 /* VideoReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoReference.swift; sourceTree = "<group>"; };
 		60F3B2CDCB20D382A71D0540 /* AssessmentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentSection.swift; sourceTree = "<group>"; };
+		61A3EDAE4BDE486EA78814DA /* WidgetDataBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataBridge.swift; sourceTree = "<group>"; };
 		6A993F2E64E2CFE17726D097 /* FocusSkillProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSkillProvider.swift; sourceTree = "<group>"; };
 		6BF9D4C9FC6D6138064BBB58 /* FocusSkillCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSkillCard.swift; sourceTree = "<group>"; };
 		6FEEF3C621DDDC1819663525 /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 		74CB298DE112C4371BFE1D54 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		771ECB10407632E97DA63A96 /* TurnLab.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TurnLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9D5B0C0C8ACDBC704C2659 /* SkillRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRepositoryTests.swift; sourceTree = "<group>"; };
+		809DAC8D81C59AB8AAB64A29 /* Configuration.storekit */ = {isa = PBXFileReference; path = Configuration.storekit; sourceTree = "<group>"; };
 		81F6FAAD0E74E5DD855A5548 /* LevelProgressionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressionSection.swift; sourceTree = "<group>"; };
 		8511D8F5F196008CD1756925 /* AssessmentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentRepositoryProtocol.swift; sourceTree = "<group>"; };
 		85354453C644BBFF34CDD166 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				2101C1E67846886BA50C7D60 /* Assets.xcassets */,
+				809DAC8D81C59AB8AAB64A29 /* Configuration.storekit */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 			children = (
 				1F5501D1BE04D576C9B39E61 /* PremiumManager.swift */,
 				4D0F627B93A2D615CBABA2CF /* ProgressionService.swift */,
+				61A3EDAE4BDE486EA78814DA /* WidgetDataBridge.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -901,6 +907,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E700D4097FD655857F60D7BA /* Assets.xcassets in Resources */,
+				52D8E05AD59F0E7773409388 /* Configuration.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,6 +1016,7 @@
 				42FF9FE7FC8C8D4CAE8492DA /* UserRepositoryProtocol.swift in Sources */,
 				B76CE23FBF0F23AA3BFDA498 /* VideoContentTab.swift in Sources */,
 				E0008D946BED6757BED9B40A /* VideoReference.swift in Sources */,
+				6FDE42AB4350B257B4CBDD4B /* WidgetDataBridge.swift in Sources */,
 				D180BC8C3CC730184EF627B6 /* YouTubePlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

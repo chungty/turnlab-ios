@@ -86,6 +86,7 @@ final class HomeViewModel: ObservableObject {
             focusSkill = await skillRepository.getSkill(id: skillId)
             if let skill = focusSkill {
                 focusSkillRating = await progressionService.overallRating(for: skill.id)
+                updateWidgetData(for: skill, rating: focusSkillRating)
             }
         } else {
             // Auto-select first suggested skill if no focus
@@ -96,6 +97,7 @@ final class HomeViewModel: ObservableObject {
             if let first = suggested.first {
                 focusSkill = first
                 focusSkillRating = await progressionService.overallRating(for: first.id)
+                updateWidgetData(for: first, rating: focusSkillRating)
             }
         }
     }
@@ -124,6 +126,7 @@ final class HomeViewModel: ObservableObject {
         focusSkill = skill
         Task {
             focusSkillRating = await progressionService.overallRating(for: skill.id)
+            updateWidgetData(for: skill, rating: focusSkillRating)
         }
     }
 
@@ -131,5 +134,36 @@ final class HomeViewModel: ObservableObject {
         appState.setFocusSkill(nil)
         focusSkill = nil
         focusSkillRating = .notAssessed
+        WidgetDataBridge.shared.clearFocusSkill()
+    }
+
+    // MARK: - Widget Integration
+
+    /// Updates widget with current focus skill data.
+    private func updateWidgetData(for skill: Skill, rating: Rating) {
+        let progress = rating.progressValue
+        let nextMilestone = nextMilestoneText(for: skill, currentRating: rating)
+
+        WidgetDataBridge.shared.updateFocusSkill(
+            skill,
+            progress: progress,
+            nextMilestone: nextMilestone
+        )
+    }
+
+    /// Gets the next milestone text based on current rating.
+    private func nextMilestoneText(for skill: Skill, currentRating: Rating) -> String? {
+        switch currentRating {
+        case .notAssessed:
+            return skill.outcomeMilestones.needsWork.isEmpty ? nil : skill.outcomeMilestones.needsWork
+        case .needsWork:
+            return skill.outcomeMilestones.developing.isEmpty ? nil : skill.outcomeMilestones.developing
+        case .developing:
+            return skill.outcomeMilestones.confident.isEmpty ? nil : skill.outcomeMilestones.confident
+        case .confident:
+            return skill.outcomeMilestones.mastered.isEmpty ? nil : skill.outcomeMilestones.mastered
+        case .mastered:
+            return "Skill mastered!"
+        }
     }
 }
