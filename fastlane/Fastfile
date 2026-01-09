@@ -55,4 +55,24 @@ platform :ios do
     archive
     upload
   end
+
+  desc "Upload to TestFlight"
+  lane :upload_testflight do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    upload_to_testflight(
+      ipa: "./build/TurnLab.ipa",
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    archive
+    upload_testflight
+  end
 end
