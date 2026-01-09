@@ -117,11 +117,16 @@ final class SkillBrowserViewModel: ObservableObject {
     }
 
     func isLocked(_ skill: Skill) -> Bool {
-        !isPremium && skill.level != .beginner
+        // Use the Fair Access Model - check premium, beginner, and granted skills
+        if isPremium { return false }
+        if skill.level == .beginner { return false }
+        if appState.isSkillGrantedFree(skill.id) { return false }
+        return true
     }
 
     func canAccess(_ skill: Skill) -> Bool {
-        appState.canAccessLevel(skill.level)
+        // Use the skill-specific access check from AppState
+        appState.canAccessSkill(skill)
     }
 
     // MARK: - Filters

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		MSGI0J0AUF0WMMA579XQVMRU /* TerrainBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0UR4L0F9T8LCJ877E3E4YD8I /* TerrainBadge.swift */; };
+		U9PHT4OGASAL3OAPFCAEQXBX /* WelcomeBackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = RITUXYPH46BZCGAKVBT42KLN /* WelcomeBackCard.swift */; };
+		QWLRVUENEF057GU64VCVSEAT /* ProgressCelebration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9C0Z92G41RPNQ99FIFBIV /* ProgressCelebration.swift */; };
 		01D4F981DB2B8DD8C188DD41 /* FocusSkillCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF9D4C9FC6D6138064BBB58 /* FocusSkillCard.swift */; };
 		03600CE8643F4DEE5692B4B2 /* FocusSkillProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A993F2E64E2CFE17726D097 /* FocusSkillProvider.swift */; };
 		04E35653F2EA578417D20D08 /* DomainTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EFAC8C77D391093172CE3D /* DomainTag.swift */; };
@@ -28,6 +31,7 @@
 		386C8D1162289B11E0118446 /* AssessmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD73BB21F2A794A7969613B /* AssessmentPicker.swift */; };
 		3E4E76B58F82A2959ABB9C91 /* TipCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0E741E4E82ABD3823D8F8B /* TipCard.swift */; };
 		4255267CD020AF6CE58323F4 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB298DE112C4371BFE1D54 /* Route.swift */; };
+		4274C6E77EAA347898B97BBC /* skills.json in Resources */ = {isa = PBXBuildFile; fileRef = 831FAE4F8E4FF482C976E2E2 /* skills.json */; };
 		42FF9FE7FC8C8D4CAE8492DA /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763E404AFAABD8389300728 /* UserRepositoryProtocol.swift */; };
 		43B6116DD60B2672BA327143 /* TurnLabWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C715F2F903B2AEF4DA5C02B0 /* TurnLabWidget.swift */; };
 		444F83955A1086659DAB3E6E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFD71084DD18C8BD650B31A /* HomeView.swift */; };
@@ -53,6 +57,7 @@
 		63228EDEEEA182EE49C3F3C9 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E496C2AB68E0A1D0FBEF183 /* OnboardingViewModelTests.swift */; };
 		6590E8EC845B8EC468D281C3 /* SkillRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137550981CA85AFA219810AB /* SkillRowView.swift */; };
 		672303AE078D71FEE1B772EF /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BB1E8F5CCBC2DAFC96B701 /* MediumWidgetView.swift */; };
+		698A6ECDE69C67A07886867C /* ContextualPremiumUpsellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1567BF70298281F16A9D5BF6 /* ContextualPremiumUpsellView.swift */; };
 		6B5B24327FE72B6A740BBC88 /* AssessmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4D189B1593EBFC61A10FC /* AssessmentRepository.swift */; };
 		6FDE42AB4350B257B4CBDD4B /* WidgetDataBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3EDAE4BDE486EA78814DA /* WidgetDataBridge.swift */; };
 		70670E554DD84DFD90BCD478 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61779816BE2E4E5DB334116 /* Checklist.swift */; };
@@ -69,6 +74,7 @@
 		87C18B51558446289E49BBDB /* AssessmentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3B2CDCB20D382A71D0540 /* AssessmentSection.swift */; };
 		8C1D5C2F4F1B4CC06BA1020F /* SkillProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B6A6CA7576F53AAC9CAD27 /* SkillProgressIndicator.swift */; };
 		8C4A472742F502CBBFF6B193 /* TurnLabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94AFFE93A50D30CBCFD10F2 /* TurnLabUITests.swift */; };
+		8E9A02FB5FA0B5FAA6D00BB0 /* quiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DB3A6FBBF985EF019D76F7B /* quiz.json */; };
 		914B1B59A09FD8DD09A080DA /* AssessmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA7CD6B48D93B14D084037 /* AssessmentViewModel.swift */; };
 		92B8EB14BBDCD9F7F18CF4D8 /* TurnLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F62D772F062CA817B90B38D4 /* TurnLab.xcdatamodeld */; };
 		92E7A90FFA529F7F6558AC5C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4C76725530ED45DB15489 /* SettingsView.swift */; };
@@ -109,6 +115,7 @@
 		E4A253D23E291430CB709F67 /* TerrainContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C060D1A1EDF3D8B708B76A /* TerrainContext.swift */; };
 		E700D4097FD655857F60D7BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2101C1E67846886BA50C7D60 /* Assets.xcassets */; };
 		E74264512CF6D47BF5B8A32B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36761D210C5BEA92DCAB8D2 /* UserRepository.swift */; };
+		E82B132FA0A6716B330D0DC0 /* videos.json in Resources */ = {isa = PBXBuildFile; fileRef = C16C4211DEC32D9DEDED5338 /* videos.json */; };
 		F1273A430295174CCDBED840 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971C3122A8AD0D9D68D98AFE /* ContentLoader.swift */; };
 		F1859D83A68C609B7D05D1B9 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD646A1D0F02A73722CED935 /* MainTabView.swift */; };
 		F27667C480FECFA5751E9F38 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A75DF96A1449AEDD48ACEA0 /* Tip.swift */; };
@@ -157,6 +164,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0UR4L0F9T8LCJ877E3E4YD8I /* TerrainBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerrainBadge.swift; sourceTree = "<group>"; };
+		RITUXYPH46BZCGAKVBT42KLN /* WelcomeBackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeBackCard.swift; sourceTree = "<group>"; };
+		8DB9C0Z92G41RPNQ99FIFBIV /* ProgressCelebration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCelebration.swift; sourceTree = "<group>"; };
 		029B30F69DBCD8FB9A18FC3B /* TerrainContextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerrainContextPicker.swift; sourceTree = "<group>"; };
 		0431BD337A1B453AEEA8967A /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		0763E404AFAABD8389300728 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 		1041F53228D4CB723DC6AA46 /* SkillRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRepositoryProtocol.swift; sourceTree = "<group>"; };
 		115EC25BAB4F26491AE70F23 /* TurnLab.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TurnLab.entitlements; sourceTree = "<group>"; };
 		137550981CA85AFA219810AB /* SkillRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRowView.swift; sourceTree = "<group>"; };
+		1567BF70298281F16A9D5BF6 /* ContextualPremiumUpsellView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Premium/Views/ContextualPremiumUpsellView.swift; sourceTree = "<group>"; };
 		19D51758A9AEA14F0B504FE0 /* ProductIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIdentifiers.swift; sourceTree = "<group>"; };
 		1B9D0323A7A08565F6DEE746 /* TurnLabWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TurnLabWidget.entitlements; sourceTree = "<group>"; };
 		1F5501D1BE04D576C9B39E61 /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
@@ -213,9 +224,11 @@
 		74CB298DE112C4371BFE1D54 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		771ECB10407632E97DA63A96 /* TurnLab.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TurnLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9D5B0C0C8ACDBC704C2659 /* SkillRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRepositoryTests.swift; sourceTree = "<group>"; };
+		7DB3A6FBBF985EF019D76F7B /* quiz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quiz.json; sourceTree = "<group>"; };
 		809DAC8D81C59AB8AAB64A29 /* Configuration.storekit */ = {isa = PBXFileReference; path = Configuration.storekit; sourceTree = "<group>"; };
 		812603E5BBF8BBF08298F9CF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		81F6FAAD0E74E5DD855A5548 /* LevelProgressionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressionSection.swift; sourceTree = "<group>"; };
+		831FAE4F8E4FF482C976E2E2 /* skills.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = skills.json; sourceTree = "<group>"; };
 		8511D8F5F196008CD1756925 /* AssessmentRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentRepositoryProtocol.swift; sourceTree = "<group>"; };
 		85354453C644BBFF34CDD166 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		8592119E2E3AF9BED5D8E525 /* SuggestedContentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedContentSection.swift; sourceTree = "<group>"; };
@@ -249,6 +262,7 @@
 		B94AFFE93A50D30CBCFD10F2 /* TurnLabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnLabUITests.swift; sourceTree = "<group>"; };
 		BC80877BC7625C0B40B0023E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		BDEFB30C090107CC56F8A5F5 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
+		C16C4211DEC32D9DEDED5338 /* videos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = videos.json; sourceTree = "<group>"; };
 		C36761D210C5BEA92DCAB8D2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		C454AF33F8A65DE668A35924 /* SkillLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevel.swift; sourceTree = "<group>"; };
 		C5CEACE304CBC7A9A22B4270 /* MockSkillRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSkillRepository.swift; sourceTree = "<group>"; };
@@ -422,6 +436,7 @@
 				3224FDC460FF57BB8044A1E8 /* Settings */,
 				1CC61726C81FB3B6CFFAB450 /* SkillBrowser */,
 				005419739807FF913DA670BE /* SkillDetail */,
+				8B124ED243560F28886C90DD /* Premium */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -432,6 +447,14 @@
 				D264A66171478F72F48FCD7D /* SkillFixtures.swift */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		50B0925DB0AEE2F0135FBBF8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1567BF70298281F16A9D5BF6 /* ContextualPremiumUpsellView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		52EFE0E2F540444FC2FE7338 /* ViewModels */ = {
@@ -510,6 +533,25 @@
 				68B394604FABB264EB805DBE /* Protocols */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		74A999D454CD4F99EE2109C0 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				7DB3A6FBBF985EF019D76F7B /* quiz.json */,
+				831FAE4F8E4FF482C976E2E2 /* skills.json */,
+				C16C4211DEC32D9DEDED5338 /* videos.json */,
+			);
+			name = Content;
+			path = TurnLab/Resources/Content;
+			sourceTree = "<group>";
+		};
+		8B124ED243560F28886C90DD /* Premium */ = {
+			isa = PBXGroup;
+			children = (
+				50B0925DB0AEE2F0135FBBF8 /* Views */,
+			);
+			name = Premium;
 			sourceTree = "<group>";
 		};
 		8BDF2A1A73C712194C949D5A /* TurnLabUITests */ = {
@@ -649,6 +691,7 @@
 		B153D6B972ED79F0B6945BD3 = {
 			isa = PBXGroup;
 			children = (
+				74A999D454CD4F99EE2109C0 /* Content */,
 				A5774F8DC84D89D8826D14F2 /* TurnLab */,
 				6838BB10E793C9313A9C75A2 /* TurnLabTests */,
 				8BDF2A1A73C712194C949D5A /* TurnLabUITests */,
@@ -722,6 +765,8 @@
 				EFD73BB21F2A794A7969613B /* AssessmentPicker.swift */,
 				7430CC823B0238A5E217C72F /* ChecklistCard.swift */,
 				92119961504E37E78D0EC73A /* ContentCard.swift */,
+				8DB9C0Z92G41RPNQ99FIFBIV /* ProgressCelebration.swift */,
+				0UR4L0F9T8LCJ877E3E4YD8I /* TerrainBadge.swift */,
 				46EFAC8C77D391093172CE3D /* DomainTag.swift */,
 				2D3B7CB3BF90B9E8E581933F /* DrillCard.swift */,
 				32B0E86A3683E1D008A70D03 /* EmptyStateView.swift */,
@@ -756,6 +801,7 @@
 				4FFD71084DD18C8BD650B31A /* HomeView.swift */,
 				73A33325192E7DBD761C82B4 /* LevelProgressCard.swift */,
 				8592119E2E3AF9BED5D8E525 /* SuggestedContentSection.swift */,
+				RITUXYPH46BZCGAKVBT42KLN /* WelcomeBackCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -795,8 +841,6 @@
 				5E2B3CC509C5D3FC4C7684E7 /* PBXTargetDependency */,
 			);
 			name = TurnLab;
-			packageProductDependencies = (
-			);
 			productName = TurnLab;
 			productReference = 771ECB10407632E97DA63A96 /* TurnLab.app */;
 			productType = "com.apple.product-type.application";
@@ -813,8 +857,6 @@
 				43F3221B5462109078A52350 /* PBXTargetDependency */,
 			);
 			name = TurnLabTests;
-			packageProductDependencies = (
-			);
 			productName = TurnLabTests;
 			productReference = 3C0C7CBF31217515735300A8 /* TurnLabTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -830,8 +872,6 @@
 			dependencies = (
 			);
 			name = TurnLabWidget;
-			packageProductDependencies = (
-			);
 			productName = TurnLabWidget;
 			productReference = 47D36EEF5FA16E6591C36B14 /* TurnLabWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -848,8 +888,6 @@
 				EEB378ABE3530005717CC97A /* PBXTargetDependency */,
 			);
 			name = TurnLabUITests;
-			packageProductDependencies = (
-			);
 			productName = TurnLabUITests;
 			productReference = 4FF327BE8AAC2322E981C7ED /* TurnLabUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -893,6 +931,7 @@
 			mainGroup = B153D6B972ED79F0B6945BD3;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
+			productRefGroup = 1D11CE61A284150F728E13EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -912,6 +951,9 @@
 				E700D4097FD655857F60D7BA /* Assets.xcassets in Resources */,
 				52D8E05AD59F0E7773409388 /* Configuration.storekit in Resources */,
 				A27581C09022914238CC4639 /* PrivacyInfo.xcprivacy in Resources */,
+				8E9A02FB5FA0B5FAA6D00BB0 /* quiz.json in Resources */,
+				4274C6E77EAA347898B97BBC /* skills.json in Resources */,
+				E82B132FA0A6716B330D0DC0 /* videos.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1011,6 +1053,9 @@
 				517C1B181D161116CF53993D /* TerrainContextPicker.swift in Sources */,
 				F27667C480FECFA5751E9F38 /* Tip.swift in Sources */,
 				3E4E76B58F82A2959ABB9C91 /* TipCard.swift in Sources */,
+				MSGI0J0AUF0WMMA579XQVMRU /* TerrainBadge.swift in Sources */,
+				U9PHT4OGASAL3OAPFCAEQXBX /* WelcomeBackCard.swift in Sources */,
+				QWLRVUENEF057GU64VCVSEAT /* ProgressCelebration.swift in Sources */,
 				D4334BFE0A3988DF13FBD30A /* TipsContentTab.swift in Sources */,
 				92B8EB14BBDCD9F7F18CF4D8 /* TurnLab.xcdatamodeld in Sources */,
 				5385DF6E075FA3C493BD24E6 /* TurnLabApp.swift in Sources */,
@@ -1022,6 +1067,7 @@
 				E0008D946BED6757BED9B40A /* VideoReference.swift in Sources */,
 				6FDE42AB4350B257B4CBDD4B /* WidgetDataBridge.swift in Sources */,
 				D180BC8C3CC730184EF627B6 /* YouTubePlayerView.swift in Sources */,
+				698A6ECDE69C67A07886867C /* ContextualPremiumUpsellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

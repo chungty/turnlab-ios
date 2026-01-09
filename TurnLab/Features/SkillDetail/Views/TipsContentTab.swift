@@ -105,6 +105,7 @@ struct SafetyWarningCard: View {
         case .info: return .blue
         case .caution: return .orange
         case .warning: return .red
+        case .critical: return .purple
         }
     }
 }

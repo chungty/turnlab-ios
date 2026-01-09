@@ -63,7 +63,7 @@ struct DrillsContentTab: View {
                         Drill.DrillStep(order: 2, instruction: "Shift weight to downhill ski", focusPoint: nil),
                         Drill.DrillStep(order: 3, instruction: "Complete the turn", focusPoint: "Keep upper body quiet")
                     ],
-                    difficulty: .moderate,
+                    difficulty: .medium,
                     recommendedTerrain: [.groomedBlue],
                     estimatedReps: "10 each way"
                 )

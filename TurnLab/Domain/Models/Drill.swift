@@ -20,14 +20,18 @@ struct Drill: Codable, Identifiable, Hashable {
 
     enum DrillDifficulty: String, Codable {
         case easy
-        case moderate
-        case challenging
+        case medium
+        case hard
+        case advanced
+        case expert
 
         var displayName: String {
             switch self {
             case .easy: return "Easy"
-            case .moderate: return "Moderate"
-            case .challenging: return "Challenging"
+            case .medium: return "Medium"
+            case .hard: return "Hard"
+            case .advanced: return "Advanced"
+            case .expert: return "Expert"
             }
         }
     }

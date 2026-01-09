@@ -38,12 +38,14 @@ struct SafetyWarning: Codable, Identifiable, Hashable {
         case info
         case caution
         case warning
+        case critical
 
         var iconName: String {
             switch self {
             case .info: return "info.circle"
             case .caution: return "exclamationmark.triangle"
             case .warning: return "exclamationmark.octagon"
+            case .critical: return "exclamationmark.octagon.fill"
             }
         }
     }

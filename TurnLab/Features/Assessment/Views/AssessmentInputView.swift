@@ -4,18 +4,9 @@ import SwiftUI
 struct AssessmentInputView: View {
     @StateObject private var viewModel: AssessmentViewModel
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var container: DIContainer
 
-    init(skillId: String) {
-        _viewModel = StateObject(wrappedValue: AssessmentViewModel(
-            skillId: skillId,
-            skillRepository: SkillRepository(contentManager: ContentManager()),
-            assessmentRepository: AssessmentRepository(coreDataStack: CoreDataStack.shared),
-            progressionService: ProgressionService(
-                skillRepository: SkillRepository(contentManager: ContentManager()),
-                assessmentRepository: AssessmentRepository(coreDataStack: CoreDataStack.shared)
-            )
-        ))
+    init(viewModel: AssessmentViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -157,5 +148,6 @@ struct SuccessOverlay: View {
 }
 
 #Preview {
-    AssessmentInputView(skillId: "test")
+    let container = DIContainer.preview
+    return AssessmentInputView(viewModel: container.makeAssessmentViewModel(skillId: "basic-athletic-stance"))
 }

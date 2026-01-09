@@ -16,7 +16,7 @@ public class AssessmentEntity: NSManagedObject {
 
     // MARK: - Convenience
     var terrainContext: TerrainContext? {
-        TerrainContext.allCases.first { $0.hashValue == Int(context) }
+        TerrainContext.from(stableIndex: Int(context))
     }
 
     var ratingValue: Rating {
@@ -50,7 +50,7 @@ extension AssessmentEntity {
         request.predicate = NSPredicate(
             format: "skillId == %@ AND context == %d",
             skillId,
-            terrainContext.hashValue
+            terrainContext.stableIndex
         )
         request.sortDescriptors = [NSSortDescriptor(keyPath: \AssessmentEntity.date, ascending: false)]
         request.fetchLimit = 1
@@ -77,7 +77,7 @@ extension AssessmentEntity {
         let assessment = AssessmentEntity(context: context)
         assessment.id = UUID()
         assessment.skillId = skillId
-        assessment.context = Int16(terrainContext.hashValue)
+        assessment.context = Int16(terrainContext.stableIndex)
         assessment.rating = Int16(rating.rawValue)
         assessment.date = Date()
         assessment.notes = notes

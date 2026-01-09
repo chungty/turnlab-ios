@@ -3,7 +3,7 @@ import SwiftUI
 /// Detailed view for a single skill.
 struct SkillDetailView: View {
     @StateObject private var viewModel: SkillDetailViewModel
-    @State private var showAssessmentSheet = false
+    @EnvironmentObject private var diContainer: DIContainer
 
     init(viewModel: SkillDetailViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -25,12 +25,16 @@ struct SkillDetailView: View {
                         onRemoveFocus: viewModel.removeFocusSkill
                     )
 
-                    // Assessment section
+                    // Assessment section (inline - tap to save directly)
                     AssessmentSection(
                         skill: skill,
                         contextRatings: viewModel.contextRatings,
                         overallRating: viewModel.overallRating,
-                        onAssess: { showAssessmentSheet = true }
+                        onRatingSelected: { rating in
+                            Task { await viewModel.saveInlineAssessment(rating: rating) }
+                        },
+                        isSaving: viewModel.isSavingAssessment,
+                        showSaveSuccess: viewModel.showSaveSuccess
                     )
                     .padding()
 
@@ -65,14 +69,22 @@ struct SkillDetailView: View {
         .task {
             await viewModel.loadData()
         }
-        .sheet(isPresented: $showAssessmentSheet) {
-            if let skill = viewModel.skill {
-                AssessmentInputView(skillId: skill.id)
-                    .onDisappear {
-                        Task { await viewModel.refreshAssessments() }
-                    }
-            }
-        }
+        .progressCelebration(
+            isPresented: $viewModel.showCelebration,
+            skillName: viewModel.skill?.name ?? "",
+            previousRating: viewModel.celebrationPreviousRating,
+            newRating: viewModel.celebrationNewRating,
+            nextChallenge: nextChallengeText
+        )
+    }
+
+    /// Gets the next milestone description to show in celebration.
+    private var nextChallengeText: String? {
+        guard let skill = viewModel.skill else { return nil }
+        let nextRating = viewModel.celebrationNewRating.nextLevel
+        guard let next = nextRating else { return nil }
+        let milestone = skill.outcomeMilestones.description(for: next)
+        return milestone.isEmpty ? nil : milestone
     }
 }
 

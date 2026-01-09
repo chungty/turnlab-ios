@@ -21,7 +21,7 @@ struct MainTabView: View {
             .tag(Tab.home)
 
             // Skills Tab
-            NavigationStack {
+            NavigationStack(path: $router.skillsPath) {
                 SkillBrowserView(viewModel: diContainer.makeSkillBrowserViewModel())
                     .navigationDestination(for: Route.self) { route in
                         destinationView(for: route)
@@ -46,7 +46,10 @@ struct MainTabView: View {
 
             // Settings Tab
             NavigationStack {
-                SettingsView(viewModel: diContainer.makeSettingsViewModel())
+                SettingsView(
+                    viewModel: diContainer.makeSettingsViewModel(),
+                    contentManager: diContainer.contentManager
+                )
                     .navigationDestination(for: Route.self) { route in
                         destinationView(for: route)
                     }
@@ -61,6 +64,23 @@ struct MainTabView: View {
             sheetView(for: sheet)
         }
         .accessibilityIdentifier("main_tab_view")
+    }
+
+    // MARK: - Navigation Helpers
+
+    /// Navigates to a skill detail view, using the appropriate navigation path based on current tab.
+    private func navigateToSkillDetail(_ skillId: String) {
+        let route = Route.skillDetail(skillId: skillId)
+        switch router.selectedTab {
+        case .home:
+            router.path.append(route)
+        case .skills:
+            router.skillsPath.append(route)
+        default:
+            // For other tabs, switch to skills tab and navigate there
+            router.selectedTab = .skills
+            router.skillsPath.append(route)
+        }
     }
 
     // MARK: - Destination Builder
@@ -81,7 +101,9 @@ struct MainTabView: View {
                 skillsByLevel: [level: diContainer.contentManager.skills(forLevel: level)],
                 rating: { _ in .notAssessed },
                 isLocked: { _ in false },
-                onSelectSkill: { _ in }
+                onSelectSkill: { skill in
+                    navigateToSkillDetail(skill.id)
+                }
             )
 
         case .domainBrowser(let domain):
@@ -89,25 +111,22 @@ struct MainTabView: View {
                 skillsByDomain: [domain: diContainer.contentManager.skills(forDomain: domain)],
                 rating: { _ in .notAssessed },
                 isLocked: { _ in false },
-                onSelectSkill: { _ in }
+                onSelectSkill: { skill in
+                    navigateToSkillDetail(skill.id)
+                }
             )
 
         case .assessment(let skillId):
-            AssessmentInputView(skillId: skillId)
-
-        case .assessmentHistory:
-            // AssessmentHistoryView requires assessments array - would need to load async
-            EmptyStateView(
-                icon: "clock.arrow.circlepath",
-                title: "History",
-                message: "Assessment history coming soon."
-            )
+            AssessmentInputView(viewModel: diContainer.makeAssessmentViewModel(skillId: skillId))
 
         case .profile:
             ProfileView(viewModel: diContainer.makeProfileViewModel())
 
         case .settings:
-            SettingsView(viewModel: diContainer.makeSettingsViewModel())
+            SettingsView(
+                viewModel: diContainer.makeSettingsViewModel(),
+                contentManager: diContainer.contentManager
+            )
 
         case .premium:
             PremiumPurchaseView(viewModel: diContainer.makeSettingsViewModel())
@@ -125,9 +144,15 @@ struct MainTabView: View {
         case .premium:
             PremiumPurchaseView(viewModel: diContainer.makeSettingsViewModel())
 
+        case .premiumUpsell(let skill):
+            ContextualPremiumUpsellView(
+                skill: skill,
+                viewModel: diContainer.makeSettingsViewModel()
+            )
+
         case .assessment(let skillId):
             NavigationStack {
-                AssessmentInputView(skillId: skillId)
+                AssessmentInputView(viewModel: diContainer.makeAssessmentViewModel(skillId: skillId))
             }
         }
     }

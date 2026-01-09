@@ -21,11 +21,12 @@ struct SkillCard: View {
 
                 // Content
                 VStack(alignment: .leading, spacing: TurnLabSpacing.xxs) {
-                    HStack(spacing: TurnLabSpacing.xs) {
+                    HStack(alignment: .top, spacing: TurnLabSpacing.xs) {
                         Text(skill.name)
                             .font(TurnLabTypography.headline)
                             .foregroundStyle(TurnLabColors.textPrimary)
-                            .lineLimit(1)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
 
                         Spacer()
 
@@ -45,7 +46,8 @@ struct SkillCard: View {
                     Text(skill.summary)
                         .font(TurnLabTypography.caption)
                         .foregroundStyle(TurnLabColors.textSecondary)
-                        .lineLimit(2)
+                        .lineLimit(3)
+                        .lineSpacing(2)
 
                     // Domain tags
                     HStack(spacing: 4) {
@@ -64,10 +66,14 @@ struct SkillCard: View {
                             .font(.caption2)
                             .foregroundStyle(TurnLabColors.textTertiary)
                     }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("Locked")
+                    .accessibilityHidden(true) // Covered by button accessibility
                 } else {
                     Image(systemName: "chevron.right")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundStyle(TurnLabColors.levelColor(skill.level))
+                        .accessibilityHidden(true)
                 }
             }
             .cardPadding()
@@ -90,6 +96,25 @@ struct SkillCard: View {
         }
         .buttonStyle(.plain)
         .opacity(isLocked ? 0.7 : 1)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(accessibilityLabel)
+        .accessibilityHint(accessibilityHint)
+    }
+
+    // MARK: - Accessibility
+
+    private var accessibilityLabel: String {
+        let lockStatus = isLocked ? "Locked premium skill" : "Skill"
+        let ratingStatus = rating == .notAssessed ? "not assessed" : rating.displayName
+        return "\(lockStatus): \(skill.name), \(skill.level.displayName) level, \(ratingStatus)"
+    }
+
+    private var accessibilityHint: String {
+        if isLocked {
+            return "Double tap to view unlock options"
+        } else {
+            return "Double tap to view skill details"
+        }
     }
 }
 

@@ -58,11 +58,13 @@ struct SuggestedSkillCard: View {
             .clipShape(Capsule())
 
             // Skill name and level
-            HStack {
+            HStack(alignment: .top) {
                 Text(skill.name)
                     .font(TurnLabTypography.headline)
                     .foregroundStyle(TurnLabColors.textPrimary)
-                    .lineLimit(2)
+                    .lineLimit(3)
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
 
                 Spacer()
 
@@ -72,7 +74,8 @@ struct SuggestedSkillCard: View {
             Text(skill.summary)
                 .font(TurnLabTypography.caption)
                 .foregroundStyle(TurnLabColors.textSecondary)
-                .lineLimit(2)
+                .lineLimit(3)
+                .lineSpacing(2)
 
             Spacer()
 
@@ -100,7 +103,7 @@ struct SuggestedSkillCard: View {
             }
         }
         .padding()
-        .frame(width: 180, height: 170)
+        .frame(width: 200, height: 200)
         .background(Color(.systemBackground))
         .clipShape(RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusMedium))
         .overlay(

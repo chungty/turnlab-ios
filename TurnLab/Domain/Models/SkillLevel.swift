@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 /// Represents the skill progression levels in Turn Lab.
 /// Each level builds upon the previous, with increasing technical difficulty.
@@ -54,6 +55,16 @@ enum SkillLevel: String, Codable, CaseIterable, Comparable {
     /// Whether this level requires premium unlock
     var requiresPremium: Bool {
         self != .beginner
+    }
+
+    /// Color associated with this skill level for UI display
+    var color: Color {
+        switch self {
+        case .beginner: return .green
+        case .novice: return .blue
+        case .intermediate: return .orange
+        case .expert: return .red
+        }
     }
 
     /// Percentage of skills needed at "Confident" or above to unlock next level

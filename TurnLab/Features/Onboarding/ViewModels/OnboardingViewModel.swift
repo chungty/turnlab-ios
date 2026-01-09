@@ -154,6 +154,10 @@ final class OnboardingViewModel: ObservableObject {
             // Save quiz result
             await userRepository.saveQuizResult(result)
 
+            // Grant free skills based on assessed level (Fair Access Model)
+            let availableSkills = contentManager.skills
+            appState.grantFreeSkillsForLevel(result.recommendedLevel, availableSkills: availableSkills)
+
             // Update app state
             appState.completeOnboarding(withLevel: result.recommendedLevel)
 

@@ -90,8 +90,10 @@ struct DrillCard: View {
     private var difficultyColor: Color {
         switch drill.difficulty {
         case .easy: return .green
-        case .moderate: return .orange
-        case .challenging: return .red
+        case .medium: return .yellow
+        case .hard: return .orange
+        case .advanced: return .red
+        case .expert: return .purple
         }
     }
 }
@@ -136,7 +138,7 @@ struct DrillStepRow: View {
                 Drill.DrillStep(order: 2, instruction: "Gradually shift weight to your downhill ski", focusPoint: nil),
                 Drill.DrillStep(order: 3, instruction: "Allow the skis to pivot and complete the turn", focusPoint: "Keep upper body facing downhill")
             ],
-            difficulty: .moderate,
+            difficulty: .medium,
             recommendedTerrain: [.groomedBlue, .groomedGreen],
             estimatedReps: "10 each way"
         )

@@ -98,4 +98,43 @@ final class SettingsViewModel: ObservableObject {
         // This would clear all user data
         // Implementation depends on requirements
     }
+
+    // MARK: - Debug Methods (Development Only)
+    #if DEBUG
+    /// Expose appState for debug controls
+    var debugAppState: AppState {
+        appState
+    }
+
+    /// Toggle premium state for testing
+    func debugTogglePremium() {
+        if appState.isPremiumUnlocked {
+            // Note: Can't truly "un-unlock" in production, but for debug we can reset state
+            appState.isPremiumUnlocked = false
+        } else {
+            appState.unlockPremium()
+        }
+        isPremium = appState.isPremiumUnlocked
+    }
+
+    /// Simulate completing onboarding at a specific level
+    func debugSetAssessedLevel(_ level: SkillLevel, availableSkills: [Skill]) {
+        appState.currentUserLevel = level
+        appState.grantFreeSkillsForLevel(level, availableSkills: availableSkills)
+    }
+
+    /// Reset granted free skills
+    func debugResetGrantedSkills() {
+        appState.grantedFreeSkillIds = []
+    }
+
+    /// Reset onboarding state
+    func debugResetOnboarding() {
+        appState.isOnboardingComplete = false
+        appState.currentUserLevel = .beginner
+        appState.grantedFreeSkillIds = []
+        appState.isPremiumUnlocked = false
+        isPremium = false
+    }
+    #endif
 }

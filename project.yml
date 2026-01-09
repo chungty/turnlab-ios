@@ -27,9 +27,18 @@ targets:
           - "Resources/Content"
       - path: TurnLab/Resources/Assets.xcassets
         buildPhase: resources
-    resources:
-      - path: TurnLab/Resources/Content
-        type: folder
+      - path: TurnLab/Resources/Content/quiz.json
+        buildPhase: resources
+      - path: TurnLab/Resources/Content/skills.json
+        buildPhase: resources
+      - path: TurnLab/Resources/Content/videos.json
+        buildPhase: resources
+    info:
+      properties:
+        CFBundleURLTypes:
+          - CFBundleURLName: "Turn Lab Deep Links"
+            CFBundleURLSchemes:
+              - turnlab
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.turnlab.app

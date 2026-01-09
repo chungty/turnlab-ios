@@ -4,6 +4,7 @@ import SwiftUI
 struct SkillBrowserView: View {
     @StateObject private var viewModel: SkillBrowserViewModel
     @EnvironmentObject private var container: DIContainer
+    @EnvironmentObject private var router: NavigationRouter
 
     init(viewModel: SkillBrowserViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -73,7 +74,10 @@ struct SkillBrowserView: View {
 
     private func navigateToSkill(_ skill: Skill) {
         if viewModel.canAccess(skill) {
-            container.appState.navigateToSkill(skill.id)
+            router.skillsPath.append(Route.skillDetail(skillId: skill.id))
+        } else {
+            // Show contextual paywall instead of silent failure
+            router.presentSheet(.premiumUpsell(skill: skill))
         }
     }
 }
@@ -90,4 +94,5 @@ struct SkillBrowserView: View {
             )
         )
     }
+    .environmentObject(NavigationRouter())
 }

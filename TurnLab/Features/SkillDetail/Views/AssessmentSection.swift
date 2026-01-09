@@ -1,43 +1,46 @@
 import SwiftUI
 
-/// Assessment section showing current ratings and assess button.
+/// Assessment section with inline rating picker for direct, frictionless assessment.
+/// Replaces the previous modal-based flow with 1-tap assessment that auto-saves.
 struct AssessmentSection: View {
     let skill: Skill
     let contextRatings: [TerrainContext: Rating]
     let overallRating: Rating
-    let onAssess: () -> Void
+    let onRatingSelected: (Rating) -> Void
+    var isSaving: Bool = false
+    var showSaveSuccess: Bool = false
+
+    @State private var selectedRating: Rating = .notAssessed
 
     var body: some View {
         ContentCard(title: "Your Assessment", icon: "checkmark.circle") {
             VStack(spacing: TurnLabSpacing.md) {
-                // Overall rating
-                HStack {
-                    VStack(alignment: .leading, spacing: TurnLabSpacing.xxs) {
-                        Text("Overall")
+                // Terrain context label (shows WHERE this assessment applies)
+                if let primaryContext = skill.assessmentContexts.first {
+                    HStack(spacing: TurnLabSpacing.xs) {
+                        Image(systemName: "mappin.circle.fill")
+                            .foregroundStyle(TurnLabColors.textSecondary)
+                        Text("Assessed on: \(primaryContext.displayName)")
                             .font(TurnLabTypography.caption)
                             .foregroundStyle(TurnLabColors.textSecondary)
-
-                        HStack(spacing: TurnLabSpacing.xs) {
-                            Image(systemName: overallRating.iconName)
-                                .foregroundStyle(overallRating.color)
-                            Text(overallRating.displayName)
-                                .font(TurnLabTypography.headline)
-                                .foregroundStyle(overallRating.color)
-                        }
+                        Spacer()
                     }
-
-                    Spacer()
-
-                    PrimaryButton(title: "Assess", icon: "pencil") {
-                        onAssess()
-                    }
-                    .frame(width: 120)
                 }
 
-                Divider()
+                // Inline assessment picker
+                AssessmentPicker(
+                    selectedRating: $selectedRating,
+                    milestones: skill.outcomeMilestones,
+                    currentRating: overallRating,
+                    onRatingSelected: onRatingSelected,
+                    isSaving: isSaving,
+                    showSaveSuccess: showSaveSuccess
+                )
 
-                // Context-specific ratings
-                if !skill.assessmentContexts.isEmpty {
+                // Context-specific ratings (collapsed view)
+                if skill.assessmentContexts.count > 1 {
+                    Divider()
+
                     VStack(alignment: .leading, spacing: TurnLabSpacing.xs) {
                         Text("By Terrain")
                             .font(TurnLabTypography.caption)
@@ -56,14 +59,15 @@ struct AssessmentSection: View {
                         }
                     }
                 }
-
-                // Milestone description
-                Text(skill.outcomeMilestones.description(for: overallRating))
-                    .font(TurnLabTypography.caption)
-                    .foregroundStyle(TurnLabColors.textSecondary)
-                    .italic()
-                    .frame(maxWidth: .infinity, alignment: .leading)
             }
+        }
+        .onAppear {
+            // Initialize selected rating to current overall rating
+            selectedRating = overallRating
+        }
+        .onChange(of: overallRating) { _, newValue in
+            // Sync selected rating when overall rating changes (e.g., after save)
+            selectedRating = newValue
         }
     }
 }
@@ -95,7 +99,7 @@ struct ContextRatingBadge: View {
     }
 }
 
-#Preview {
+#Preview("Interactive") {
     AssessmentSection(
         skill: Skill(
             id: "test",
@@ -115,7 +119,63 @@ struct ContextRatingBadge: View {
         ),
         contextRatings: [.groomedBlue: .confident, .groomedBlack: .developing],
         overallRating: .confident,
-        onAssess: {}
+        onRatingSelected: { rating in
+            print("Selected: \(rating)")
+        }
+    )
+    .padding()
+    .background(Color(.systemGroupedBackground))
+}
+
+#Preview("Saving State") {
+    AssessmentSection(
+        skill: Skill(
+            id: "test",
+            name: "Parallel Turns",
+            level: .intermediate,
+            domains: [.rotaryMovements],
+            prerequisites: [],
+            summary: "Link parallel turns smoothly.",
+            outcomeMilestones: Skill.OutcomeMilestones(
+                needsWork: "Skis frequently cross or wedge",
+                developing: "Can make turns on easy terrain",
+                confident: "Links turns naturally on blues",
+                mastered: "Controls turn shape on any groomed"
+            ),
+            assessmentContexts: [.groomedBlue],
+            content: SkillContent(videos: [], tips: [], drills: [], checklists: [], warnings: [])
+        ),
+        contextRatings: [:],
+        overallRating: .developing,
+        onRatingSelected: { _ in },
+        isSaving: true
+    )
+    .padding()
+    .background(Color(.systemGroupedBackground))
+}
+
+#Preview("Success State") {
+    AssessmentSection(
+        skill: Skill(
+            id: "test",
+            name: "Parallel Turns",
+            level: .intermediate,
+            domains: [.rotaryMovements],
+            prerequisites: [],
+            summary: "Link parallel turns smoothly.",
+            outcomeMilestones: Skill.OutcomeMilestones(
+                needsWork: "Skis frequently cross or wedge",
+                developing: "Can make turns on easy terrain",
+                confident: "Links turns naturally on blues",
+                mastered: "Controls turn shape on any groomed"
+            ),
+            assessmentContexts: [.groomedBlue],
+            content: SkillContent(videos: [], tips: [], drills: [], checklists: [], warnings: [])
+        ),
+        contextRatings: [:],
+        overallRating: .confident,
+        onRatingSelected: { _ in },
+        showSaveSuccess: true
     )
     .padding()
     .background(Color(.systemGroupedBackground))

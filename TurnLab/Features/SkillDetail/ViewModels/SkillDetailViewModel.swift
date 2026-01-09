@@ -14,6 +14,13 @@ final class SkillDetailViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var isFocusSkill = false
 
+    // MARK: - Inline Assessment State
+    @Published var isSavingAssessment = false
+    @Published var showSaveSuccess = false
+    @Published var showCelebration = false
+    @Published var celebrationPreviousRating: Rating = .notAssessed
+    @Published var celebrationNewRating: Rating = .notAssessed
+
     enum ContentTab: String, CaseIterable {
         case videos = "Videos"
         case tips = "Tips"
@@ -138,5 +145,45 @@ final class SkillDetailViewModel: ObservableObject {
                 }
             }
         }
+    }
+
+    // MARK: - Inline Assessment
+
+    /// Saves an inline assessment with the selected rating.
+    /// Uses the first available terrain context and shows celebration if rating improved.
+    func saveInlineAssessment(rating: Rating) async {
+        guard let skill = skill, !skill.assessmentContexts.isEmpty else { return }
+
+        let previousRating = overallRating
+        let defaultContext = skill.assessmentContexts.first!
+
+        isSavingAssessment = true
+
+        // Save the assessment
+        _ = await assessmentRepository.saveAssessment(
+            skillId: skillId,
+            context: defaultContext,
+            rating: rating,
+            notes: nil
+        )
+
+        // Refresh to get updated ratings
+        await refreshAssessments()
+
+        isSavingAssessment = false
+        showSaveSuccess = true
+
+        // Check if user improved and should show celebration
+        if rating > previousRating && previousRating != .notAssessed {
+            celebrationPreviousRating = previousRating
+            celebrationNewRating = rating
+            // Small delay before showing celebration for visual feedback
+            try? await Task.sleep(nanoseconds: 500_000_000)
+            showCelebration = true
+        }
+
+        // Hide success indicator after a moment
+        try? await Task.sleep(nanoseconds: 1_500_000_000)
+        showSaveSuccess = false
     }
 }

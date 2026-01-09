@@ -6,6 +6,7 @@ struct LevelProgressCard: View {
     let progress: Double
     let canAdvance: Bool
     let nextLevel: SkillLevel?
+    var onAdvance: (() -> Void)?
 
     var body: some View {
         VStack(spacing: TurnLabSpacing.md) {
@@ -106,7 +107,7 @@ struct LevelProgressCard: View {
                     title: "Advance to \(next.displayName)",
                     icon: "arrow.up.circle"
                 ) {
-                    // Handle level advancement
+                    onAdvance?()
                 }
             }
         }
@@ -129,14 +130,16 @@ struct LevelProgressCard: View {
             level: .beginner,
             progress: 0.65,
             canAdvance: false,
-            nextLevel: .novice
+            nextLevel: .novice,
+            onAdvance: nil
         )
 
         LevelProgressCard(
             level: .intermediate,
             progress: 0.85,
             canAdvance: true,
-            nextLevel: .expert
+            nextLevel: .expert,
+            onAdvance: { print("Advancing to Expert!") }
         )
     }
     .padding()

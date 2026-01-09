@@ -5,8 +5,16 @@ struct SettingsView: View {
     @StateObject private var viewModel: SettingsViewModel
     @State private var showPremiumSheet = false
 
-    init(viewModel: SettingsViewModel) {
+    #if DEBUG
+    private let contentManager: ContentManager?
+    @State private var debugSelectedLevel: SkillLevel = .beginner
+    #endif
+
+    init(viewModel: SettingsViewModel, contentManager: ContentManager? = nil) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        #if DEBUG
+        self.contentManager = contentManager
+        #endif
     }
 
     var body: some View {
@@ -130,6 +138,87 @@ struct SettingsView: View {
             } header: {
                 Text("Support")
             }
+
+            // MARK: - Debug Section (Development Only)
+            #if DEBUG
+            Section {
+                // Premium toggle
+                Toggle(isOn: Binding(
+                    get: { viewModel.isPremium },
+                    set: { _ in viewModel.debugTogglePremium() }
+                )) {
+                    HStack {
+                        Image(systemName: "crown.fill")
+                            .foregroundStyle(.purple)
+                        Text("Simulate Premium")
+                    }
+                }
+
+                // Current state info
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack {
+                        Text("Current Level:")
+                            .foregroundStyle(TurnLabColors.textSecondary)
+                        Text(viewModel.debugAppState.currentUserLevel.displayName)
+                            .fontWeight(.medium)
+                    }
+                    HStack {
+                        Text("Granted Skills:")
+                            .foregroundStyle(TurnLabColors.textSecondary)
+                        Text("\(viewModel.debugAppState.grantedFreeSkillIds.count)")
+                            .fontWeight(.medium)
+                    }
+                }
+                .font(.caption)
+
+                // Level picker with grant skills
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Simulate Assessment Level")
+                        .font(.caption)
+                        .foregroundStyle(TurnLabColors.textSecondary)
+
+                    Picker("Level", selection: $debugSelectedLevel) {
+                        ForEach(SkillLevel.allCases, id: \.self) { level in
+                            Text(level.displayName).tag(level)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+
+                    Button("Apply Level & Grant Skills") {
+                        let skills = contentManager?.skills ?? []
+                        viewModel.debugSetAssessedLevel(debugSelectedLevel, availableSkills: skills)
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
+                }
+
+                // Reset buttons
+                Button(role: .destructive) {
+                    viewModel.debugResetGrantedSkills()
+                } label: {
+                    HStack {
+                        Image(systemName: "xmark.circle")
+                        Text("Reset Granted Free Skills")
+                    }
+                }
+
+                Button(role: .destructive) {
+                    viewModel.debugResetOnboarding()
+                } label: {
+                    HStack {
+                        Image(systemName: "arrow.counterclockwise")
+                        Text("Reset Onboarding (Full Reset)")
+                    }
+                }
+            } header: {
+                HStack {
+                    Image(systemName: "hammer.fill")
+                    Text("Developer Tools")
+                }
+            } footer: {
+                Text("These controls are only visible in debug builds. They allow testing premium states and the Fair Access Model.")
+            }
+            #endif
         }
         .navigationTitle("Settings")
         .task {
@@ -156,7 +245,8 @@ struct SettingsView: View {
 }
 
 #Preview {
-    NavigationStack {
+    let contentManager = ContentManager()
+    return NavigationStack {
         SettingsView(
             viewModel: SettingsViewModel(
                 premiumManager: PremiumManager(
@@ -165,7 +255,8 @@ struct SettingsView: View {
                 ),
                 userRepository: UserRepository(coreDataStack: .preview),
                 appState: AppState()
-            )
+            ),
+            contentManager: contentManager
         )
     }
 }

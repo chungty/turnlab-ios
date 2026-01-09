@@ -12,12 +12,16 @@ final class ContentManager: ObservableObject {
     // MARK: - Loading
     func loadContent() async {
         do {
+            print("ContentManager: Starting to load content...")
             skills = try ContentLoader.loadSkills()
+            print("ContentManager: Loaded \(skills.count) skills")
             quizQuestions = try ContentLoader.loadQuizQuestions()
+            print("ContentManager: Loaded \(quizQuestions.count) quiz questions")
             isLoaded = true
+            print("ContentManager: Content loaded successfully!")
         } catch {
             loadError = error
-            print("Failed to load content: \(error)")
+            print("ContentManager: Failed to load content: \(error)")
             // Load fallback content for development/preview
             loadFallbackContent()
         }

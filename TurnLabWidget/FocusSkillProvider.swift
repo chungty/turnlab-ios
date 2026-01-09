@@ -40,6 +40,7 @@ struct FocusSkillProvider: TimelineProvider {
 
         return FocusSkillEntry(
             date: Date(),
+            skillId: focusSkill.id,
             skillName: focusSkill.name,
             skillLevel: focusSkill.level,
             levelColor: focusSkill.levelColor,

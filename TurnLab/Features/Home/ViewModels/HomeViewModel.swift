@@ -137,6 +137,17 @@ final class HomeViewModel: ObservableObject {
         WidgetDataBridge.shared.clearFocusSkill()
     }
 
+    /// Advances the user to the next skill level when they've met the threshold.
+    func advanceToNextLevel() async {
+        guard canAdvanceLevel, let next = nextLevel else { return }
+
+        // Advance in app state (persists the change)
+        appState.advanceLevel(to: next)
+
+        // Reload all data to reflect the new level
+        await loadData()
+    }
+
     // MARK: - Widget Integration
 
     /// Updates widget with current focus skill data.

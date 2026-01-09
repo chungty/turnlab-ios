@@ -53,6 +53,17 @@ enum TerrainContext: String, Codable, CaseIterable, Identifiable {
         }
     }
 
+    /// Stable index for Core Data storage (order-based on CaseIterable)
+    var stableIndex: Int {
+        Self.allCases.firstIndex(of: self)!
+    }
+
+    /// Initialize from stable index
+    static func from(stableIndex: Int) -> TerrainContext? {
+        guard stableIndex >= 0 && stableIndex < allCases.count else { return nil }
+        return allCases[stableIndex]
+    }
+
     /// Difficulty weight for this terrain context
     var difficultyWeight: Double {
         switch self {

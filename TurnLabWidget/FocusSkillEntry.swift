@@ -3,6 +3,7 @@ import WidgetKit
 /// Widget timeline entry containing focus skill data.
 struct FocusSkillEntry: TimelineEntry {
     let date: Date
+    let skillId: String?
     let skillName: String
     let skillLevel: String
     let levelColor: String
@@ -11,10 +12,17 @@ struct FocusSkillEntry: TimelineEntry {
     let domain: String
     let domainIcon: String
 
+    /// URL for deep linking when widget is tapped.
+    var widgetURL: URL? {
+        guard let skillId = skillId else { return nil }
+        return URL(string: "turnlab://skill?id=\(skillId)")
+    }
+
     /// Placeholder entry for widget preview.
     static var placeholder: FocusSkillEntry {
         FocusSkillEntry(
             date: Date(),
+            skillId: "basic-stance",
             skillName: "Basic Athletic Stance",
             skillLevel: "Beginner",
             levelColor: "green",
@@ -34,6 +42,7 @@ struct FocusSkillEntry: TimelineEntry {
     static var empty: FocusSkillEntry {
         FocusSkillEntry(
             date: Date(),
+            skillId: nil,
             skillName: "No Focus Skill",
             skillLevel: "Set Up",
             levelColor: "gray",

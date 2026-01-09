@@ -10,7 +10,6 @@ enum Route: Hashable {
 
     // Assessment
     case assessment(skillId: String)
-    case assessmentHistory(skillId: String)
 
     // Profile
     case profile

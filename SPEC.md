@@ -142,18 +142,52 @@ Content-driven discovery (implicit modes based on content type):
 
 ### 4.3 Self-Assessment System
 
+**Inline Assessment (v1.1+):**
+- Assessments are performed directly on the Skill Detail screen (no modal sheets)
+- Single tap or drag to save - auto-saves immediately with visual feedback
+- Celebration animation when user improves a rating
+
+**Continuous Slider Interface:**
+- Draggable thumb with emoji progression (🌱→🌿→🌲→⭐)
+- Haptic feedback when crossing rating thresholds
+- Spring animation snaps to nearest rating on release
+- Benchmark descriptions update in real-time as user drags
+
+**Rating Levels (Encouraging Language):**
+| Rating | Display Name | Emoji |
+|--------|--------------|-------|
+| Needs Work | "Building" | 🌱 |
+| Developing | "Growing" | 🌿 |
+| Confident | "Solid" | 🌲 |
+| Mastered | "Expert" | ⭐ |
+
 **Assessment Format:**
 - Outcome-based with contextual variations
 - Example for "Parallel Turns":
-  - On groomed blues: ○ Needs Work ○ Developing ○ Confident ○ Mastered
-  - On groomed blacks: ○ Needs Work ○ Developing ○ Confident ○ Mastered
-  - In variable snow: ○ Needs Work ○ Developing ○ Confident ○ Mastered
+  - On groomed blues: Drag slider to rate
+  - On groomed blacks: Drag slider to rate
+  - In variable snow: Drag slider to rate
 
 **Benchmark Display:**
-- Show outcome milestone descriptions for each rating level
-- Example: "Mastered = Can link 10+ fluid parallel turns on any groomed run while varying turn shape intentionally"
+- Show outcome milestone descriptions above slider (always visible)
+- Updates dynamically as user drags through ratings
+- Example: "Expert = Can link 10+ fluid parallel turns on any groomed run while varying turn shape intentionally"
 
-### 4.4 Handling Stuck Users
+### 4.4 Returning User Experience
+
+**Welcome Back Card (v1.1+):**
+- Appears on Home screen if user returns after 24+ hours
+- Shows time since last visit and current focus skill status
+- "Continue where you left off" action to resume focus skill
+- Dismissible with X button
+
+**Progress Celebration:**
+- Triggered when user's rating improves on any skill
+- Shows confetti animation with encouraging message
+- Displays "What's next" - the next milestone description to work toward
+- Non-blocking - can be dismissed with tap
+
+### 4.5 Handling Stuck Users
 
 When users plateau on a skill:
 1. **Alternative content paths** - Surface different videos/approaches
@@ -226,8 +260,19 @@ Each skill should have:
 
 | Tier | Access | Price |
 |------|--------|-------|
-| **Free** | Beginner level content, full features | $0 |
-| **Premium** | Novice + Intermediate + Expert levels | **$4.99 one-time purchase** |
+| **Free** | Beginner level (all skills) + bonus skills at assessed level* | $0 |
+| **Premium** | All levels unlocked (Novice + Intermediate + Expert) | **$4.99 one-time purchase** |
+
+**Fair Access Model:** Users who complete the skill assessment quiz receive bonus free skills at their assessed level, ensuring everyone gets useful content regardless of where they start:
+
+| Assessed Level | Free Content |
+|----------------|--------------|
+| Beginner | All 5 beginner skills (default) |
+| Novice | All beginner skills + 2 novice skills |
+| Intermediate | All beginner skills + 2 intermediate skills |
+| Expert | All beginner skills + 1 expert skill (teaser) |
+
+This addresses a fairness concern: without bonus skills, users assessed at higher levels would have zero content at their skill level in the free tier.
 
 **Pricing Philosophy:** Skiing is already expensive. The unlock price is intentionally set at "impulse buy" territory to maximize accessibility and adoption. No subscriptions, no recurring fees.
 
@@ -321,10 +366,11 @@ SkillAssessment
 ### 8.2 Key Screens
 
 1. **Home / Dashboard**
-   - Current level progress
-   - Focus skill with quick actions
-   - Recent assessments
-   - Suggested next content
+   - Welcome back card (for returning users, 24+ hours)
+   - Current level progress with "Advance" action
+   - Focus skill card with terrain, milestone, and mental cue
+   - Suggested skills with recommendation reasons
+   - Quick stats (assessments this week, level progress)
 
 2. **Skill Browser**
    - Level-based view (default)
@@ -332,15 +378,18 @@ SkillAssessment
    - Search/filter capabilities
 
 3. **Skill Detail**
-   - Videos (YouTube embed)
-   - Tips/Drills/Checklists tabs
-   - Assessment history and input
-   - Related/prerequisite skills
+   - Hero section with skill name, rating, focus skill toggle
+   - Inline assessment with continuous slider (drag or tap to save)
+   - Prerequisites warning if not met
+   - Content tabs: Videos / Tips / Drills
+   - Progress celebration on rating improvement
 
-4. **Assessment**
-   - Contextual rating input
-   - Benchmark milestone display
-   - Progress visualization
+4. **Assessment (Inline)**
+   - Continuous slider with draggable thumb (🌱🌿🌲⭐)
+   - Benchmark preview always visible above slider
+   - Haptic feedback on drag, spring snap on release
+   - Auto-saves with spinner → checkmark feedback
+   - "Next goal" indicator showing path forward
 
 5. **Profile/Progress**
    - Level progression visualization
@@ -356,15 +405,33 @@ SkillAssessment
 
 ---
 
-## 9. Accessibility
+## 9. Accessibility & Premium UX
 
-### 9.1 Requirements
+### 9.1 Accessibility Requirements
 
 - **VoiceOver** - Full support for screen reader users
 - **Dynamic Type** - Text scales with system settings
 - **One-handed operation** - All core features accessible with one hand
 - **High contrast mode** - Enhanced visibility for outdoor use
 - **Reduced motion** - Respect system motion preferences
+
+### 9.2 Premium UX Requirements
+
+Premium content gating must be user-friendly and never frustrating:
+
+| Requirement | Implementation |
+|-------------|----------------|
+| **No Silent Failures** | Tapping locked content must show feedback (contextual upsell), never fail silently |
+| **Contextual Upselling** | Show premium prompts in context (when user tries to access locked content), not just in Settings |
+| **Clear Lock State** | Visual lock indicators with proper accessibility labels ("Locked premium skill") |
+| **Content Value Display** | Show what's locked (e.g., "3 tips, 2 drills, 1 video") to demonstrate value |
+| **Friction-Free Purchase** | One-tap purchase from any premium upsell surface |
+| **Restore Purchases** | Easy access to restore previous purchases |
+
+**Accessibility for Lock States:**
+- Lock icons must have VoiceOver labels ("Locked premium skill: [skill name]")
+- Accessibility hints guide users ("Double tap to view unlock options")
+- Premium upsell modals must be fully navigable with VoiceOver
 
 ---
 
@@ -404,6 +471,8 @@ Features explicitly deferred from MVP:
 | Multiple languages | Localization beyond English |
 | Session logging | Track actual ski days/runs |
 | Instructor mode | Tools for coaches to assign content |
+| Hybrid ad-to-preview | Watch a rewarded ad to temporarily unlock skill preview before purchase decision |
+| Content previews | Allow browsing locked skill details with teaser content (tip titles, drill names) |
 
 ---
 

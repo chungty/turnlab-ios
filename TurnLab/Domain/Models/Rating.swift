@@ -66,6 +66,18 @@ enum Rating: Int, Codable, CaseIterable, Comparable {
         }
     }
 
+    /// The next level of progression after this rating.
+    /// Returns nil if already at mastered level.
+    var nextLevel: Rating? {
+        switch self {
+        case .notAssessed: return .needsWork
+        case .needsWork: return .developing
+        case .developing: return .confident
+        case .confident: return .mastered
+        case .mastered: return nil
+        }
+    }
+
     static func < (lhs: Rating, rhs: Rating) -> Bool {
         lhs.rawValue < rhs.rawValue
     }

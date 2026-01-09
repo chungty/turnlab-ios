@@ -3,8 +3,17 @@ import SwiftUI
 /// Centralized navigation state management.
 @MainActor
 final class NavigationRouter: ObservableObject {
-    /// Navigation path for programmatic navigation.
+    /// Navigation path for programmatic navigation (Home tab).
     @Published var path = NavigationPath()
+
+    /// Navigation path for Skills tab.
+    @Published var skillsPath = NavigationPath()
+
+    /// Navigation path for Profile tab.
+    @Published var profilePath = NavigationPath()
+
+    /// Navigation path for Settings tab.
+    @Published var settingsPath = NavigationPath()
 
     /// Currently selected tab.
     @Published var selectedTab: Tab = .home
@@ -20,6 +29,12 @@ final class NavigationRouter: ObservableObject {
     /// Navigate to a route by pushing it onto the navigation stack.
     func navigate(to route: Route) {
         path.append(route)
+    }
+
+    /// Navigate to a skill detail (appends to skillsPath).
+    func navigateToSkill(_ skillId: String) {
+        selectedTab = .skills
+        skillsPath.append(Route.skillDetail(skillId: skillId))
     }
 
     /// Pop the current view from the navigation stack.
@@ -94,11 +109,13 @@ final class NavigationRouter: ObservableObject {
 
 enum SheetDestination: Identifiable {
     case premium
+    case premiumUpsell(skill: Skill)  // Contextual paywall shown when tapping locked skill
     case assessment(skillId: String)
 
     var id: String {
         switch self {
         case .premium: return "premium"
+        case .premiumUpsell(let skill): return "premium-upsell-\(skill.id)"
         case .assessment(let skillId): return "assessment-\(skillId)"
         }
     }

@@ -5,6 +5,9 @@ struct HomeView: View {
     @StateObject private var viewModel: HomeViewModel
     @EnvironmentObject private var container: DIContainer
 
+    /// State for showing the welcome back card for returning users.
+    @State private var showWelcomeBack = false
+
     init(viewModel: HomeViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -35,12 +38,37 @@ struct HomeView: View {
                         )
 
                         VStack(spacing: TurnLabSpacing.lg) {
+                            // Welcome back card for returning users (>24 hours since last visit)
+                            if showWelcomeBack {
+                                WelcomeBackCard(
+                                    lastVisit: container.appState.lastVisitDate,
+                                    focusSkillName: viewModel.focusSkill?.name,
+                                    currentRating: viewModel.focusSkillRating,
+                                    onContinue: {
+                                        // Navigate to focus skill if one is set
+                                        if let focusSkill = viewModel.focusSkill {
+                                            container.appState.navigateToSkill(focusSkill.id)
+                                        }
+                                    },
+                                    onDismiss: {
+                                        withAnimation {
+                                            showWelcomeBack = false
+                                        }
+                                    }
+                                )
+                            }
+
                             // Level progress card
                             LevelProgressCard(
                                 level: viewModel.currentLevel,
                                 progress: viewModel.levelProgress,
                                 canAdvance: viewModel.canAdvanceLevel,
-                                nextLevel: viewModel.nextLevel
+                                nextLevel: viewModel.nextLevel,
+                                onAdvance: {
+                                    Task {
+                                        await viewModel.advanceToNextLevel()
+                                    }
+                                }
                             )
 
                             // Focus skill card
@@ -90,6 +118,14 @@ struct HomeView: View {
         }
         .refreshable {
             await viewModel.loadData()
+        }
+        .onAppear {
+            // Check if we should show welcome back card (>24 hours since last visit)
+            if container.appState.shouldShowWelcomeBack() {
+                showWelcomeBack = true
+            }
+            // Record this visit for next time
+            container.appState.recordVisit()
         }
     }
 }

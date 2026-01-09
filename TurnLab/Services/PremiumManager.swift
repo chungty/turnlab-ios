@@ -9,6 +9,20 @@ final class PremiumManager: ObservableObject {
     private let userRepository: UserRepositoryProtocol
     private let purchaseService: PurchaseService
 
+    // MARK: - Fair Access Model
+
+    /// Number of free skills granted at each assessed level (5/2/2/1 model)
+    /// - Beginner: All 5 beginner skills free (no bonus needed)
+    /// - Novice: 2 novice skills free as bonus
+    /// - Intermediate: 2 intermediate skills free as bonus
+    /// - Expert: 1 expert skill free as teaser
+    static let freeSkillsPerLevel: [SkillLevel: Int] = [
+        .beginner: 0,      // All beginner skills are free anyway
+        .novice: 2,        // 2 free novice skills
+        .intermediate: 2,  // 2 free intermediate skills
+        .expert: 1         // 1 free expert skill (teaser)
+    ]
+
     init(
         userRepository: UserRepositoryProtocol,
         purchaseService: PurchaseService
