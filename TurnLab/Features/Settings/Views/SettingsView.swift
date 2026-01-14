@@ -97,7 +97,7 @@ struct SettingsView: View {
                         .foregroundStyle(TurnLabColors.textSecondary)
                 }
 
-                Link(destination: URL(string: "https://turnlab.app/privacy")!) {
+                Link(destination: URL(string: "https://chungty.github.io/turnlab-ios/privacy.html")!) {
                     HStack {
                         Text("Privacy Policy")
                         Spacer()
@@ -106,7 +106,7 @@ struct SettingsView: View {
                     }
                 }
 
-                Link(destination: URL(string: "https://turnlab.app/terms")!) {
+                Link(destination: URL(string: "https://chungty.github.io/turnlab-ios/terms.html")!) {
                     HStack {
                         Text("Terms of Service")
                         Spacer()
@@ -128,13 +128,14 @@ struct SettingsView: View {
                     }
                 }
 
-                Link(destination: URL(string: "https://apps.apple.com/app/id123456789?action=write-review")!) {
-                    HStack {
-                        Image(systemName: "star.fill")
-                            .foregroundStyle(.yellow)
-                        Text("Rate Turn Lab")
-                    }
-                }
+                // TODO: Uncomment after App Store approval and update with real App ID
+                // Link(destination: URL(string: "https://apps.apple.com/app/idXXXXXXXXXX?action=write-review")!) {
+                //     HStack {
+                //         Image(systemName: "star.fill")
+                //             .foregroundStyle(.yellow)
+                //         Text("Rate Turn Lab")
+                //     }
+                // }
             } header: {
                 Text("Support")
             }
