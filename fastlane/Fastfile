@@ -56,6 +56,106 @@ platform :ios do
     upload
   end
 
+  desc "Upload metadata and screenshots only (no binary)"
+  lane :upload_metadata do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: false,
+      skip_screenshots: false,
+      skip_app_version_update: false,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      submit_for_review: false,
+      ignore_language_directory_validation: false,
+      overwrite_screenshots: true,
+      app_rating_config_path: "./fastlane/metadata/rating_config.json",
+      primary_category: "SPORTS",
+      secondary_category: "EDUCATION"
+    )
+  end
+
+  desc "Upload metadata only (no screenshots, no binary)"
+  lane :upload_metadata_only do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: false,
+      skip_screenshots: true,
+      skip_app_version_update: false,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      submit_for_review: false,
+      app_rating_config_path: "./fastlane/metadata/rating_config.json",
+      primary_category: "SPORTS",
+      secondary_category: "EDUCATION"
+    )
+  end
+
+  desc "Upload metadata without review info (workaround for first submission)"
+  lane :upload_metadata_safe do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    # First upload screenshots only
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_screenshots: false,
+      force: true,
+      overwrite_screenshots: true,
+      precheck_include_in_app_purchases: false,
+      submit_for_review: false
+    )
+
+    # Then upload metadata without screenshots
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: false,
+      skip_screenshots: true,
+      skip_app_version_update: true,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      submit_for_review: false,
+      app_rating_config_path: "./fastlane/metadata/rating_config.json",
+      primary_category: "SPORTS",
+      secondary_category: "EDUCATION"
+    )
+  end
+
+  desc "Submit app for App Store review"
+  lane :submit_for_review do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: false,
+      skip_screenshots: false,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      submit_for_review: true,
+      automatic_release: true,
+      phased_release: false
+    )
+  end
+
   desc "Upload to TestFlight"
   lane :upload_testflight do
     app_store_connect_api_key(

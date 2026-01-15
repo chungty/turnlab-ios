@@ -1,12 +1,20 @@
 import SwiftUI
 
 /// Semantic color definitions for Turn Lab.
-/// Designed for high contrast outdoor visibility.
+/// 80s neon aesthetic with high contrast for outdoor visibility.
 enum TurnLabColors {
-    // MARK: - Brand Colors
-    static let primary = Color("Primary", bundle: .main)
-    static let secondary = Color("Secondary", bundle: .main)
-    static let accent = Color("Accent", bundle: .main)
+    // MARK: - Brand Colors (80s Neon Palette)
+    static let primary = Color("Primary", bundle: .main)      // Electric Blue #00D4FF
+    static let secondary = Color("Secondary", bundle: .main)  // Neon Pink #FF6B9D
+    static let accent = Color("Accent", bundle: .main)        // Electric Blue
+
+    // MARK: - 80s Neon Direct Colors
+    static let neonPink = Color(red: 1.0, green: 0.42, blue: 0.616)      // #FF6B9D
+    static let electricBlue = Color(red: 0.0, green: 0.831, blue: 1.0)   // #00D4FF
+    static let sunsetOrange = Color(red: 1.0, green: 0.549, blue: 0.259) // #FF8C42
+    static let sunsetYellow = Color(red: 1.0, green: 0.902, blue: 0.427) // #FFE66D
+    static let deepPurple = Color(red: 0.482, green: 0.176, blue: 0.557) // #7B2D8E
+    static let nightSky = Color(red: 0.102, green: 0.102, blue: 0.180)   // #1A1A2E
 
     // MARK: - Semantic Colors
     static let background = Color("Background", bundle: .main)
@@ -65,32 +73,46 @@ enum TurnLabColors {
         }
     }
 
-    // MARK: - Gradient Backgrounds
-    static let mountainGradient = LinearGradient(
-        colors: [
-            Color(red: 0.15, green: 0.25, blue: 0.45),
-            Color(red: 0.35, green: 0.55, blue: 0.75),
-            Color(red: 0.85, green: 0.90, blue: 0.95)
-        ],
-        startPoint: .top,
-        endPoint: .bottom
-    )
+    // MARK: - Gradient Backgrounds (80s Aesthetic)
 
+    /// Primary 80s sunset gradient - neon pink to orange to yellow
     static let sunsetGradient = LinearGradient(
         colors: [
-            Color(red: 0.95, green: 0.55, blue: 0.35),
-            Color(red: 0.85, green: 0.35, blue: 0.45),
-            Color(red: 0.45, green: 0.25, blue: 0.55)
+            neonPink,
+            sunsetOrange,
+            sunsetYellow
+        ],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    /// Aurora gradient - electric blue to deep purple
+    static let auroraGradient = LinearGradient(
+        colors: [
+            electricBlue,
+            deepPurple
+        ],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    /// Night mountain gradient - for dark backgrounds
+    static let mountainGradient = LinearGradient(
+        colors: [
+            nightSky,
+            Color(red: 0.086, green: 0.129, blue: 0.243),  // #16213E
+            Color(red: 0.059, green: 0.204, blue: 0.376)   // #0F3460
         ],
         startPoint: .top,
         endPoint: .bottom
     )
 
+    /// Snow/light gradient for content areas
     static let snowGradient = LinearGradient(
         colors: [
             Color.white,
-            Color(white: 0.95),
-            Color(white: 0.88)
+            Color(white: 0.96),
+            Color(white: 0.92)
         ],
         startPoint: .top,
         endPoint: .bottom

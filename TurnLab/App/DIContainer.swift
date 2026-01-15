@@ -18,6 +18,8 @@ final class DIContainer: ObservableObject {
     let progressionService: ProgressionService
     let premiumManager: PremiumManager
     let purchaseService: PurchaseService
+    let openAIService: OpenAIService
+    let coachService: CoachService
 
     // MARK: - Shared State
     let appState: AppState
@@ -60,6 +62,15 @@ final class DIContainer: ObservableObject {
 
         // Initialize App State from persisted data
         self.appState = AppState()
+
+        // Initialize AI Services
+        self.openAIService = OpenAIService(apiKey: APIKeys.openAI)
+        self.coachService = CoachService(
+            openAIService: openAIService,
+            skillRepository: skillRepository,
+            assessmentRepository: assessmentRepository,
+            appState: appState
+        )
 
         // Load initial state
         Task {
@@ -143,6 +154,13 @@ final class DIContainer: ObservableObject {
             premiumManager: premiumManager,
             userRepository: userRepository,
             appState: appState
+        )
+    }
+
+    func makeCoachViewModel() -> CoachViewModel {
+        CoachViewModel(
+            coachService: coachService,
+            skillRepository: skillRepository
         )
     }
 }

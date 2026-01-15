@@ -1,1 +1,15 @@
 .build
+
+# Xcode
+build/
+DerivedData/
+*.xcuserdata
+*.xcworkspace/xcuserdata/
+
+# API Keys (NEVER commit)
+TurnLab/Configuration/APIKeys.swift
+
+# OS files
+.DS_Store
+*.swp
+.vercel

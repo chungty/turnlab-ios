@@ -3,202 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Turn Lab</title>
+    <title>Terms of Service - Turn Lab | Ski Coaching App</title>
+    <meta name="description" content="Terms of Service for Turn Lab ski coaching app. Educational content for improving your skiing technique.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://turnlab.app/terms">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Terms of Service - Turn Lab">
+    <meta property="og:description" content="Terms of Service for Turn Lab ski coaching app.">
+    <meta property="og:url" content="https://turnlab.app/terms">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts - Match main site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #2196F3;
-            --warning: #ff9800;
-            --text: #333;
-            --bg: #fff;
-            --section-bg: #f8f9fa;
+            /* 80s Neon Color Palette - Matches main site */
+            --neon-pink: #FF6B9D;
+            --neon-pink-glow: #FF6B9D40;
+            --electric-blue: #00D4FF;
+            --electric-blue-glow: #00D4FF40;
+            --sunset-orange: #FF8C42;
+            --sunset-yellow: #FFE66D;
+            --deep-purple: #7B2D8E;
+            --snow-white: #FFFFFF;
+            --night-sky: #1a1a2e;
+            --mountain-dark: #16213e;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --gradient-sunset: linear-gradient(135deg, #FF6B9D 0%, #FF8C42 50%, #FFE66D 100%);
+            --warning-bg: rgba(255, 140, 66, 0.15);
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--snow-white);
+            background: var(--night-sky);
             padding: 20px;
+        }
+
+        .container {
             max-width: 800px;
             margin: 0 auto;
         }
+
         header {
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid #eee;
+            padding: 60px 0 40px;
+            border-bottom: 2px solid var(--neon-pink);
             margin-bottom: 40px;
         }
-        h1 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 10px;
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--electric-blue);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
         }
+
+        .back-link:hover {
+            color: var(--neon-pink);
+        }
+
+        h1 {
+            font-family: 'Righteous', cursive;
+            font-size: 2.5rem;
+            background: var(--gradient-sunset);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
         .updated {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
+
         h2 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin: 30px 0 15px 0;
-            padding-bottom: 5px;
-            border-bottom: 2px solid var(--primary);
+            font-family: 'Righteous', cursive;
+            color: var(--sunset-yellow);
+            font-size: 1.4rem;
+            margin: 40px 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
         p, li {
             margin-bottom: 12px;
+            color: var(--text-secondary);
         }
+
         ul {
             padding-left: 25px;
         }
+
+        li::marker {
+            color: var(--neon-pink);
+        }
+
+        strong {
+            color: var(--snow-white);
+        }
+
+        a {
+            color: var(--electric-blue);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--neon-pink);
+        }
+
         .warning {
-            background: #fff3e0;
-            border-left: 4px solid var(--warning);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
+            background: var(--warning-bg);
+            border-left: 4px solid var(--sunset-orange);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
         }
+
+        .warning h2 {
+            margin-top: 0;
+            color: var(--sunset-orange);
+        }
+
         .warning strong {
-            color: #e65100;
+            color: var(--sunset-orange);
         }
+
+        .warning p, .warning li {
+            color: var(--snow-white);
+        }
+
         .highlight {
-            background: var(--section-bg);
+            background: rgba(255, 107, 157, 0.1);
+            border: 1px solid var(--neon-pink);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             margin: 20px 0;
         }
-        .contact {
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 40px;
+
+        .highlight p, .highlight li {
+            color: var(--snow-white);
         }
+
+        .contact {
+            background: var(--gradient-sunset);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact p {
+            color: var(--night-sky);
+            margin-bottom: 5px;
+        }
+
         .contact a {
-            color: white;
+            color: var(--night-sky);
+            font-weight: 600;
             text-decoration: underline;
         }
+
         footer {
             text-align: center;
             padding: 40px 0;
-            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.85rem;
         }
+
         footer a {
-            color: var(--primary);
+            color: rgba(255, 255, 255, 0.5);
         }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text: #e0e0e0;
-                --bg: #1a1a1a;
-                --section-bg: #2a2a2a;
-            }
-            .warning {
-                background: #3a2a1a;
-            }
+
+        footer a:hover {
+            color: var(--neon-pink);
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Turn Lab Terms of Service</h1>
-        <p class="updated">Last updated: January 2025</p>
-    </header>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Turn Lab</a>
+            <h1>Terms of Service</h1>
+            <p class="updated">Last updated: January 2025</p>
+        </header>
 
-    <main>
-        <h2>Acceptance of Terms</h2>
-        <p>By downloading, installing, or using Turn Lab, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the app.</p>
+        <main>
+            <h2>Acceptance of Terms</h2>
+            <p>By downloading, installing, or using Turn Lab, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the app.</p>
 
-        <h2>Service Description</h2>
-        <p>Turn Lab is a mobile application that provides ski instruction content including:</p>
-        <ul>
-            <li>Structured skill progressions</li>
-            <li>Mental cues and tips for technique</li>
-            <li>Practice drills and checklists</li>
-            <li>Links to instructional video content</li>
-            <li>Self-assessment tools for tracking progress</li>
-        </ul>
-        <p>This content is provided for <strong>educational purposes only</strong>.</p>
-
-        <div class="warning">
-            <h2 style="border: none; margin-top: 0; padding: 0;">Safety Disclaimer</h2>
-            <p><strong>IMPORTANT: Skiing and snowboarding are inherently dangerous activities that can result in serious injury or death.</strong></p>
+            <h2>Service Description</h2>
+            <p>Turn Lab is a mobile application that provides ski instruction content including:</p>
             <ul>
-                <li>Turn Lab provides educational content only, not real-time instruction or supervision.</li>
-                <li>Always ski within your ability level and under control.</li>
-                <li>Follow all posted signs, warnings, and ski patrol instructions.</li>
-                <li>Wear appropriate safety equipment including a helmet.</li>
-                <li>Be aware of other skiers and snowboarders around you.</li>
-                <li>Never ski alone in backcountry or unmarked terrain.</li>
+                <li>Structured skill progressions</li>
+                <li>Mental cues and tips for technique</li>
+                <li>Practice drills and checklists</li>
+                <li>Links to instructional video content</li>
+                <li>Self-assessment tools for tracking progress</li>
             </ul>
-            <p><strong>We are not liable for any injuries, damages, or losses sustained while skiing or snowboarding, regardless of whether you used content from this app.</strong></p>
-        </div>
+            <p>This content is provided for <strong>educational purposes only</strong>.</p>
 
-        <h2>Intellectual Property</h2>
-        <ul>
-            <li>All app content, including text, graphics, and the skill curriculum, is proprietary to Turn Lab.</li>
-            <li>Video content is sourced from third-party YouTube creators and linked externally. These videos are subject to the respective creators' rights and YouTube's terms of service.</li>
-            <li>You may not copy, modify, distribute, sell, or commercialize any content from Turn Lab without written permission.</li>
-        </ul>
+            <div class="warning">
+                <h2>Safety Disclaimer</h2>
+                <p><strong>IMPORTANT: Skiing and snowboarding are inherently dangerous activities that can result in serious injury or death.</strong></p>
+                <ul>
+                    <li>Turn Lab provides educational content only, not real-time instruction or supervision.</li>
+                    <li>Always ski within your ability level and under control.</li>
+                    <li>Follow all posted signs, warnings, and ski patrol instructions.</li>
+                    <li>Wear appropriate safety equipment including a helmet.</li>
+                    <li>Be aware of other skiers and snowboarders around you.</li>
+                    <li>Never ski alone in backcountry or unmarked terrain.</li>
+                </ul>
+                <p><strong>We are not liable for any injuries, damages, or losses sustained while skiing or snowboarding, regardless of whether you used content from this app.</strong></p>
+            </div>
 
-        <h2>In-App Purchases</h2>
-        <div class="highlight">
+            <h2>Intellectual Property</h2>
             <ul>
-                <li>Turn Lab offers a one-time premium purchase that unlocks additional content.</li>
-                <li>All purchases are processed through Apple's App Store and are subject to Apple's terms.</li>
-                <li>Purchases are <strong>non-refundable</strong> through us. Refund requests must be made through Apple.</li>
-                <li>If you delete the app or change devices, you can restore your purchase at no additional cost through the app's settings.</li>
+                <li>All app content, including text, graphics, and the skill curriculum, is proprietary to Turn Lab.</li>
+                <li>Video content is sourced from third-party YouTube creators and linked externally. These videos are subject to the respective creators' rights and YouTube's terms of service.</li>
+                <li>You may not copy, modify, distribute, sell, or commercialize any content from Turn Lab without written permission.</li>
             </ul>
-        </div>
 
-        <h2>User Conduct</h2>
-        <p>You agree not to:</p>
-        <ul>
-            <li>Attempt to reverse engineer, decompile, or disassemble the app</li>
-            <li>Use the app for any unlawful purpose</li>
-            <li>Share or distribute your purchased content to others</li>
-            <li>Misrepresent your skill level based on app assessments to ski patrol or others</li>
-        </ul>
+            <h2>In-App Purchases</h2>
+            <div class="highlight">
+                <ul>
+                    <li>Turn Lab offers a one-time premium purchase that unlocks additional content.</li>
+                    <li>All purchases are processed through Apple's App Store and are subject to Apple's terms.</li>
+                    <li>Purchases are <strong>non-refundable</strong> through us. Refund requests must be made through Apple.</li>
+                    <li>If you delete the app or change devices, you can restore your purchase at no additional cost through the app's settings.</li>
+                </ul>
+            </div>
 
-        <h2>Disclaimer of Warranties</h2>
-        <p>Turn Lab is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied, including but not limited to:</p>
-        <ul>
-            <li>Accuracy or completeness of the instructional content</li>
-            <li>Fitness for a particular purpose</li>
-            <li>Uninterrupted or error-free operation</li>
-        </ul>
+            <h2>User Conduct</h2>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Attempt to reverse engineer, decompile, or disassemble the app</li>
+                <li>Use the app for any unlawful purpose</li>
+                <li>Share or distribute your purchased content to others</li>
+                <li>Misrepresent your skill level based on app assessments to ski patrol or others</li>
+            </ul>
 
-        <h2>Limitation of Liability</h2>
-        <p>To the maximum extent permitted by law, Turn Lab and its creators shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
-        <ul>
-            <li>Personal injury or death while skiing</li>
-            <li>Property damage</li>
-            <li>Loss of data</li>
-            <li>Loss of profits</li>
-        </ul>
+            <h2>Disclaimer of Warranties</h2>
+            <p>Turn Lab is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied, including but not limited to:</p>
+            <ul>
+                <li>Accuracy or completeness of the instructional content</li>
+                <li>Fitness for a particular purpose</li>
+                <li>Uninterrupted or error-free operation</li>
+            </ul>
 
-        <h2>Changes to Terms</h2>
-        <p>We reserve the right to modify these terms at any time. Continued use of the app after changes constitutes acceptance of the new terms.</p>
+            <h2>Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, Turn Lab and its creators shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
+            <ul>
+                <li>Personal injury or death while skiing</li>
+                <li>Property damage</li>
+                <li>Loss of data</li>
+                <li>Loss of profits</li>
+            </ul>
 
-        <h2>Governing Law</h2>
-        <p>These terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
+            <h2>Changes to Terms</h2>
+            <p>We reserve the right to modify these terms at any time. Continued use of the app after changes constitutes acceptance of the new terms.</p>
 
-        <h2>Severability</h2>
-        <p>If any provision of these terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
+            <h2>Governing Law</h2>
+            <p>These terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
 
-        <div class="contact">
-            <p><strong>Questions about these terms?</strong></p>
-            <p>Contact us at <a href="mailto:support@turnlab.app">support@turnlab.app</a></p>
-        </div>
-    </main>
+            <h2>Severability</h2>
+            <p>If any provision of these terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
 
-    <footer>
-        <p>&copy; 2025 Turn Lab. All rights reserved.</p>
-        <p><a href="/">Home</a> | <a href="/privacy">Privacy Policy</a></p>
-    </footer>
+            <div class="contact">
+                <p><strong>Questions about these terms?</strong></p>
+                <p>Contact us at <a href="mailto:support@turnlab.app">support@turnlab.app</a></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2025 Turn Lab. All rights reserved.</p>
+            <p><a href="/">Home</a> · <a href="/privacy">Privacy Policy</a></p>
+        </footer>
+    </div>
 </body>
 </html>

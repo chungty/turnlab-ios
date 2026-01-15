@@ -97,7 +97,7 @@ struct SettingsView: View {
                         .foregroundStyle(TurnLabColors.textSecondary)
                 }
 
-                Link(destination: URL(string: "https://chungty.github.io/turnlab-ios/privacy.html")!) {
+                Link(destination: URL(string: "https://turnlab.app/privacy")!) {
                     HStack {
                         Text("Privacy Policy")
                         Spacer()
@@ -106,7 +106,7 @@ struct SettingsView: View {
                     }
                 }
 
-                Link(destination: URL(string: "https://chungty.github.io/turnlab-ios/terms.html")!) {
+                Link(destination: URL(string: "https://turnlab.app/terms")!) {
                     HStack {
                         Text("Terms of Service")
                         Spacer()

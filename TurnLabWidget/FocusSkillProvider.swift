@@ -5,6 +5,7 @@ import SwiftUI
 struct FocusSkillProvider: TimelineProvider {
     /// App Group identifier for shared data.
     private let appGroupId = "group.com.turnlab.app"
+    private let coachTipKey = "coachTip"
 
     func placeholder(in context: Context) -> FocusSkillEntry {
         FocusSkillEntry.placeholder
@@ -32,10 +33,28 @@ struct FocusSkillProvider: TimelineProvider {
     // MARK: - Data Loading
 
     private func loadCurrentFocusSkill() -> FocusSkillEntry {
-        guard let userDefaults = UserDefaults(suiteName: appGroupId),
-              let focusSkillData = userDefaults.data(forKey: "focusSkill"),
+        let userDefaults = UserDefaults(suiteName: appGroupId)
+        let coachTip = userDefaults?.string(forKey: coachTipKey)
+
+        guard let focusSkillData = userDefaults?.data(forKey: "focusSkill"),
               let focusSkill = try? JSONDecoder().decode(WidgetFocusSkill.self, from: focusSkillData) else {
-            return FocusSkillEntry.empty
+            // Return empty but with coach tip if available
+            var empty = FocusSkillEntry.empty
+            if coachTip != nil {
+                return FocusSkillEntry(
+                    date: Date(),
+                    skillId: nil,
+                    skillName: "No Focus Skill",
+                    skillLevel: "Set Up",
+                    levelColor: "gray",
+                    progress: 0,
+                    nextMilestone: "Tap to choose a skill to focus on",
+                    domain: "Turn Lab",
+                    domainIcon: "skis.fill",
+                    coachTip: coachTip
+                )
+            }
+            return empty
         }
 
         return FocusSkillEntry(
@@ -47,7 +66,8 @@ struct FocusSkillProvider: TimelineProvider {
             progress: focusSkill.progress,
             nextMilestone: focusSkill.nextMilestone,
             domain: focusSkill.domain,
-            domainIcon: focusSkill.domainIcon
+            domainIcon: focusSkill.domainIcon,
+            coachTip: coachTip
         )
     }
 }

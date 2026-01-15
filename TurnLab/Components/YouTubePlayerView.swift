@@ -1,106 +1,92 @@
 import SwiftUI
-import WebKit
 
-/// YouTube video player using WKWebView iframe embed.
-struct YouTubePlayerView: UIViewRepresentable {
-    let video: VideoReference
-
-    func makeUIView(context: Context) -> WKWebView {
-        let configuration = WKWebViewConfiguration()
-        configuration.allowsInlineMediaPlayback = true
-        configuration.mediaTypesRequiringUserActionForPlayback = []
-
-        let webView = WKWebView(frame: .zero, configuration: configuration)
-        webView.scrollView.isScrollEnabled = false
-        webView.backgroundColor = .black
-        webView.isOpaque = false
-
-        return webView
-    }
-
-    func updateUIView(_ webView: WKWebView, context: Context) {
-        let embedHTML = """
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-            <style>
-                * { margin: 0; padding: 0; }
-                html, body { width: 100%; height: 100%; background: #000; }
-                iframe { width: 100%; height: 100%; border: none; }
-            </style>
-        </head>
-        <body>
-            <iframe
-                src="https://www.youtube.com/embed/\(video.youtubeId)?playsinline=1&rel=0&modestbranding=1"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </body>
-        </html>
-        """
-
-        webView.loadHTMLString(embedHTML, baseURL: nil)
-    }
-}
-
-/// Container for YouTube player with thumbnail preview.
+/// Card displaying YouTube video thumbnail that opens in YouTube app or Safari.
+/// Uses external link approach for reliability - inline WKWebView embedding
+/// has cross-origin security issues and ATS configuration requirements.
 struct YouTubePlayerCard: View {
     let video: VideoReference
-    @State private var isPlaying = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: TurnLabSpacing.xs) {
-            // Player/Thumbnail
-            ZStack {
-                if isPlaying {
-                    YouTubePlayerView(video: video)
-                        .aspectRatio(16/9, contentMode: .fit)
-                } else {
-                    // Thumbnail with play button
-                    AsyncImage(url: video.thumbnailURL) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(16/9, contentMode: .fill)
-                    } placeholder: {
-                        Rectangle()
-                            .fill(Color.gray.opacity(0.2))
-                            .aspectRatio(16/9, contentMode: .fit)
-                    }
-
-                    // Play button overlay
-                    Button(action: { isPlaying = true }) {
-                        ZStack {
-                            Circle()
-                                .fill(.black.opacity(0.7))
-                                .frame(width: 64, height: 64)
-
-                            Image(systemName: "play.fill")
-                                .font(.title)
-                                .foregroundStyle(.white)
+            // Thumbnail with play button overlay
+            Button(action: openYouTube) {
+                ZStack {
+                    // Video thumbnail
+                    AsyncImage(url: video.thumbnailURL) { phase in
+                        switch phase {
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .aspectRatio(16/9, contentMode: .fill)
+                        case .failure:
+                            Rectangle()
+                                .fill(Color.gray.opacity(0.2))
+                                .aspectRatio(16/9, contentMode: .fit)
+                                .overlay {
+                                    Image(systemName: "video.slash")
+                                        .font(.title)
+                                        .foregroundStyle(TurnLabColors.textTertiary)
+                                }
+                        case .empty:
+                            Rectangle()
+                                .fill(Color.gray.opacity(0.2))
+                                .aspectRatio(16/9, contentMode: .fit)
+                                .overlay {
+                                    ProgressView()
+                                }
+                        @unknown default:
+                            Rectangle()
+                                .fill(Color.gray.opacity(0.2))
+                                .aspectRatio(16/9, contentMode: .fit)
                         }
                     }
-                }
 
-                // Duration badge
-                if let duration = video.formattedDuration, !isPlaying {
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            Text(duration)
+                    // Dark overlay for contrast
+                    Rectangle()
+                        .fill(.black.opacity(0.2))
+
+                    // Play button + "Watch on YouTube" indicator
+                    VStack(spacing: 8) {
+                        Image(systemName: "play.circle.fill")
+                            .font(.system(size: 56))
+                            .foregroundStyle(.white)
+                            .shadow(color: .black.opacity(0.5), radius: 4)
+
+                        HStack(spacing: 4) {
+                            Image(systemName: "arrow.up.forward.square")
                                 .font(.caption2)
+                            Text("Watch on YouTube")
+                                .font(.caption)
                                 .fontWeight(.medium)
-                                .foregroundStyle(.white)
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(.black.opacity(0.7))
-                                .clipShape(RoundedRectangle(cornerRadius: 4))
-                                .padding(8)
+                        }
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(.black.opacity(0.7))
+                        .clipShape(Capsule())
+                    }
+
+                    // Duration badge (bottom right)
+                    if let duration = video.formattedDuration {
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text(duration)
+                                    .font(.caption2)
+                                    .fontWeight(.medium)
+                                    .foregroundStyle(.white)
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(.black.opacity(0.7))
+                                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                                    .padding(8)
+                            }
                         }
                     }
                 }
             }
+            .buttonStyle(.plain)
             .clipShape(RoundedRectangle(cornerRadius: TurnLabSpacing.cornerRadiusSmall))
 
             // Video info
@@ -109,25 +95,70 @@ struct YouTubePlayerCard: View {
                     .font(TurnLabTypography.subheadline)
                     .fontWeight(.medium)
                     .lineLimit(2)
+                    .foregroundStyle(TurnLabColors.textPrimary)
 
-                Text(video.channelName)
-                    .font(TurnLabTypography.caption)
-                    .foregroundStyle(TurnLabColors.textSecondary)
+                HStack(spacing: 4) {
+                    Text(video.channelName)
+                        .font(TurnLabTypography.caption)
+                        .foregroundStyle(TurnLabColors.textSecondary)
+
+                    if let duration = video.formattedDuration {
+                        Text("•")
+                            .foregroundStyle(TurnLabColors.textTertiary)
+                        Text(duration)
+                            .font(TurnLabTypography.caption)
+                            .foregroundStyle(TurnLabColors.textSecondary)
+                    }
+                }
             }
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Video: \(video.title) by \(video.channelName)")
+        .accessibilityHint("Double tap to open in YouTube")
+    }
+
+    /// Opens the video in YouTube app if installed, otherwise Safari
+    private func openYouTube() {
+        // YouTube app URL scheme
+        let youtubeAppURL = URL(string: "youtube://watch?v=\(video.youtubeId)")
+
+        // Web fallback URL
+        let youtubeWebURL = URL(string: "https://www.youtube.com/watch?v=\(video.youtubeId)")!
+
+        // Try YouTube app first, fall back to Safari
+        if let appURL = youtubeAppURL, UIApplication.shared.canOpenURL(appURL) {
+            UIApplication.shared.open(appURL)
+        } else {
+            UIApplication.shared.open(youtubeWebURL)
         }
     }
 }
 
+// MARK: - Preview
+
 #Preview {
-    YouTubePlayerCard(
-        video: VideoReference(
-            id: "1",
-            title: "How to Ski Parallel Turns",
-            youtubeId: "dQw4w9WgXcQ",
-            channelName: "Stomp It Tutorials",
-            duration: 425,
-            isPrimary: true
+    VStack(spacing: 16) {
+        YouTubePlayerCard(
+            video: VideoReference(
+                id: "1",
+                title: "How to Ski Parallel Turns - Complete Tutorial",
+                youtubeId: "dQw4w9WgXcQ",
+                channelName: "Stomp It Tutorials",
+                duration: 425,
+                isPrimary: true
+            )
         )
-    )
+
+        YouTubePlayerCard(
+            video: VideoReference(
+                id: "2",
+                title: "Short Video",
+                youtubeId: "abc123",
+                channelName: "Ski School",
+                duration: 90,
+                isPrimary: false
+            )
+        )
+    }
     .padding()
 }

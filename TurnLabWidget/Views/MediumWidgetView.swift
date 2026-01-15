@@ -1,7 +1,7 @@
 import SwiftUI
 import WidgetKit
 
-/// Medium widget view showing focus skill with next milestone.
+/// Medium widget view showing focus skill with next milestone or coach tip.
 struct MediumWidgetView: View {
     let entry: FocusSkillEntry
 
@@ -59,8 +59,34 @@ struct MediumWidgetView: View {
                 }
             }
 
-            // Right side - next milestone
-            if let milestone = entry.nextMilestone {
+            // Right side - coach tip (priority) or next milestone
+            if let coachTip = entry.coachTip, !coachTip.isEmpty {
+                // Show coach tip
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Image(systemName: "bubble.left.and.bubble.right.fill")
+                            .font(.caption)
+                            .foregroundStyle(.blue)
+
+                        Text("Coach Says")
+                            .font(.caption2)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Text(coachTip)
+                        .font(.caption)
+                        .foregroundStyle(.primary)
+                        .lineLimit(4)
+
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .background(Color.blue.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            } else if let milestone = entry.nextMilestone {
+                // Show next milestone
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Image(systemName: "target")

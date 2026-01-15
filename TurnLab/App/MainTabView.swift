@@ -6,7 +6,27 @@ struct MainTabView: View {
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var diContainer: DIContainer
 
+    @State private var showCoachChat = false
+
     var body: some View {
+        ZStack(alignment: .bottomTrailing) {
+            mainContent
+
+            // Coach Floating Action Button
+            if APIKeys.isAIEnabled {
+                CoachFAB(isPresented: $showCoachChat, pulse: false)
+                    .padding(.trailing, 20)
+                    .padding(.bottom, 100) // Above tab bar
+            }
+        }
+        .sheet(isPresented: $showCoachChat) {
+            CoachChatView(viewModel: diContainer.makeCoachViewModel())
+        }
+    }
+
+    // MARK: - Main Content
+
+    private var mainContent: some View {
         TabView(selection: $router.selectedTab) {
             // Home Tab
             NavigationStack(path: $router.path) {

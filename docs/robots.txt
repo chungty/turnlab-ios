@@ -1,0 +1,11 @@
+# Turn Lab - robots.txt
+# https://turnlab.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://turnlab.app/sitemap.xml
+
+# Crawl-delay (optional, be friendly to search engines)
+Crawl-delay: 1

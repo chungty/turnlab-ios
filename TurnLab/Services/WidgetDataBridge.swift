@@ -10,6 +10,7 @@ final class WidgetDataBridge {
     // MARK: - Constants
     private let appGroupId = "group.com.turnlab.app"
     private let focusSkillKey = "focusSkill"
+    private let coachTipKey = "coachTip"
 
     // MARK: - UserDefaults
     private var sharedDefaults: UserDefaults? {
@@ -45,6 +46,24 @@ final class WidgetDataBridge {
     func clearFocusSkill() {
         sharedDefaults?.removeObject(forKey: focusSkillKey)
         reloadWidgets()
+    }
+
+    /// Updates the widget with the latest coach tip.
+    /// - Parameter tip: The coach tip text to display
+    func updateCoachTip(_ tip: String?) {
+        if let tip = tip {
+            // Truncate if too long
+            let truncatedTip = tip.count > 120 ? String(tip.prefix(117)) + "..." : tip
+            sharedDefaults?.set(truncatedTip, forKey: coachTipKey)
+        } else {
+            sharedDefaults?.removeObject(forKey: coachTipKey)
+        }
+        reloadWidgets()
+    }
+
+    /// Gets the current coach tip from shared storage.
+    func getCoachTip() -> String? {
+        sharedDefaults?.string(forKey: coachTipKey)
     }
 
     // MARK: - Private Helpers

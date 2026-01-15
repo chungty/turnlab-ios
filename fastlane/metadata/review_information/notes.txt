@@ -1,0 +1,16 @@
+Turn Lab is a ski instruction app that teaches skiing technique through structured skills and mental cues.
+
+The app includes an AI Coach feature (Johnny or Paige) powered by OpenAI that provides personalized skiing advice.
+
+FREE FEATURES:
+- All 5 Beginner skills with full content
+- Assessment quiz and progress tracking
+- Focus Skill feature
+- AI Coach (5 messages/day limit)
+
+PREMIUM ($4.99):
+- All 20 skills across 4 levels
+- Unlimited AI Coach messages
+- Home Screen Widget
+
+No demo account is required - the app does not require login.

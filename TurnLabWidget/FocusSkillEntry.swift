@@ -11,6 +11,7 @@ struct FocusSkillEntry: TimelineEntry {
     let nextMilestone: String?
     let domain: String
     let domainIcon: String
+    let coachTip: String?
 
     /// URL for deep linking when widget is tapped.
     var widgetURL: URL? {
@@ -29,7 +30,8 @@ struct FocusSkillEntry: TimelineEntry {
             progress: 0.65,
             nextMilestone: "Feel pressure on the whole foot",
             domain: "Balance",
-            domainIcon: "figure.stand"
+            domainIcon: "figure.stand",
+            coachTip: "Yo! Keep those knees flexed and stay stacked over your skis! 🎿"
         )
     }
 
@@ -49,7 +51,8 @@ struct FocusSkillEntry: TimelineEntry {
             progress: 0,
             nextMilestone: "Tap to choose a skill to focus on",
             domain: "Turn Lab",
-            domainIcon: "skis.fill"
+            domainIcon: "skis.fill",
+            coachTip: nil
         )
     }
 }

@@ -35,6 +35,8 @@ struct SkillCard: View {
                             .font(.caption2)
                             .fontWeight(.semibold)
                             .foregroundStyle(TurnLabColors.levelColor(skill.level))
+                            .lineLimit(1)
+                            .fixedSize(horizontal: true, vertical: false)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(
