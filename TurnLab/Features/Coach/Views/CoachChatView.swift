@@ -495,7 +495,8 @@ class SpeechRecognizer: ObservableObject {
                 assessmentRepository: MockAssessmentRepository(),
                 appState: AppState()
             ),
-            skillRepository: MockSkillRepository()
+            skillRepository: MockSkillRepository(),
+            assessmentRepository: MockAssessmentRepository()
         )
     )
 }

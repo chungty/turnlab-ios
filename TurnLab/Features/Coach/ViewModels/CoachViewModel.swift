@@ -35,6 +35,7 @@ final class CoachViewModel: ObservableObject {
     // MARK: - Dependencies
     private let coachService: CoachService
     private let skillRepository: SkillRepositoryProtocol
+    private let assessmentRepository: AssessmentRepositoryProtocol
     private let storage = CoachConversationStorage()
     private var currentSkillContext: Skill?
     private var cancellables = Set<AnyCancellable>()
@@ -61,10 +62,12 @@ final class CoachViewModel: ObservableObject {
     // MARK: - Initialization
     init(
         coachService: CoachService,
-        skillRepository: SkillRepositoryProtocol
+        skillRepository: SkillRepositoryProtocol,
+        assessmentRepository: AssessmentRepositoryProtocol
     ) {
         self.coachService = coachService
         self.skillRepository = skillRepository
+        self.assessmentRepository = assessmentRepository
 
         // Observe coach service state
         coachService.$isProcessing
@@ -112,10 +115,10 @@ final class CoachViewModel: ObservableObject {
             storage.markAsUsed()
         }
 
-        // Get AI response
+        // Get AI response (pass history without the message we just added - it's sent via `text` param)
         let response = await coachService.sendMessage(
             text,
-            conversationHistory: messages.dropLast().map { $0 }, // Exclude the message we just added
+            conversationHistory: Array(messages.dropLast()),
             currentSkillContext: currentSkillContext
         )
 
@@ -183,9 +186,20 @@ final class CoachViewModel: ObservableObject {
             let parts = action.payload.split(separator: ":")
             if parts.count >= 2 {
                 let skillId = String(parts[0])
-                let rating = Int(parts[1]) ?? 1
-                // TODO: Call assessment repository to save
-                messages.append(.assistantMessage("Got it! I've recorded your assessment. Keep shredding! 🏔️"))
+                let ratingInt = Int(parts[1]) ?? 1
+                let rating = Rating(rawValue: ratingInt) ?? .developing
+
+                // Save assessment to database (default to groomedBlue terrain context)
+                Task {
+                    _ = await assessmentRepository.saveAssessment(
+                        skillId: skillId,
+                        context: .groomedBlue,
+                        rating: rating,
+                        notes: "Recorded via AI coach"
+                    )
+                }
+
+                messages.append(.assistantMessage("Got it! I've recorded your \(rating.displayName.lowercased()) assessment. Keep shredding! 🏔️"))
                 saveConversation()
             }
 

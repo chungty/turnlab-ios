@@ -1,0 +1,29 @@
+import Foundation
+
+/// API Keys configuration.
+///
+/// SETUP INSTRUCTIONS:
+/// 1. Copy this file to "APIKeys.swift" (remove .template extension)
+/// 2. Replace "YOUR_OPENAI_API_KEY_HERE" with your actual OpenAI API key
+/// 3. The APIKeys.swift file is gitignored - never commit your actual key
+///
+/// For CI/CD, set the OPENAI_API_KEY environment variable instead.
+///
+enum APIKeys {
+    /// OpenAI API key for AI Coach feature.
+    static var openAI: String {
+        // Try environment variable first (for CI/CD)
+        if let envKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"], !envKey.isEmpty {
+            return envKey
+        }
+
+        // Development: Replace this placeholder with your actual key
+        // NEVER commit your actual API key to source control
+        return "YOUR_OPENAI_API_KEY_HERE"
+    }
+
+    /// Check if AI features are available (key is configured).
+    static var isAIEnabled: Bool {
+        !openAI.isEmpty && openAI != "YOUR_OPENAI_API_KEY_HERE"
+    }
+}

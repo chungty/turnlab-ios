@@ -160,7 +160,8 @@ final class DIContainer: ObservableObject {
     func makeCoachViewModel() -> CoachViewModel {
         CoachViewModel(
             coachService: coachService,
-            skillRepository: skillRepository
+            skillRepository: skillRepository,
+            assessmentRepository: assessmentRepository
         )
     }
 }
