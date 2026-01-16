@@ -138,16 +138,17 @@ platform :ios do
 
   desc "Submit app for App Store review"
   lane :submit_for_review do
-    app_store_connect_api_key(
+    api_key = app_store_connect_api_key(
       key_id: "22C7AGK59G",
       issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
       key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
     )
 
     deliver(
+      api_key: api_key,
       skip_binary_upload: true,
-      skip_metadata: false,
-      skip_screenshots: false,
+      skip_metadata: true,
+      skip_screenshots: true,
       force: true,
       precheck_include_in_app_purchases: false,
       submit_for_review: true,
@@ -174,6 +175,44 @@ platform :ios do
   lane :beta do
     archive
     upload_testflight
+  end
+
+  desc "Create app store submission"
+  lane :create_submission do
+    api_key = app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    require 'spaceship'
+
+    app = Spaceship::ConnectAPI::App.find("com.turnlab.app")
+    UI.message("App: #{app.name}")
+
+    version = app.get_edit_app_store_version
+    UI.message("Version: #{version.version_string}")
+    UI.message("State: #{version.app_store_state}")
+
+    # List available methods
+    UI.message("Available methods on version: #{version.methods.grep(/submit/).join(', ')}")
+
+    begin
+      # Try create_app_store_version_submission
+      version.create_app_store_version_submission
+      UI.success("✅ Submitted for review!")
+    rescue NoMethodError => e
+      UI.message("create_app_store_version_submission not available, trying alternative...")
+      begin
+        # Try submit_for_review method
+        version.submit_for_review
+        UI.success("✅ Submitted for review!")
+      rescue => e2
+        UI.error("Error: #{e2.message}")
+      end
+    rescue => e
+      UI.error("Error: #{e.message}")
+    end
   end
 
   desc "Check and cancel review submission"

@@ -95,6 +95,14 @@ Upload to TestFlight
 
 Build and upload to TestFlight
 
+### ios create_submission
+
+```sh
+[bundle exec] fastlane ios create_submission
+```
+
+Create app store submission
+
 ### ios cancel_review
 
 ```sh
