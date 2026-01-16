@@ -95,6 +95,14 @@ Upload to TestFlight
 
 Build and upload to TestFlight
 
+### ios cancel_review
+
+```sh
+[bundle exec] fastlane ios cancel_review
+```
+
+Check and cancel review submission
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

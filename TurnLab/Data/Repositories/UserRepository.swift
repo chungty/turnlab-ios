@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 
 /// Implementation of UserRepositoryProtocol using Core Data.
-final class UserRepository: UserRepositoryProtocol {
+final class UserRepository: UserRepositoryProtocol, @unchecked Sendable {
     private let coreDataStack: CoreDataStack
 
     init(coreDataStack: CoreDataStack) {

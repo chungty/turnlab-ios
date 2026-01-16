@@ -71,12 +71,12 @@ final class HomeViewModel: ObservableObject {
     func loadData() async {
         isLoading = true
 
-        async let focusSkillTask = loadFocusSkill()
-        async let progressTask = loadLevelProgress()
-        async let suggestedTask = loadSuggestedSkills()
-        async let recentTask = loadRecentAssessments()
-
-        _ = await (focusSkillTask, progressTask, suggestedTask, recentTask)
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask { await self.loadFocusSkill() }
+            group.addTask { await self.loadLevelProgress() }
+            group.addTask { await self.loadSuggestedSkills() }
+            group.addTask { await self.loadRecentAssessments() }
+        }
 
         isLoading = false
     }

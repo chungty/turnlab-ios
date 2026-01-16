@@ -1,0 +1,28 @@
+  desc "Force submit for review"
+  lane :force_submit do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    require 'spaceship'
+
+    app = Spaceship::ConnectAPI::App.find("com.turnlab.app")
+    version = app.get_edit_app_store_version
+    
+    # First try to cancel any existing submission
+    begin
+      Spaceship::ConnectAPI.delete("appStoreVersionSubmissionRequests/#{version.id}")
+    rescue => e
+      UI.message("No submission request to delete: #{e.message}")
+    end
+    
+    # Create a new submission
+    begin
+      Spaceship::ConnectAPI::AppStoreVersionSubmission.create(app_store_version: version)
+      UI.success("Submitted for review!")
+    rescue => e
+      UI.error("Failed to submit: #{e.message}")
+    end
+  end

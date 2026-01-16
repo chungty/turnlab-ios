@@ -74,7 +74,8 @@ final class ProfileViewModel: ObservableObject {
     }
 
     private func loadDomainProgress() async {
-        let ratingSummary = await assessmentRepository.getSkillRatingSummary()
+        // TODO: Use rating summary to calculate domain progress
+        _ = await assessmentRepository.getSkillRatingSummary()
 
         for domain in SkillDomain.allCases {
             // This would need access to skills by domain

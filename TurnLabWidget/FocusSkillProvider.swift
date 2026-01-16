@@ -39,7 +39,7 @@ struct FocusSkillProvider: TimelineProvider {
         guard let focusSkillData = userDefaults?.data(forKey: "focusSkill"),
               let focusSkill = try? JSONDecoder().decode(WidgetFocusSkill.self, from: focusSkillData) else {
             // Return empty but with coach tip if available
-            var empty = FocusSkillEntry.empty
+            let empty = FocusSkillEntry.empty
             if coachTip != nil {
                 return FocusSkillEntry(
                     date: Date(),

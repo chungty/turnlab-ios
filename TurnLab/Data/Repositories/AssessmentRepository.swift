@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 
 /// Implementation of AssessmentRepositoryProtocol using Core Data.
-final class AssessmentRepository: AssessmentRepositoryProtocol {
+final class AssessmentRepository: AssessmentRepositoryProtocol, @unchecked Sendable {
     private let coreDataStack: CoreDataStack
 
     init(coreDataStack: CoreDataStack) {
@@ -93,11 +93,15 @@ final class AssessmentRepository: AssessmentRepositoryProtocol {
     }
 
     func deleteAssessment(_ assessment: AssessmentEntity) async {
+        // Capture the objectID which is Sendable, then refetch in the context
+        let objectID = assessment.objectID
         await withCheckedContinuation { continuation in
             let context = coreDataStack.viewContext
             context.perform {
-                context.delete(assessment)
-                self.coreDataStack.save()
+                if let toDelete = try? context.existingObject(with: objectID) {
+                    context.delete(toDelete)
+                    self.coreDataStack.save()
+                }
                 continuation.resume()
             }
         }

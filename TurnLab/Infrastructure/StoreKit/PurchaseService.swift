@@ -102,7 +102,7 @@ final class PurchaseService: ObservableObject {
             for await result in Transaction.updates {
                 do {
                     let transaction = try await self.checkVerified(result)
-                    await MainActor.run {
+                    _ = await MainActor.run {
                         self.purchasedProductIDs.insert(transaction.productID)
                     }
                     await transaction.finish()

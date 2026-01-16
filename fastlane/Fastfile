@@ -175,4 +175,51 @@ platform :ios do
     archive
     upload_testflight
   end
+
+  desc "Check and cancel review submission"
+  lane :cancel_review do
+    app_store_connect_api_key(
+      key_id: "22C7AGK59G",
+      issuer_id: "a81eb7c9-e210-4c68-bc19-e43b8ddc986c",
+      key_filepath: File.expand_path("~/Downloads/AuthKey_22C7AGK59G.p8")
+    )
+
+    require 'spaceship'
+
+    app = Spaceship::ConnectAPI::App.find("com.turnlab.app")
+    UI.message("App: #{app.name}")
+
+    version = app.get_edit_app_store_version
+    if version
+      UI.message("Version: #{version.version_string}")
+      UI.message("State: #{version.app_store_state}")
+
+      # Try to get any pending submission
+      begin
+        submission = version.fetch_app_store_version_submission
+        if submission
+          UI.message("Found submission with state: #{submission.attributes}")
+          UI.message("Cancelling submission...")
+          submission.delete!
+          UI.success("Submission cancelled!")
+        else
+          UI.message("No pending submission found")
+        end
+      rescue => e
+        UI.message("Could not fetch submission: #{e.message}")
+      end
+
+      if version.app_store_state == "WAITING_FOR_REVIEW"
+        UI.message("Cancelling via version...")
+        version.cancel_submission rescue nil
+        UI.success("Review cancelled!")
+      elsif version.app_store_state == "IN_REVIEW"
+        UI.error("App is IN_REVIEW - cannot cancel once review has started")
+      else
+        UI.message("Current state: #{version.app_store_state}")
+      end
+    else
+      UI.error("No edit version found")
+    end
+  end
 end
