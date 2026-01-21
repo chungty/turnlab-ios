@@ -101,6 +101,15 @@ struct PremiumPurchaseView: View {
                     Button("Close") { dismiss() }
                 }
             }
+            .alert("Purchase Error", isPresented: .constant(viewModel.purchaseError != nil)) {
+                Button("OK", role: .cancel) {
+                    viewModel.purchaseError = nil
+                }
+            } message: {
+                if let error = viewModel.purchaseError {
+                    Text(error)
+                }
+            }
         }
     }
 }

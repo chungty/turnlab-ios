@@ -59,6 +59,11 @@ final class PurchaseService: ObservableObject {
     // MARK: - Purchase
 
     func purchase() async throws {
+        // Ensure products are loaded before attempting purchase
+        if products.isEmpty {
+            await loadProducts()
+        }
+
         guard let product = premiumProduct else {
             throw PurchaseError.productNotFound
         }
