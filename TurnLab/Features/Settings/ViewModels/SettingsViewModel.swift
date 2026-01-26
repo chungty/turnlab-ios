@@ -9,7 +9,7 @@ final class SettingsViewModel: ObservableObject {
     @Published var isLoadingPurchase = false
     @Published var purchaseError: String?
     @Published var showRestoreSuccess = false
-    @Published var premiumPrice: String = "$4.99"
+    @Published var premiumPrice: String = "$9.99"
 
     // MARK: - Dependencies
     private let premiumManager: PremiumManager
@@ -46,10 +46,16 @@ final class SettingsViewModel: ObservableObject {
             notificationsEnabled = prefs.notificationsEnabled
         }
 
-        // Fetch dynamic price from StoreKit
-        await purchaseService.loadProducts()
+        // Wait for PurchaseService initialization and fetch dynamic price
+        await purchaseService.waitForInitialization()
         if let product = purchaseService.premiumProduct {
             premiumPrice = product.displayPrice
+        } else {
+            // Try loading again if products aren't available
+            await purchaseService.loadProductsWithRetry()
+            if let product = purchaseService.premiumProduct {
+                premiumPrice = product.displayPrice
+            }
         }
     }
 

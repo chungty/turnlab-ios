@@ -153,7 +153,8 @@ final class DIContainer: ObservableObject {
         SettingsViewModel(
             premiumManager: premiumManager,
             userRepository: userRepository,
-            appState: appState
+            appState: appState,
+            purchaseService: purchaseService  // Use shared instance
         )
     }
 

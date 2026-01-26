@@ -261,7 +261,7 @@ Each skill should have:
 | Tier | Access | Price |
 |------|--------|-------|
 | **Free** | Beginner level (all skills) + bonus skills at assessed level* | $0 |
-| **Premium** | All levels unlocked (Novice + Intermediate + Expert) | **$4.99 one-time purchase** |
+| **Premium** | All levels unlocked (Novice + Intermediate + Expert) | **$9.99 one-time purchase** |
 
 **Fair Access Model:** Users who complete the skill assessment quiz receive bonus free skills at their assessed level, ensuring everyone gets useful content regardless of where they start:
 
@@ -493,7 +493,7 @@ Features explicitly deferred from MVP:
 | Question | Decision |
 |----------|----------|
 | **App naming** | Turn Lab |
-| **Premium pricing** | $4.99 one-time freemium unlock |
+| **Premium pricing** | $9.99 one-time freemium unlock |
 | **Content sourcing** | Diverse creator mix (Stomp It, Ski School by Elate, others) |
 | **PSIA accuracy** | Informed by PSIA methodology, no official alignment claimed |
 | **Beta testing** | Minimal testing - launch and iterate based on App Store feedback |

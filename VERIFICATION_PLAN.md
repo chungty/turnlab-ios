@@ -65,7 +65,7 @@
 
 - [x] **7.1** Settings screen is accessible
 - [x] **7.2** Premium purchase option is visible
-- [x] **7.3** Premium unlock shows correct price ($4.99)
+- [x] **7.3** Premium unlock shows correct price ($9.99)
 - [x] **7.4** Purchase flow initiates correctly (StoreKit)
 
 ### Phase 8: Widget Functionality

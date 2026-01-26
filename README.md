@@ -9,7 +9,7 @@ A ski instruction iOS app that guides skiers through structured progression from
 - **Curated Content**: YouTube videos, tips, drills, and checklists for each skill
 - **Self-Assessment**: Track your progress with context-aware ratings
 - **Onboarding Quiz**: 12-question assessment to determine starting level
-- **Premium Unlock**: $4.99 one-time purchase for Novice+ content
+- **Premium Unlock**: $9.99 one-time purchase for Novice+ content
 - **Home Screen Widget**: Quick access to your focus skill
 
 ## Requirements
@@ -74,7 +74,7 @@ A ski instruction iOS app that guides skiers through structured progression from
    - Reference Name: Premium
    - Product ID: `com.turnlab.premium`
    - Type: Non-Consumable
-   - Price: $4.99
+   - Price: $9.99
 
 ## Project Structure
 

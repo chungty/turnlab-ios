@@ -14,7 +14,7 @@ platform :ios do
     UI.message("IAP creation needs to be done via App Store Connect web interface")
     UI.message("Product ID: com.turnlab.premium")
     UI.message("Type: Non-Consumable")
-    UI.message("Price: $4.99 (Tier 5)")
+    UI.message("Price: $9.99 (Tier 10)")
   end
 
   desc "Build and archive the app"
